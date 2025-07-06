@@ -1,17 +1,12 @@
-import React from "react";
-import Navbar from "./components/Navbar";
-import MainPage from "./components/MainPage";
-import Footer from "./components/Footer";
-import "./index.css";
-import "./components/BackgroundAnimation.css";
+import MatrixBackground from "./components/Background/MatrixBackground.jsx";
 
-const App = () => {
+export default function App() {
   return (
-    <div>
-      <MainPage />
-      <Footer />
-    </div>
+    <>
+      <MatrixBackground />
+      <div style={{ position: "relative", zIndex: 1, color: "#fff" }}>
+        <h1>Twoja aplikacja</h1>
+      </div>
+    </>
   );
-};
-
-export default App;
+}
