@@ -17,6 +17,7 @@
 .navbar-logo-image {
   width: 140px;
   height: auto;
+  padding: 0.2rem;
 }
 
 .navbar-logo-image:hover {
@@ -58,14 +59,15 @@
 }
 
 .navbar-link:hover {
-  color: gray;
+  // color: gray;
+  color: rgba(0, 255, 0, 0.39)
 }
 
 .navbar-underline {
   width: 100%;
   height: 1px;
   background-color: gray;
-  margin-top: 0rem;
+  margin-top: 0.7rem;
 }
 
 .hamburger {

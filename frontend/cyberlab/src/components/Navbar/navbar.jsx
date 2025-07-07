@@ -1,4 +1,4 @@
-import "./navbar.scss";
+import "./Navbar.scss";
 import CyberLabLogo from "../../assets/CyberLabLogo.png";
 import { useState } from "react";
 
@@ -37,7 +37,7 @@ export default function Navbar() {
               <a href="/" className="navbar-link">Home</a>
             </li>
             <li className="navbar-list-item">
-              <a href="/" className="navbar-link">About app</a>
+              <a href="/" className="navbar-link">About</a>
             </li>
             <li className="navbar-list-item">
               <a href="/" className="navbar-link">Sign in</a>
