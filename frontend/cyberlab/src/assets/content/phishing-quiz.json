@@ -1,0 +1,115 @@
+{
+  "title": "Quiz o phishingu",
+  "questions": [
+    {
+      "id": 1,
+      "question": "Co to jest phishing?",
+      "options": [
+        "Atak polegający na podszywaniu się pod zaufane instytucje w celu wyłudzenia danych",
+        "Rodzaj wirusa komputerowego, który szyfruje dane",
+        "Legalna metoda resetowania haseł"
+      ],
+      "answer": 0,
+      "explanation": "Phishing to oszustwo polegające na podszywaniu się pod banki, sklepy czy urzędy, aby wyłudzić hasła, dane logowania lub pieniądze."
+    },
+    {
+      "id": 2,
+      "question": "Który z poniższych jest przykładem smishingu?",
+      "options": [
+        "Fałszywy e-mail z banku",
+        "Wiadomość SMS o paczce z podejrzanym linkiem",
+        "Rozmowa telefoniczna od oszusta podszywającego się pod pracownika banku"
+      ],
+      "answer": 1,
+      "explanation": "Smishing to phishing przez SMS, np. o rzekomej paczce z linkiem do fałszywej strony."
+    },
+    {
+      "id": 3,
+      "question": "Jaki sygnał ostrzegawczy najczęściej występuje w phishingu?",
+      "options": [
+        "Błędy językowe i literówki",
+        "Doskonała stylistyka i poprawność językowa",
+        "Wiadomość wysyłana od bliskiej osoby"
+      ],
+      "answer": 0,
+      "explanation": "Phishingowe wiadomości często zawierają literówki, błędy językowe i nietypowe zwroty."
+    },
+    {
+      "id": 4,
+      "question": "Co powinieneś zrobić w pierwszej kolejności, jeśli podejrzewasz, że kliknąłeś w phishingowy link i podałeś hasło?",
+      "options": [
+        "Zignorować sprawę — prawdopodobnie nic się nie stanie",
+        "Natychmiast zmienić hasło i włączyć 2FA, powiadomić bank/IT",
+        "Odpisać na ten sam e-mail i zapytać, czy to prawda"
+      ],
+      "answer": 1,
+      "explanation": "Najważniejsze to natychmiast zmienić hasło (również wszędzie tam, gdzie było użyte), włączyć 2FA i zgłosić incydent do banku lub działu IT."
+    },
+    {
+      "id": 5,
+      "question": "Czym różni się spear phishing od klasycznego phishingu?",
+      "options": [
+        "Spear phishing jest masowy i niespersonalizowany",
+        "Spear phishing wykorzystuje spersonalizowane informacje o ofierze",
+        "Spear phishing dotyczy tylko portali społecznościowych"
+      ],
+      "answer": 1,
+      "explanation": "Spear phishing to atak mocno spersonalizowany — oszust zbiera informacje o ofierze, żeby wiadomość wyglądała bardziej wiarygodnie."
+    },
+    {
+      "id": 6,
+      "question": "Który z poniższych URL-ów wygląda najbardziej podejrzanie?",
+      "options": [
+        "https://bank.com/login",
+        "https://bank-example.verify-user.xyz/login",
+        "https://secure.bank.com/login"
+      ],
+      "answer": 1,
+      "explanation": "Adres zawierający dodatkowe, nietypowe domeny i słowa typu \"verify-user\" często wskazuje na fałszywą stronę. Zwracaj uwagę na rzeczywistą domenę (np. bank.com)."
+    },
+    {
+      "id": 7,
+      "question": "Która z poniższych praktyk najlepiej zmniejsza ryzyko skutecznego phishingu?",
+      "options": [
+        "Włączanie uwierzytelniania dwuskładnikowego (2FA)",
+        "Korzystanie z tego samego hasła wszędzie",
+        "Klikanie w linki tylko na telefonie"
+      ],
+      "answer": 0,
+      "explanation": "Włączenie 2FA dodaje dodatkową warstwę ochrony — nawet jeśli ktoś pozna hasło, nie uzyska łatwo dostępu do konta."
+    },
+    {
+      "id": 8,
+      "question": "Który typ załącznika jest najbardziej ryzykowny w e-mailu od nieznanego nadawcy?",
+      "options": [
+        "Plik .exe (program wykonywalny)",
+        "Plik .txt (zwykły tekst)",
+        "Obrazek .jpg bez linków"
+      ],
+      "answer": 0,
+      "explanation": "Pliki wykonywalne (.exe, .scr itp.) mogą instalować złośliwe oprogramowanie. Załączniki od nieznanych nadawców należy traktować jako wysokie ryzyko."
+    },
+    {
+      "id": 9,
+      "question": "Co to jest social engineering?",
+      "options": [
+        "Technika technicznego włamania do serwera",
+        "Manipulacja psychologiczna osób w celu uzyskania informacji lub działań",
+        "Automatyczne skanowanie sieci w poszukiwaniu luk"
+      ],
+      "answer": 1,
+      "explanation": "Social engineering to wykorzystywanie manipulacji, zaufania i emocji (np. strachu, pośpiechu), aby skłonić ludzi do ujawnienia informacji lub wykonania działań."
+    },
+    {
+      "id": 10,
+      "question": "Jak najlepiej zweryfikować, czy otrzymany e-mail od \"banku\" jest prawdziwy?",
+      "options": [
+        "Odpisać bezpośrednio na e-mail i zapytać",
+        "Najechać kursorem na link i kliknąć, jeśli wygląda dobrze",
+        "Zadzwonić na oficjalny numer banku lub wejść na stronę przez wpisanie adresu w przeglądarce"
+      ],
+      "answer": 2,
+      "explanation": "Najbezpieczniej skontaktować się przez oficjalne kanały — zadzwonić na numer z oficjalnej strony banku lub wpisać adres ręcznie w przeglądarce. Nie należy odpowiadać na podejrzane e-maile ani klikać linków."
+    }
+  ]
+}

@@ -33,12 +33,12 @@ export default function Navbar() {
 
         <div className={`navbar-items ${isHamburgerMenuOpen ? "open" : ""}`}>
           <ul className="navbar-item">
-            <li className="navbar-list-item">
+            {/* <li className="navbar-list-item">
               <a href="/" className="navbar-link">Home</a>
             </li>
             <li className="navbar-list-item">
               <a href="/" className="navbar-link">About</a>
-            </li>
+            </li> */}
             <li className="navbar-list-item">
               <a href="/" className="navbar-link">Sign in</a>
             </li>

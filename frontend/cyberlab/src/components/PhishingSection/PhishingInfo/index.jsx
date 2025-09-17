@@ -2,7 +2,11 @@ import "./styles.scss";
 import content from "../../../assets/content/phishing.json";
 import ImageSlider from "../../../lib/ImageSlider";
 
-export default function PhishingTheoryCard({ onStart }) {
+export default function PhishingTheoryCard() {
+  const handleGoToQuiz = () => {
+    window.location.href = "/phishing/quiz";
+  };
+
   return (
     <div className="phishing-card">
       <div className="phishing-header">
@@ -10,9 +14,6 @@ export default function PhishingTheoryCard({ onStart }) {
           <h2 className="phishing-title">{content.intro.title}</h2>
           <p className="phishing-intro">{content.intro.text}</p>
         </div>
-        <button onClick={onStart} className="phishing-btn primary desktop-only">
-          Rozpocznij zadania
-        </button>
       </div>
 
       <div className="phishing-body">
@@ -121,26 +122,10 @@ export default function PhishingTheoryCard({ onStart }) {
             </p>
           </div>
         </div>
-
-        {/* <aside className="phishing-aside">
-          <h4>Szybka lista kontrolna</h4>
-          <ul>
-            <li>Sprawdź dokładnie adres nadawcy i domenę</li>
-            <li>Najeżdżaj na link przed kliknięciem, aby sprawdzić adres</li>
-            <li>Nie otwieraj podejrzanych załączników i plików</li>
-            <li>Stosuj silne hasła, włącz 2FA i zawsze zgłaszaj incydenty</li>
-          </ul>
-          <button onClick={onStart} className="phishing-btn secondary">
-            Przejdź do zadań
-          </button>
-        </aside> */}
-      </div>
-      <div className="phishing-section"></div>
-      <div className="phishing-examples">
-        <h3>{content.przyklady.title}</h3>
-
-        <ImageSlider />
-        {/* <div className="phishing-example">
+        <div className="phishing-examples">
+          <h3>{content.przyklady.title}</h3>
+          <ImageSlider />
+          {/* <div className="phishing-example">
           <h4>{content.przyklady.email.title}</h4>
           <pre className="phishing-message">
             {content.przyklady.email.message}
@@ -163,7 +148,38 @@ export default function PhishingTheoryCard({ onStart }) {
             ))}
           </ul>
         </div> */}
+        </div>
+        <div className="phishing-section">
+          <div className="phishing-section-link">
+            <h3>Dowiedz sie wiecej</h3>
+            <p>
+              <a
+                className="phishing-link"
+                href="https://www.cisa.gov/sites/default/files/2023-02/phishing-infographic-508c.pdf?utm_source=chatgpt.com"
+              >
+                CISA (Cybersecurity & Infrastructure Security Agency)
+                Amerykańska agencja rządowa oferująca infografikę na temat
+                phishingu, przedstawiającą formy ataków oraz zalecenia dotyczące
+                ochrony.
+              </a>
+            </p>
+            <p>
+              <a
+                className="phishing-link"
+                href="https://guardiandigital.com/resources/resource-center/infographics?utm_source=chatgpt.com"
+              >
+                Guardian Digital - Zasoby i infografiki dotyczące bezpieczeństwa
+              </a>
+            </p>
+          </div>
+        </div>
       </div>
+      <button
+        onClick={handleGoToQuiz}
+        className="phishing-btn primary desktop-only"
+      >
+        Rozpocznij quiz
+      </button>
     </div>
   );
 }

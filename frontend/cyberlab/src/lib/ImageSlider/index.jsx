@@ -31,6 +31,7 @@ export default function Slider() {
       autoplay={{ delay: 5000 , pauseOnMouseEnter: true}}
       modules={[Navigation, Autoplay]}
       navigation
+      style={{marginBottom: "1rem"}}
     >
       {images.map((image, index) => (
         <SwiperSlide key={index}>
