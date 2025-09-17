@@ -31,7 +31,7 @@ export default function PhishingQuiz() {
   return (
     <div className="quiz-card">
       <h2 className="quiz-title">{quizData.title}</h2>
-      <p className="quiz-question-count">{`Pytanie ${current + 1} z ${totalQuestions}`}</p>
+      <p className="quiz-question-count">{`Question ${current + 1} of ${totalQuestions}`}</p>
       {!finished ? (
         <div className="quiz-question">
           <h3>{`${current + 1}. ${question.question}`}</h3>
@@ -59,18 +59,18 @@ export default function PhishingQuiz() {
                 <p>{question.explanation}</p>
               )}
               <button className="quiz-btn" onClick={nextQuestion}>
-                Dalej
+                Next
               </button>
             </div>
           )}
         </div>
       ) : (
         <div className="quiz-result">
-          <h3>Koniec quizu!</h3>
+          <h3>End of quiz!</h3>
           <p>
-            Twój wynik: {score} / {quizData.questions.length}
+            Your score: {score} / {quizData.questions.length}
           </p>
-          <button className="quiz-btn" onClick={() => window.location.href = "/phishing/tasks"}>Przejdź do zadań</button>
+          <button className="quiz-btn" onClick={() => window.location.href = "/phishing/tasks"}>Go to tasks</button>
         </div>
       )}
     </div>

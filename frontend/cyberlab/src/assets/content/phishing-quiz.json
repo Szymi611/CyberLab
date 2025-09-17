@@ -1,115 +1,115 @@
 {
-  "title": "Quiz o phishingu",
+  "title": "Phishing Quiz",
   "questions": [
     {
       "id": 1,
-      "question": "Co to jest phishing?",
+      "question": "What is phishing?",
       "options": [
-        "Atak polegający na podszywaniu się pod zaufane instytucje w celu wyłudzenia danych",
-        "Rodzaj wirusa komputerowego, który szyfruje dane",
-        "Legalna metoda resetowania haseł"
+        "An attack involving impersonating trusted institutions to extract data",
+        "A type of computer virus that encrypts data",
+        "A legal method of password reset"
       ],
       "answer": 0,
-      "explanation": "Phishing to oszustwo polegające na podszywaniu się pod banki, sklepy czy urzędy, aby wyłudzić hasła, dane logowania lub pieniądze."
+      "explanation": "Phishing is fraud involving impersonating banks, stores, or offices to extract passwords, login data, or money."
     },
     {
       "id": 2,
-      "question": "Który z poniższych jest przykładem smishingu?",
+      "question": "Which of the following is an example of smishing?",
       "options": [
-        "Fałszywy e-mail z banku",
-        "Wiadomość SMS o paczce z podejrzanym linkiem",
-        "Rozmowa telefoniczna od oszusta podszywającego się pod pracownika banku"
+        "A fake email from a bank",
+        "An SMS message about a package with a suspicious link",
+        "A phone call from a fraudster impersonating a bank employee"
       ],
       "answer": 1,
-      "explanation": "Smishing to phishing przez SMS, np. o rzekomej paczce z linkiem do fałszywej strony."
+      "explanation": "Smishing is phishing via SMS, e.g., about an alleged package with a link to a fake website."
     },
     {
       "id": 3,
-      "question": "Jaki sygnał ostrzegawczy najczęściej występuje w phishingu?",
+      "question": "Which warning signal most commonly occurs in phishing?",
       "options": [
-        "Błędy językowe i literówki",
-        "Doskonała stylistyka i poprawność językowa",
-        "Wiadomość wysyłana od bliskiej osoby"
+        "Language errors and typos",
+        "Perfect style and linguistic correctness",
+        "Message sent from a close person"
       ],
       "answer": 0,
-      "explanation": "Phishingowe wiadomości często zawierają literówki, błędy językowe i nietypowe zwroty."
+      "explanation": "Phishing messages often contain typos, language errors, and unusual phrases."
     },
     {
       "id": 4,
-      "question": "Co powinieneś zrobić w pierwszej kolejności, jeśli podejrzewasz, że kliknąłeś w phishingowy link i podałeś hasło?",
+      "question": "What should you do first if you suspect you clicked on a phishing link and provided your password?",
       "options": [
-        "Zignorować sprawę — prawdopodobnie nic się nie stanie",
-        "Natychmiast zmienić hasło i włączyć 2FA, powiadomić bank/IT",
-        "Odpisać na ten sam e-mail i zapytać, czy to prawda"
+        "Ignore the matter — probably nothing will happen",
+        "Immediately change the password and enable 2FA, notify bank/IT",
+        "Reply to the same email and ask if it's true"
       ],
       "answer": 1,
-      "explanation": "Najważniejsze to natychmiast zmienić hasło (również wszędzie tam, gdzie było użyte), włączyć 2FA i zgłosić incydent do banku lub działu IT."
+      "explanation": "The most important thing is to immediately change the password (also everywhere it was used), enable 2FA, and report the incident to the bank or IT department."
     },
     {
       "id": 5,
-      "question": "Czym różni się spear phishing od klasycznego phishingu?",
+      "question": "How does spear phishing differ from classic phishing?",
       "options": [
-        "Spear phishing jest masowy i niespersonalizowany",
-        "Spear phishing wykorzystuje spersonalizowane informacje o ofierze",
-        "Spear phishing dotyczy tylko portali społecznościowych"
+        "Spear phishing is mass and non-personalized",
+        "Spear phishing uses personalized information about the victim",
+        "Spear phishing only concerns social media platforms"
       ],
       "answer": 1,
-      "explanation": "Spear phishing to atak mocno spersonalizowany — oszust zbiera informacje o ofierze, żeby wiadomość wyglądała bardziej wiarygodnie."
+      "explanation": "Spear phishing is a highly personalized attack — the fraudster gathers information about the victim to make the message look more credible."
     },
     {
       "id": 6,
-      "question": "Który z poniższych URL-ów wygląda najbardziej podejrzanie?",
+      "question": "Which of the following URLs looks most suspicious?",
       "options": [
         "https://bank.com/login",
         "https://bank-example.verify-user.xyz/login",
         "https://secure.bank.com/login"
       ],
       "answer": 1,
-      "explanation": "Adres zawierający dodatkowe, nietypowe domeny i słowa typu \"verify-user\" często wskazuje na fałszywą stronę. Zwracaj uwagę na rzeczywistą domenę (np. bank.com)."
+      "explanation": "An address containing additional, unusual domains and words like \"verify-user\" often indicates a fake website. Pay attention to the actual domain (e.g., bank.com)."
     },
     {
       "id": 7,
-      "question": "Która z poniższych praktyk najlepiej zmniejsza ryzyko skutecznego phishingu?",
+      "question": "Which of the following practices best reduces the risk of successful phishing?",
       "options": [
-        "Włączanie uwierzytelniania dwuskładnikowego (2FA)",
-        "Korzystanie z tego samego hasła wszędzie",
-        "Klikanie w linki tylko na telefonie"
+        "Enabling two-factor authentication (2FA)",
+        "Using the same password everywhere",
+        "Clicking links only on phone"
       ],
       "answer": 0,
-      "explanation": "Włączenie 2FA dodaje dodatkową warstwę ochrony — nawet jeśli ktoś pozna hasło, nie uzyska łatwo dostępu do konta."
+      "explanation": "Enabling 2FA adds an additional layer of protection — even if someone learns your password, they won't easily gain access to the account."
     },
     {
       "id": 8,
-      "question": "Który typ załącznika jest najbardziej ryzykowny w e-mailu od nieznanego nadawcy?",
+      "question": "Which type of attachment is most risky in an email from an unknown sender?",
       "options": [
-        "Plik .exe (program wykonywalny)",
-        "Plik .txt (zwykły tekst)",
-        "Obrazek .jpg bez linków"
+        "An .exe file (executable program)",
+        "A .txt file (plain text)",
+        "A .jpg image without links"
       ],
       "answer": 0,
-      "explanation": "Pliki wykonywalne (.exe, .scr itp.) mogą instalować złośliwe oprogramowanie. Załączniki od nieznanych nadawców należy traktować jako wysokie ryzyko."
+      "explanation": "Executable files (.exe, .scr, etc.) can install malicious software. Attachments from unknown senders should be treated as high risk."
     },
     {
       "id": 9,
-      "question": "Co to jest social engineering?",
+      "question": "What is social engineering?",
       "options": [
-        "Technika technicznego włamania do serwera",
-        "Manipulacja psychologiczna osób w celu uzyskania informacji lub działań",
-        "Automatyczne skanowanie sieci w poszukiwaniu luk"
+        "A technique for technical server hacking",
+        "Psychological manipulation of people to obtain information or actions",
+        "Automatic network scanning for vulnerabilities"
       ],
       "answer": 1,
-      "explanation": "Social engineering to wykorzystywanie manipulacji, zaufania i emocji (np. strachu, pośpiechu), aby skłonić ludzi do ujawnienia informacji lub wykonania działań."
+      "explanation": "Social engineering is the use of manipulation, trust, and emotions (e.g., fear, rush) to convince people to reveal information or perform actions."
     },
     {
       "id": 10,
-      "question": "Jak najlepiej zweryfikować, czy otrzymany e-mail od \"banku\" jest prawdziwy?",
+      "question": "How is it best to verify whether a received email from a \"bank\" is genuine?",
       "options": [
-        "Odpisać bezpośrednio na e-mail i zapytać",
-        "Najechać kursorem na link i kliknąć, jeśli wygląda dobrze",
-        "Zadzwonić na oficjalny numer banku lub wejść na stronę przez wpisanie adresu w przeglądarce"
+        "Reply directly to the email and ask",
+        "Hover over the link and click if it looks good",
+        "Call the bank's official number or go to the website by typing the address in the browser"
       ],
       "answer": 2,
-      "explanation": "Najbezpieczniej skontaktować się przez oficjalne kanały — zadzwonić na numer z oficjalnej strony banku lub wpisać adres ręcznie w przeglądarce. Nie należy odpowiadać na podejrzane e-maile ani klikać linków."
+      "explanation": "The safest way is to contact through official channels — call the number from the bank's official website or type the address manually in the browser. Do not reply to suspicious emails or click links."
     }
   ]
 }

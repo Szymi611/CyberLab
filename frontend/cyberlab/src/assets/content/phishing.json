@@ -1,119 +1,119 @@
 {
   "intro": {
-    "title": "Phishing - wszystko co musisz wiedzieć",
-    "text": "Phishing to jedna z najczęściej spotykanych metod oszustwa internetowego. Polega na podszywaniu się pod zaufane instytucje lub osoby w celu wyłudzenia poufnych danych (np. loginów, haseł, numerów kart) albo nakłonienia ofiary do wykonania określonej akcji, takiej jak kliknięcie w niebezpieczny link czy pobranie złośliwego pliku."
+    "title": "Phishing - everything you need to know",
+    "text": "Phishing is one of the most common methods of online fraud. It involves impersonating trusted institutions or individuals in order to obtain confidential data (e.g., logins, passwords, card numbers) or to persuade the victim to perform a specific action, such as clicking on a dangerous link or downloading a malicious file."
   },
-  "naCzymPolega": {
-    "title": "Na czym polega phishing?",
-    "text": "Atakujący tworzy fałszywą, ale wyglądającą bardzo wiarygodnie wiadomość, stronę internetową lub formularz. Najczęściej imituje to komunikację z bankiem, kurierem albo platformą społecznościową. Celem jest skłonienie odbiorcy do ujawnienia poufnych danych logowania lub kliknięcia w złośliwy odnośnik, który prowadzi do strony wyłudzającej informacje albo instalującej malware."
+  "whatIsPhishing": {
+    "title": "What is phishing?",
+    "text": "The attacker creates a fake but very credible-looking message, website, or form. Most often, it imitates communication with a bank, courier, or social media platform. The goal is to trick the recipient into revealing confidential login data or clicking on a malicious link that leads to a data-phishing site or installs malware."
   },
-  "rodzaje": {
-    "title": "Rodzaje phishingu",
+  "types": {
+    "title": "Types of phishing",
     "email": {
-      "subtitle": "E-mail phishing",
-      "text": "Najczęstsza forma, w której ofiara otrzymuje e-mail wyglądający na wysłany przez bank, urząd lub sklep internetowy. Wiadomość zawiera link lub załącznik, którego otwarcie jest ryzykowne."
+      "subtitle": "Email phishing",
+      "text": "The most common form, where the victim receives an email that appears to be sent by a bank, government office, or online store. The message contains a link or attachment that is risky to open."
     },
     "smishing": {
       "subtitle": "Smishing",
-      "text": "Odmiana phishingu wykorzystująca SMS-y. Ofiara dostaje wiadomość o rzekomej paczce, płatności lub blokadzie konta, wraz z linkiem do fałszywej strony."
+      "text": "A variant of phishing that uses SMS messages. The victim receives a message about an alleged package, payment, or account block, along with a link to a fake website."
     },
     "vishing": {
       "subtitle": "Vishing",
-      "text": "Phishing przez rozmowy telefoniczne. Oszust podszywa się pod pracownika banku lub innej instytucji, próbując wyłudzić dane lub skłonić ofiarę do wykonania przelewu."
+      "text": "Phishing through phone calls. The fraudster impersonates a bank employee or other institution employee, trying to extract data or convince the victim to make a transfer."
     },
     "spear": {
       "subtitle": "Spear phishing",
-      "text": "To bardziej zaawansowana forma phishingu, w której oszust zbiera informacje o swojej ofierze, np. z mediów społecznościowych, aby stworzyć spersonalizowaną i przez to bardziej wiarygodną wiadomość."
+      "text": "This is a more advanced form of phishing, where the fraudster gathers information about their victim, e.g., from social media, to create a personalized and therefore more credible message."
     }
   },
-  "jakRozpoznac": {
-    "title": "Jak rozpoznać atak?",
-    "text": "Typowe sygnały ostrzegawcze to błędy językowe, nietypowy adres nadawcy, presja czasu, prośby o pilne działanie oraz linki prowadzące do podejrzanych domen. Warto zawsze najechać kursorem na odnośnik, aby sprawdzić, dokąd naprawdę prowadzi."
+  "howToRecognize": {
+    "title": "How to recognize an attack?",
+    "text": "Typical warning signs include language errors, unusual sender address, time pressure, requests for urgent action, and links leading to suspicious domains. It's always worth hovering over a link to check where it actually leads."
   },
-  "krotkieKroki": {
-    "title": "Co zrobić — krótkie kroki",
+  "shortSteps": {
+    "title": "What to do — short steps",
     "steps": [
-      "Nie klikaj w linki i nie odpowiadaj na podejrzane wiadomości.",
-      "Dokładnie sprawdź adres nadawcy i domenę, z której przyszła wiadomość.",
-      "Zgłoś incydent do działu IT lub odpowiednich służb.",
-      "Jeśli kliknąłeś link lub podałeś dane — natychmiast zmień hasło i włącz uwierzytelnianie dwuskładnikowe (2FA)."
+      "Don't click on links and don't reply to suspicious messages.",
+      "Carefully check the sender's address and the domain from which the message came.",
+      "Report the incident to the IT department or appropriate authorities.",
+      "If you clicked a link or provided data — immediately change your password and enable two-factor authentication (2FA)."
     ]
   },
-  "konsekwencje": {
-    "title": "Konsekwencje phishingu",
-    "subtitle": "Utrata danych logowania lub dostępów do konta może prowadzić do:",
+  "consequences": {
+    "title": "Consequences of phishing",
+    "subtitle": "Loss of login data or account access can lead to:",
     "steps": [
-      "Kradzież środków finansowych z konta bankowego",
-      "Przejęcie skrzynki e-mail i wykorzystanie jej do dalszych ataków",
-      "Wyciek poufnych informacji firmowych",
-      "Podszywanie się pod ofiarę w celu oszukania jej znajomych lub współpracowników"
+      "Theft of financial funds from bank account",
+      "Takeover of email inbox and using it for further attacks",
+      "Leak of confidential company information",
+      "Impersonating the victim to deceive their friends or colleagues"
     ],
-    "note": "Nawet jedno kliknięcie w złośliwy link może mieć poważne skutki zarówno dla osoby prywatnej, jak i dla całej organizacji."
+    "note": "Even one click on a malicious link can have serious consequences both for a private person and for an entire organization."
   },
-  "ochrona": {
-    "title": "Jak skutecznie się chronić?",
+  "protection": {
+    "title": "How to effectively protect yourself?",
     "steps": [
-      "Zawsze korzystaj z silnych, unikalnych haseł i menedżera haseł",
-      "Włącz uwierzytelnianie dwuskładnikowe (2FA) tam, gdzie to możliwe",
-      "Regularnie aktualizuj system i aplikacje, aby usuwać luki w zabezpieczeniach",
-      "Zachowaj czujność wobec podejrzanych wiadomości i nigdy nie udostępniaj swoich danych logowania"
+      "Always use strong, unique passwords and a password manager",
+      "Enable two-factor authentication (2FA) wherever possible",
+      "Regularly update your system and applications to remove security vulnerabilities",
+      "Stay alert to suspicious messages and never share your login data"
     ],
-    "note": "Świadomość i ostrożność to najlepsza ochrona przed phishingiem."
+    "note": "Awareness and caution are the best protection against phishing."
   },
-  "statystyki": {
-    "title": "Statystyki i ciekawostki",
+  "statistics": {
+    "title": "Statistics and facts",
     "steps": [
-      "Według badań ponad 70% wszystkich ataków cybernetycznych rozpoczyna się od phishingu.",
-      "Każdego dnia wysyłanych jest setki milionów fałszywych e-maili na całym świecie.",
-      "Aż 1 na 5 osób przyznaje, że przynajmniej raz kliknęła podejrzany link",
-      "Coraz częściej phishing jest prowadzony w sposób spersonalizowany, co sprawia, że wiadomości wyglądają bardzo wiarygodnie.",
-      "Najczęściej ofiarami padają osoby w pośpiechu — brak chwili na sprawdzenie szczegółów sprzyja pomyłkom."
+      "According to research, over 70% of all cyber attacks start with phishing.",
+      "Hundreds of millions of fake emails are sent worldwide every day.",
+      "As many as 1 in 5 people admit that they have clicked on a suspicious link at least once",
+      "Phishing is increasingly conducted in a personalized way, making messages look very credible.",
+      "People in a hurry are most often victims — lack of time to check details favors mistakes."
     ],
-    "note": " Świadomość skali problemu pomaga zrozumieć, dlaczego ostrożność i proste nawyki bezpieczeństwa mogą uchronić nas przed poważnymi stratami."
+    "note": "Awareness of the scale of the problem helps understand why caution and simple security habits can protect us from serious losses."
   },
-  "jesliOfiara": {
-    "title": "Co zrobić jeśli padłeś ofiarą phishingu?",
-    "subtitle": "Jeśli podejrzewasz, że kliknąłeś w podejrzany link, podałeś dane lub pobrałeś plik:",
+  "ifVictim": {
+    "title": "What to do if you become a victim of phishing?",
+    "subtitle": "If you suspect that you clicked on a suspicious link, provided data, or downloaded a file:",
     "steps": [
-      "Natychmiast zmień hasło do konta, którego dotyczył atak (a jeśli używasz tego samego hasła w innych miejscach zmień je również tam)",
-      "Włącz uwierzytelnianie dwuskładnikowe (2FA), jeśli jest dostępne to dodatkowa warstwa ochrony.",
-      "Powiadom swój bank lub operatora usług zablokuj możliwość nieautoryzowanych transakcji.",
-      "Zgłoś incydent do działu IT lub odpowiednich służb szybka reakcja może ochronić innych użytkowników.",
-      "Przeskanuj komputer lub telefon aktualnym oprogramowaniem antywirusowym, aby upewnić się, że nie zostało zainstalowane złośliwe oprogramowanie.",
-      "Obserwuj swoje konta i transakcje zwracaj uwagę na nietypowe logowania, wiadomości i operacje finansowe."
+      "Immediately change the password for the account that was targeted by the attack (and if you use the same password elsewhere, change it there too)",
+      "Enable two-factor authentication (2FA) if available — it's an additional layer of protection.",
+      "Notify your bank or service operator — block the possibility of unauthorized transactions.",
+      "Report the incident to the IT department or appropriate authorities — quick response can protect other users.",
+      "Scan your computer or phone with current antivirus software to make sure no malicious software has been installed.",
+      "Monitor your accounts and transactions — pay attention to unusual logins, messages, and financial operations."
     ],
-    "note": "Im szybciej zareagujesz, tym mniejsze będą potencjalne skutki ataku."
+    "note": "The faster you react, the smaller the potential consequences of the attack will be."
   },
-  "dobrePraktyki": {
-    "title": "Dobre praktyki na co dzień",
-    "subtitle": "Aby na co dzień zmniejszyć ryzyko stania się ofiarą phishingu, warto wyrobić sobie kilka prostych nawyków:",
+  "bestPractices": {
+    "title": "Good daily practices",
+    "subtitle": "To reduce the risk of becoming a phishing victim on a daily basis, it's worth developing some simple habits:",
     "steps": [
-      "Zawsze sprawdzaj adres nadawcy nawet jeśli wiadomość wygląda znajomo, upewnij się, że pochodzi z prawdziwej domeny.",
-      "Nie klikaj w linki w pośpiechu zatrzymaj się na chwilę i zweryfikuj, dokąd prowadzi odnośnik.",
-      "Używaj menedżera haseł dzięki temu nie będziesz wpisywać danych na fałszywych stronach, bo menedżer rozpozna nieprawidłową domenę.",
-      "Włącz 2FA (uwierzytelnianie dwuskładnikowe) nawet jeśli ktoś pozna twoje hasło, dostęp do konta będzie utrudniony.",
-      "Regularnie aktualizuj system i aplikacje — większość ataków wykorzystuje luki w nieaktualnym oprogramowaniu.",
-      "Zachowaj zdrowy sceptycyzm każda wiadomość zbyt pilna, zbyt atrakcyjna albo nietypowa powinna wzbudzić twoją czujność."
+      "Always check the sender's address — even if the message looks familiar, make sure it comes from a real domain.",
+      "Don't click on links in a hurry — stop for a moment and verify where the link leads.",
+      "Use a password manager — this way you won't enter data on fake sites, because the manager will recognize the incorrect domain.",
+      "Enable 2FA (two-factor authentication) — even if someone learns your password, access to the account will be difficult.",
+      "Regularly update your system and applications — most attacks exploit vulnerabilities in outdated software.",
+      "Maintain healthy skepticism — any message that is too urgent, too attractive, or unusual should raise your alertness."
     ],
-    "note": "Świadome korzystanie z internetu i ostrożność w codziennych działaniach to najlepsza ochrona przed oszustami."
+    "note": "Conscious internet use and caution in daily activities is the best protection against fraudsters."
   },
-  "przyklady": {
-    "title": "Przykłady phishingu",
+  "examples": {
+    "title": "Phishing examples",
     "email": {
-      "title": "Fałszywy e-mail",
-      "message": "From: info@bank-example.com Subject: Pilne! Twoje konto zostało zablokowane ---------------------------------------------- Szanowny Kliencie, Zauważyliśmy podejrzaną aktywność. Kliknij natychmiast: http://bank-example.verify-user.xyz/login Pozdrawiamy, Bank Example",
+      "title": "Fake email",
+      "message": "From: info@bank-example.com Subject: Urgent! Your account has been blocked ---------------------------------------------- Dear Customer, We have noticed suspicious activity. Click immediately: http://bank-example.verify-user.xyz/login Best regards, Bank Example",
       "flags": [
-        "🔴 Nadawca: domena nie jest prawdziwym bankiem",
-        "🔴 Link: dziwny adres URL",
-        "🔴 Ton: presja i pilność"
+        "🔴 Sender: domain is not a real bank",
+        "🔴 Link: strange URL address",
+        "🔴 Tone: pressure and urgency"
       ]
     },
     "sms": {
       "title": "SMS (smishing)",
-      "message": "Twoja paczka czeka na opłacenie. Kliknij: http://fake-dhl-track.info",
+      "message": "Your package is waiting for payment. Click: http://fake-dhl-track.info",
       "flags": [
-        "🔴 Link wygląda na firmowy, ale domena jest podejrzana",
-        "🔴 Brak personalizacji — wiadomość generowana masowo"
+        "🔴 Link looks corporate, but the domain is suspicious",
+        "🔴 No personalization — message generated en masse"
       ]
     }
   }

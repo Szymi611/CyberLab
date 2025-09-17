@@ -1,0 +1,161 @@
+{
+  "emails": [
+    {
+      "id": 1,
+      "type": "phishing",
+      "subject": "URGENT: Your Account Will Be Suspended",
+      "sender": "security@paypaI-support.com",
+      "body": "Dear Valued Customer,\n\nWe have detected suspicious activity on your account. Your account will be suspended within 24 hours unless you verify your information immediately.\n\nClick here to verify: http://paypal-verification.suspicious-site.ru/login\n\nFailure to respond will result in permanent account closure.\n\nBest regards,\nPayPal Security Team",
+      "redFlags": [
+        "suspicious_sender",
+        "urgency_pressure",
+        "suspicious_link",
+        "spelling_errors",
+        "generic_greeting"
+      ],
+      "explanation": {
+        "suspicious_sender": "Sender uses domain paypaI-support.com (with capital I instead of l)",
+        "urgency_pressure": "Text exerts time pressure (\"24 hours\", \"immediately\")",
+        "suspicious_link": "Link leads to suspicious .ru domain instead of official PayPal",
+        "spelling_errors": "No specific errors, but generally suspicious form",
+        "generic_greeting": "Generic phrases like \"Dear Valued Customer\" instead of name"
+      }
+    },
+    {
+      "id": 2,
+      "type": "legitimate",
+      "subject": "Your monthly statement is ready",
+      "sender": "statements@bank.example.com",
+      "body": "Hello John Smith,\n\nYour monthly statement for account ending in 1234 is now available in your online banking portal.\n\nTo view your statement, please log in to your account at bank.example.com using your regular credentials.\n\nIf you have any questions, please contact us at 555-123-4567.\n\nBest regards,\nExample Bank Customer Service",
+      "redFlags": [],
+      "explanation": {}
+    },
+    {
+      "id": 3,
+      "type": "phishing",
+      "subject": "Re: Invoice #INV-2024-0847",
+      "sender": "billing@company-invoices.net",
+      "body": "Hi,\n\nPlease find attached invoice for your recent purchase. Payment is due within 3 days.\n\nInvoice amount: $2,847.99\n\nDownload invoice: http://bit.ly/inv847malware\n\nPlease process payment immediately to avoid late fees.\n\nRegards,\nBilling Department",
+      "redFlags": [
+        "suspicious_attachment",
+        "urgency_pressure",
+        "suspicious_link",
+        "unexpected_invoice",
+        "generic_greeting"
+      ],
+      "explanation": {
+        "suspicious_attachment": "Unexpected invoice attachment",
+        "urgency_pressure": "Time pressure \"3 days\", \"immediately\"",
+        "suspicious_link": "Shortened bit.ly link instead of official domain",
+        "unexpected_invoice": "Invoice for unknown purchase with large amount",
+        "generic_greeting": "Generic greeting \"Hi\" without personalization"
+      }
+    },
+    {
+      "id": 4,
+      "type": "phishing",
+      "subject": "Your Apple ID has been locked",
+      "sender": "no-reply@apple-security.info",
+      "body": "Dear Customer,\n\nYour Apple ID has been temporarily locked due to multiple failed login attempts.\n\nTo unlock your account, please verify your identity:\nhttps://apple-id-unlock.verify-now.com/login\n\nThis link will expire in 2 hours.\n\nApple Security Team",
+      "redFlags": [
+        "suspicious_sender",
+        "urgency_pressure",
+        "suspicious_link",
+        "generic_greeting"
+      ],
+      "explanation": {
+        "suspicious_sender": "Domain apple-security.info doesn't belong to Apple",
+        "urgency_pressure": "Time pressure \"2 hours\"",
+        "suspicious_link": "Link leads to suspicious domain",
+        "generic_greeting": "Generic greeting instead of personalization"
+      }
+    },
+    {
+      "id": 5,
+      "type": "legitimate",
+      "subject": "Welcome to our newsletter",
+      "sender": "newsletter@company.com",
+      "body": "Hello Sarah,\n\nThank you for subscribing to our monthly newsletter.\n\nYou will receive updates about our products and services once a month. You can unsubscribe at any time by clicking the link at the bottom of our emails.\n\nTo manage your preferences, visit: https://company.com/newsletter-settings\n\nBest regards,\nMarketing Team",
+      "redFlags": [],
+      "explanation": {}
+    },
+    {
+      "id": 6,
+      "type": "phishing",
+      "subject": "Fwd: Package delivery failed",
+      "sender": "delivery@dhl-delivery-service.ru",
+      "body": "Dear Sir/Madam,\n\nWe attempted to deliver your package but failed. Package contains:\n- Electronics worth $899\n\nTo reschedule delivery, pay customs fee of $25:\nhttp://dhl-redelivery.payment-now.ru/pay\n\nYour package will be returned in 48 hours if not claimed.\n\nDHL Express",
+      "redFlags": [
+        "suspicious_sender",
+        "urgency_pressure",
+        "suspicious_link",
+        "unexpected_package",
+        "generic_greeting",
+        "payment_request"
+      ],
+      "explanation": {
+        "suspicious_sender": "Domain .ru is not used by DHL",
+        "urgency_pressure": "Time pressure \"48 hours\"",
+        "suspicious_link": "Suspicious payment link",
+        "unexpected_package": "Unexpected package with electronics",
+        "generic_greeting": "Generic greeting \"Dear Sir/Madam\"",
+        "payment_request": "Request to pay customs for unexpected package"
+      }
+    }
+  ],
+  "flagOptions": [
+    {
+      "id": "suspicious_sender",
+      "label": "Suspicious sender",
+      "description": "Email comes from suspicious domain or imitates known company"
+    },
+    {
+      "id": "urgency_pressure",
+      "label": "Time pressure",
+      "description": "Exerting pressure for quick action"
+    },
+    {
+      "id": "suspicious_link",
+      "label": "Suspicious link",
+      "description": "Link leads to unofficial or suspicious website"
+    },
+    {
+      "id": "spelling_errors",
+      "label": "Language errors",
+      "description": "Grammar, spelling or stylistic errors"
+    },
+    {
+      "id": "generic_greeting",
+      "label": "Generic greeting",
+      "description": "Lack of personalization, generic phrases"
+    },
+    {
+      "id": "suspicious_attachment",
+      "label": "Suspicious attachment",
+      "description": "Unexpected or potentially dangerous attachment"
+    },
+    {
+      "id": "unexpected_invoice",
+      "label": "Unexpected invoice",
+      "description": "Invoice for unknown goods or service"
+    },
+    {
+      "id": "unexpected_package",
+      "label": "Unexpected package",
+      "description": "Information about package we don't expect"
+    },
+    {
+      "id": "payment_request",
+      "label": "Payment request",
+      "description": "Unexpected request for fees or taxes"
+    }
+  ],
+  "metadata": {
+    "version": "1.0",
+    "lastUpdated": "2024-09-17",
+    "totalEmails": 6,
+    "phishingEmails": 4,
+    "legitimateEmails": 2,
+    "difficulty": "beginner"
+  }
+}

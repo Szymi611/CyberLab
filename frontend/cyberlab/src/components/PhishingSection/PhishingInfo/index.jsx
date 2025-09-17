@@ -19,32 +19,32 @@ export default function PhishingTheoryCard() {
       <div className="phishing-body">
         <div className="phishing-sections">
           <div className="phishing-section">
-            <h3>{content.naCzymPolega.title}</h3>
-            <p>{content.naCzymPolega.text}</p>
+            <h3>{content.whatIsPhishing.title}</h3>
+            <p>{content.whatIsPhishing.text}</p>
           </div>
 
           <div className="phishing-section">
-            <h3>{content.rodzaje.title}</h3>
-            <h5>{content.rodzaje.email.subtitle}</h5>
-            <p>{content.rodzaje.email.text}</p>
-            <h5>{content.rodzaje.smishing.subtitle}</h5>
-            <p>{content.rodzaje.smishing.text}</p>
-            <h5>{content.rodzaje.vishing.subtitle}</h5>
-            <p>{content.rodzaje.vishing.text}</p>
+            <h3>{content.types.title}</h3>
+            <h5>{content.types.email.subtitle}</h5>
+            <p>{content.types.email.text}</p>
+            <h5>{content.types.smishing.subtitle}</h5>
+            <p>{content.types.smishing.text}</p>
+            <h5>{content.types.vishing.subtitle}</h5>
+            <p>{content.types.vishing.text}</p>
 
-            <h5>{content.rodzaje.spear.subtitle}</h5>
-            <p>{content.rodzaje.spear.text}</p>
+            <h5>{content.types.spear.subtitle}</h5>
+            <p>{content.types.spear.text}</p>
           </div>
 
           <div className="phishing-section">
-            <h3>{content.jakRozpoznac.title}</h3>
-            <p>{content.jakRozpoznac.text}</p>
+            <h3>{content.howToRecognize.title}</h3>
+            <p>{content.howToRecognize.text}</p>
           </div>
 
           <div className="phishing-section">
-            <h3>{content.krotkieKroki.title}</h3>
+            <h3>{content.shortSteps.title}</h3>
             <p>
-              {content.krotkieKroki.steps.map((step, index) => (
+              {content.shortSteps.steps.map((step, index) => (
                 <span key={index}>
                   {index + 1}) {step}
                   <br />
@@ -53,85 +53,85 @@ export default function PhishingTheoryCard() {
             </p>
           </div>
           <div className="phishing-section">
-            <h3>{content.konsekwencje.title}</h3>
+            <h3>{content.consequences.title}</h3>
             <p>
-              {content.konsekwencje.subtitle}
+              {content.consequences.subtitle}
               <br />
-              {content.konsekwencje.steps.map((step, index) => (
+              {content.consequences.steps.map((step, index) => (
                 <span key={index}>
                   {index + 1}) {step}
                   <br />
                 </span>
               ))}
-              {content.konsekwencje.note}
+              {content.consequences.note}
             </p>
           </div>
           <div className="phishing-section">
-            <h3>{content.ochrona.title}</h3>
+            <h3>{content.protection.title}</h3>
             <p>
               Aby zminimalizować ryzyko ataku:
               <br />
-              {content.ochrona.steps.map((step, index) => (
+              {content.protection.steps.map((step, index) => (
                 <span key={index}>
                   {index + 1}) {step}
                   <br />
                 </span>
               ))}
-              {content.ochrona.note}
+              {content.protection.note}
             </p>
           </div>
           <div className="phishing-section">
-            <h3>{content.statystyki.title}</h3>
+            <h3>{content.statistics.title}</h3>
             <p>
-              {content.statystyki.steps.map((step, index) => (
+              {content.statistics.steps.map((step, index) => (
                 <span key={index}>
                   - {step}
                   <br />
                 </span>
               ))}
-              {content.statystyki.note}
+              {content.statistics.note}
             </p>
           </div>
           <div className="phishing-section">
-            <h3>{content.jesliOfiara.title}</h3>
+            <h3>{content.ifVictim.title}</h3>
             <p>
-              {content.jesliOfiara.subtitle}
+              {content.ifVictim.subtitle}
               <br />
-              {content.jesliOfiara.steps.map((step, index) => (
+              {content.ifVictim.steps.map((step, index) => (
                 <span key={index}>
                   {index + 1}) {step}
                   <br />
                 </span>
               ))}
-              {content.jesliOfiara.note}
+              {content.ifVictim.note}
             </p>
           </div>
           <div className="phishing-section">
-            <h3>{content.dobrePraktyki.title}</h3>
+            <h3>{content.bestPractices.title}</h3>
             <p>
-              {content.dobrePraktyki.subtitle}
+              {content.bestPractices.subtitle}
               <br />
-              {content.dobrePraktyki.steps.map((step, index) => (
+              {content.bestPractices.steps.map((step, index) => (
                 <span key={index}>
                   {index + 1}) {step}
                   <br />
                 </span>
               ))}
               <br />
-              {content.dobrePraktyki.note}
+              {content.bestPractices.note}
             </p>
           </div>
         </div>
         <div className="phishing-examples">
-          <h3>{content.przyklady.title}</h3>
+          <h3>{content.examples.title}</h3>
           <ImageSlider />
           {/* <div className="phishing-example">
-          <h4>{content.przyklady.email.title}</h4>
+          <h4>{content.examples.email.title}</h4>
           <pre className="phishing-message">
-            {content.przyklady.email.message}
+            {content.examples.email.message}
           </pre>
           <ul className="phishing-flags">
-            {content.przyklady.email.flags.map((flag, index) => (
+            {content.examples.email.flags.map((flag, index) => (
               <li key={index}>{flag}</li>
             ))}
           </ul>
@@ -151,7 +151,7 @@ export default function PhishingTheoryCard() {
         </div>
         <div className="phishing-section">
           <div className="phishing-section-link">
-            <h3>Dowiedz sie wiecej</h3>
+            <h3>Learn more</h3>
             <p>
               <a
                 className="phishing-link"
@@ -178,7 +178,7 @@ export default function PhishingTheoryCard() {
         onClick={handleGoToQuiz}
         className="phishing-btn primary desktop-only"
       >
-        Rozpocznij quiz
+        Start quiz
       </button>
     </div>
   );
