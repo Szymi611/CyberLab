@@ -4,20 +4,24 @@
   align-items: center;
   justify-content: space-between;
   padding: 0.5rem;
-  max-height: 7dvh;
-  margin-top: 0.5rem;
+  max-height: 8.5dvh;
+  margin-top: 0.2rem;
   position: relative;
+  margin-bottom: 1rem;
 }
 
 .navbar-logo {
   text-decoration: none;
   color: white;
+  margin-top: 1.8rem;
 }
 
 .navbar-logo-image {
-  width: 140px;
-  height: auto;
+  width: 75px;
+  height: 75px;
   padding: 0.2rem;
+  margin-top: 0.5rem;
+  margin-left: 1rem;
 }
 
 .navbar-logo-image:hover {
@@ -67,7 +71,6 @@
   width: 100%;
   height: 1px;
   background-color: gray;
-  margin-top: 0.7rem;
 }
 
 .hamburger {

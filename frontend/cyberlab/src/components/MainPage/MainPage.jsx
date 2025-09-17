@@ -1,19 +1,25 @@
 import "./MainPage.scss";
-import PhishingImg from "../../assets/PhishingIcon.png";
-import XSSImg from "../../assets/XSSIcon.png";
-import CSRFImg from "../../assets/CSRFIcon.png";
+import PhishingImg from "../../assets/images/PhishingIcon.png";
+import XSSImg from "../../assets/images/XSSIcon.png";
+import CSRFImg from "../../assets/images/CSRFIcon.png";
+import { Link } from "react-router-dom";
 
 export default function MainPage() {
   return (
     <div className="main-page-container">
       {/* Phishing */}
+
       <div className="grid-item phishing">
-        Phishing
-        <img
-          src={PhishingImg}
-          alt="Phishing attack "
-          className="main-page-attack-img"
-        />
+        <div className="phishing-content">
+          <Link to="/phishing" className="phishing-link">
+            <span>Phishing</span>
+            <img
+              src={PhishingImg}
+              alt="Phishing attack "
+              className="main-page-attack-img"
+            />
+          </Link>
+        </div>
       </div>
       {/* SQL Injection */}
       <div className="grid-item">SQL Injection</div>

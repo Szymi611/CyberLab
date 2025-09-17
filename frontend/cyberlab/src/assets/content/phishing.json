@@ -1,0 +1,120 @@
+{
+  "intro": {
+    "title": "Phishing - wszystko co musisz wiedzieć",
+    "text": "Phishing to jedna z najczęściej spotykanych metod oszustwa internetowego. Polega na podszywaniu się pod zaufane instytucje lub osoby w celu wyłudzenia poufnych danych (np. loginów, haseł, numerów kart) albo nakłonienia ofiary do wykonania określonej akcji, takiej jak kliknięcie w niebezpieczny link czy pobranie złośliwego pliku."
+  },
+  "naCzymPolega": {
+    "title": "Na czym polega phishing?",
+    "text": "Atakujący tworzy fałszywą, ale wyglądającą bardzo wiarygodnie wiadomość, stronę internetową lub formularz. Najczęściej imituje to komunikację z bankiem, kurierem albo platformą społecznościową. Celem jest skłonienie odbiorcy do ujawnienia poufnych danych logowania lub kliknięcia w złośliwy odnośnik, który prowadzi do strony wyłudzającej informacje albo instalującej malware."
+  },
+  "rodzaje": {
+    "title": "Rodzaje phishingu",
+    "email": {
+      "subtitle": "E-mail phishing",
+      "text": "Najczęstsza forma, w której ofiara otrzymuje e-mail wyglądający na wysłany przez bank, urząd lub sklep internetowy. Wiadomość zawiera link lub załącznik, którego otwarcie jest ryzykowne."
+    },
+    "smishing": {
+      "subtitle": "Smishing",
+      "text": "Odmiana phishingu wykorzystująca SMS-y. Ofiara dostaje wiadomość o rzekomej paczce, płatności lub blokadzie konta, wraz z linkiem do fałszywej strony."
+    },
+    "vishing": {
+      "subtitle": "Vishing",
+      "text": "Phishing przez rozmowy telefoniczne. Oszust podszywa się pod pracownika banku lub innej instytucji, próbując wyłudzić dane lub skłonić ofiarę do wykonania przelewu."
+    },
+    "spear": {
+      "subtitle": "Spear phishing",
+      "text": "To bardziej zaawansowana forma phishingu, w której oszust zbiera informacje o swojej ofierze, np. z mediów społecznościowych, aby stworzyć spersonalizowaną i przez to bardziej wiarygodną wiadomość."
+    }
+  },
+  "jakRozpoznac": {
+    "title": "Jak rozpoznać atak?",
+    "text": "Typowe sygnały ostrzegawcze to błędy językowe, nietypowy adres nadawcy, presja czasu, prośby o pilne działanie oraz linki prowadzące do podejrzanych domen. Warto zawsze najechać kursorem na odnośnik, aby sprawdzić, dokąd naprawdę prowadzi."
+  },
+  "krotkieKroki": {
+    "title": "Co zrobić — krótkie kroki",
+    "steps": [
+      "Nie klikaj w linki i nie odpowiadaj na podejrzane wiadomości.",
+      "Dokładnie sprawdź adres nadawcy i domenę, z której przyszła wiadomość.",
+      "Zgłoś incydent do działu IT lub odpowiednich służb.",
+      "Jeśli kliknąłeś link lub podałeś dane — natychmiast zmień hasło i włącz uwierzytelnianie dwuskładnikowe (2FA)."
+    ]
+  },
+  "konsekwencje": {
+    "title": "Konsekwencje phishingu",
+    "subtitle": "Utrata danych logowania lub dostępów do konta może prowadzić do:",
+    "steps": [
+      "Kradzież środków finansowych z konta bankowego",
+      "Przejęcie skrzynki e-mail i wykorzystanie jej do dalszych ataków",
+      "Wyciek poufnych informacji firmowych",
+      "Podszywanie się pod ofiarę w celu oszukania jej znajomych lub współpracowników"
+    ],
+    "note": "Nawet jedno kliknięcie w złośliwy link może mieć poważne skutki zarówno dla osoby prywatnej, jak i dla całej organizacji."
+  },
+  "ochrona": {
+    "title": "Jak skutecznie się chronić?",
+    "steps": [
+      "Zawsze korzystaj z silnych, unikalnych haseł i menedżera haseł",
+      "Włącz uwierzytelnianie dwuskładnikowe (2FA) tam, gdzie to możliwe",
+      "Regularnie aktualizuj system i aplikacje, aby usuwać luki w zabezpieczeniach",
+      "Zachowaj czujność wobec podejrzanych wiadomości i nigdy nie udostępniaj swoich danych logowania"
+    ],
+    "note": "Świadomość i ostrożność to najlepsza ochrona przed phishingiem."
+  },
+  "statystyki": {
+    "title": "Statystyki i ciekawostki",
+    "steps": [
+      "Według badań ponad 70% wszystkich ataków cybernetycznych rozpoczyna się od phishingu.",
+      "Każdego dnia wysyłanych jest setki milionów fałszywych e-maili na całym świecie.",
+      "Aż 1 na 5 osób przyznaje, że przynajmniej raz kliknęła podejrzany link",
+      "Coraz częściej phishing jest prowadzony w sposób spersonalizowany, co sprawia, że wiadomości wyglądają bardzo wiarygodnie.",
+      "Najczęściej ofiarami padają osoby w pośpiechu — brak chwili na sprawdzenie szczegółów sprzyja pomyłkom."
+    ],
+    "note": " Świadomość skali problemu pomaga zrozumieć, dlaczego ostrożność i proste nawyki bezpieczeństwa mogą uchronić nas przed poważnymi stratami."
+  },
+  "jesliOfiara": {
+    "title": "Co zrobić jeśli padłeś ofiarą phishingu?",
+    "subtitle": "Jeśli podejrzewasz, że kliknąłeś w podejrzany link, podałeś dane lub pobrałeś plik:",
+    "steps": [
+      "Natychmiast zmień hasło do konta, którego dotyczył atak (a jeśli używasz tego samego hasła w innych miejscach zmień je również tam)",
+      "Włącz uwierzytelnianie dwuskładnikowe (2FA), jeśli jest dostępne to dodatkowa warstwa ochrony.",
+      "Powiadom swój bank lub operatora usług zablokuj możliwość nieautoryzowanych transakcji.",
+      "Zgłoś incydent do działu IT lub odpowiednich służb szybka reakcja może ochronić innych użytkowników.",
+      "Przeskanuj komputer lub telefon aktualnym oprogramowaniem antywirusowym, aby upewnić się, że nie zostało zainstalowane złośliwe oprogramowanie.",
+      "Obserwuj swoje konta i transakcje zwracaj uwagę na nietypowe logowania, wiadomości i operacje finansowe."
+    ],
+    "note": "Im szybciej zareagujesz, tym mniejsze będą potencjalne skutki ataku."
+  },
+  "dobrePraktyki": {
+    "title": "Dobre praktyki na co dzień",
+    "subtitle": "Aby na co dzień zmniejszyć ryzyko stania się ofiarą phishingu, warto wyrobić sobie kilka prostych nawyków:",
+    "steps": [
+      "Zawsze sprawdzaj adres nadawcy nawet jeśli wiadomość wygląda znajomo, upewnij się, że pochodzi z prawdziwej domeny.",
+      "Nie klikaj w linki w pośpiechu zatrzymaj się na chwilę i zweryfikuj, dokąd prowadzi odnośnik.",
+      "Używaj menedżera haseł dzięki temu nie będziesz wpisywać danych na fałszywych stronach, bo menedżer rozpozna nieprawidłową domenę.",
+      "Włącz 2FA (uwierzytelnianie dwuskładnikowe) nawet jeśli ktoś pozna twoje hasło, dostęp do konta będzie utrudniony.",
+      "Regularnie aktualizuj system i aplikacje — większość ataków wykorzystuje luki w nieaktualnym oprogramowaniu.",
+      "Zachowaj zdrowy sceptycyzm każda wiadomość zbyt pilna, zbyt atrakcyjna albo nietypowa powinna wzbudzić twoją czujność."
+    ],
+    "note": "Świadome korzystanie z internetu i ostrożność w codziennych działaniach to najlepsza ochrona przed oszustami."
+  },
+  "przyklady": {
+    "title": "Przykłady phishingu",
+    "email": {
+      "title": "Fałszywy e-mail",
+      "message": "From: info@bank-example.com Subject: Pilne! Twoje konto zostało zablokowane ---------------------------------------------- Szanowny Kliencie, Zauważyliśmy podejrzaną aktywność. Kliknij natychmiast: http://bank-example.verify-user.xyz/login Pozdrawiamy, Bank Example",
+      "flags": [
+        "🔴 Nadawca: domena nie jest prawdziwym bankiem",
+        "🔴 Link: dziwny adres URL",
+        "🔴 Ton: presja i pilność"
+      ]
+    },
+    "sms": {
+      "title": "SMS (smishing)",
+      "message": "Twoja paczka czeka na opłacenie. Kliknij: http://fake-dhl-track.info",
+      "flags": [
+        "🔴 Link wygląda na firmowy, ale domena jest podejrzana",
+        "🔴 Brak personalizacji — wiadomość generowana masowo"
+      ]
+    }
+  }
+}

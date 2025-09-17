@@ -1,5 +1,5 @@
 import "./Navbar.scss";
-import CyberLabLogo from "../../assets/CyberLabLogo.png";
+import CyberLabLogo from "../../assets/images/CyberLabLogo.png";
 import { useState } from "react";
 
 export default function Navbar() {
@@ -45,7 +45,7 @@ export default function Navbar() {
           </ul>
         </div>
       </nav>
-      <div className="navbar-underline"></div>
+      {/* <div className="navbar-underline"></div> */}
     </>
   );
 }

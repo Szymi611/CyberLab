@@ -1,13 +1,20 @@
 import MatrixBackground from "./components/Background/MatrixBackground.jsx";
 import MainPage from "./components/MainPage/MainPage.jsx";
 import Navbar from "./components/Navbar/Navbar.jsx";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import PhishingMainPage from "./components/PhishingSection/PhishingMainPage/index.jsx";
 
 export default function App() {
   return (
     <>
-      <MatrixBackground />
-      <Navbar/>
-      <MainPage />
+      <BrowserRouter>
+        <Navbar />
+        <MatrixBackground />
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/phishing" element={<PhishingMainPage />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
