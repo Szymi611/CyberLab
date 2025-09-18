@@ -1,4 +1,4 @@
-.email-analysis-container {
+.url-analysis-container {
   max-width: 900px;
   margin: 0 auto;
   padding: 20px;
@@ -10,7 +10,7 @@
   background: rgba(0, 0, 0, 0.7);
 }
 
-.email-card {
+.url-card {
   background: white;
   border: 1px solid #eee;
   border-radius: 8px;
@@ -19,7 +19,7 @@
   background: rgba(0, 0, 0, 0.7);
 }
 
-.email-options {
+.url-options {
   background: white;
   border-radius: 8px;
   padding: 16px;
@@ -31,14 +31,14 @@
   width: 100%;
 }
 
-.email-options-checkboxes {
+.url-options-checkboxes {
   width: 100%;
   list-style: none;
   font-size: 0.9rem;
   padding: 0.5rem;
 }
 
-.emailAnalysis-btn {
+.urlAnalysis-btn {
   background-color: #28a745;
   color: white;
   border: none;
@@ -49,14 +49,14 @@
   margin-top: 10px;
 }
 
-.email-flags-list {
+.url-flags-list {
   display: flex;
   flex-direction: column;
   gap: 8px;
   width: 100%;
 }
 
-.email-flag-label {
+.url-flag-label {
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -67,7 +67,7 @@
   cursor: pointer;
   transition: background 0.2s ease;
 }
-.email-flag-label:hover {
+.url-flag-label:hover {
   background: rgba(70, 70, 70, 0.425);
 }
 
@@ -104,7 +104,7 @@
   }
 }
 
-.email-results {
+.url-results {
   width: 100%;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 8px;
@@ -246,7 +246,7 @@
   }
 }
 
-.email-analysis-header {
+.url-analysis-header {
   text-align: center;
   color: white;
 
@@ -265,14 +265,18 @@
   }
 }
 
-.email-analysis-title {
+.url-analysis-title{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
 }
 
-.email-card {
+.url-tips-icon{
+  cursor: pointer;
+}
+
+.url-card {
   color: white;
 
   p,
@@ -294,7 +298,7 @@
   }
 }
 
-.email-options {
+.url-options {
   color: white;
 
   h4 {
@@ -304,17 +308,17 @@
   }
 }
 
-.email-flag-text {
+.url-flag-text {
   color: white;
   font-weight: 500;
 }
 
-.email-flag-checkbox {
+.url-flag-checkbox {
   accent-color: #28a745;
 }
 
 @media (max-width: 768px) {
-  .email-analysis-container {
+  .url-analysis-container {
     padding: 16px;
     max-width: 100%;
   }

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import quizData from "../../../assets/content/phishing-quiz.json";
 import "./quiz.scss";
+import { IoMdArrowBack } from "react-icons/io";
 
 export default function PhishingQuiz() {
   const [current, setCurrent] = useState(0);
@@ -28,10 +29,17 @@ export default function PhishingQuiz() {
     }
   };
 
+  const handleGoBack = () => {
+    window.history.back();
+  };
+
   return (
     <div className="quiz-card">
+      <IoMdArrowBack onClick={handleGoBack} style={{ cursor: "pointer", marginTop: "1rem" }} />
       <h2 className="quiz-title">{quizData.title}</h2>
-      <p className="quiz-question-count">{`Question ${current + 1} of ${totalQuestions}`}</p>
+      <p className="quiz-question-count">{`Question ${
+        current + 1
+      } of ${totalQuestions}`}</p>
       {!finished ? (
         <div className="quiz-question">
           <h3>{`${current + 1}. ${question.question}`}</h3>
@@ -53,11 +61,9 @@ export default function PhishingQuiz() {
             ))}
           </ul>
 
-          {selected !== null  && (
+          {selected !== null && (
             <div className="quiz-feedback">
-              {selected !== question.answer && (
-                <p>{question.explanation}</p>
-              )}
+              {selected !== question.answer && <p>{question.explanation}</p>}
               <button className="quiz-btn" onClick={nextQuestion}>
                 Next
               </button>
@@ -70,7 +76,12 @@ export default function PhishingQuiz() {
           <p>
             Your score: {score} / {quizData.questions.length}
           </p>
-          <button className="quiz-btn" onClick={() => window.location.href = "/phishing/tasks"}>Go to tasks</button>
+          <button
+            className="quiz-btn"
+            onClick={() => (window.location.href = "/phishing/tasks")}
+          >
+            Go to tasks
+          </button>
         </div>
       )}
     </div>

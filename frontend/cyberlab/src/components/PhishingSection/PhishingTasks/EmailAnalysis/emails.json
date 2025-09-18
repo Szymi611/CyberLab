@@ -150,6 +150,19 @@
       "description": "Unexpected request for fees or taxes"
     }
   ],
+  "tips": {
+    "title": "What should you pay attention to?",
+    "info": [
+      "Check the sender's email address carefully. Look for slight misspellings or unusual domains.",
+      "Be cautious of emails that create a sense of urgency or pressure you to act quickly.",
+      "Hover over links to see the actual URL before clicking. Avoid clicking on shortened or suspicious links.",
+      "Look for spelling and grammatical errors, which are common in phishing emails.",
+      "Be wary of generic greetings like 'Dear Customer' instead of your actual name.",
+      "Avoid opening unexpected attachments, especially if they are from unknown senders.",
+      "If you receive an invoice or package notification that you weren't expecting, verify its legitimacy through official channels.",
+      "Never provide personal or financial information in response to an unsolicited email."
+    ]
+  },
   "metadata": {
     "version": "1.0",
     "lastUpdated": "2024-09-17",

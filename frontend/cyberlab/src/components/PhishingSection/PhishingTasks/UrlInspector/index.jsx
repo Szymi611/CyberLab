@@ -1,22 +1,17 @@
 import { useState } from "react";
-import emails from "./emails.json";
-import "./styles.scss";
+import urls from "./urls.json";
 import { IoWarningOutline } from "react-icons/io5";
-import flagOptions from "./constants";
-import { IoMdArrowBack } from "react-icons/io";
 import { GoQuestion } from "react-icons/go";
+import "./styles.scss";
 import InfoModal from "../../../../lib/Modal/index.jsx";
 
-export default function EmailAnalysis() {
-  const [currentEmailIndex, setCurrentEmailIndex] = useState(0);
+export default function UrlInspector() {
+  console.log(urls);
+  const [currentUrlIndex, setCurrentUrlIndex] = useState(0);
   const [selectedFlags, setSelectedFlags] = useState([]);
   const [showResults, setShowResults] = useState(false);
-  const [completedEmails, setCompletedEmails] = useState(0);
+  const [completedUrls, setCompletedUrls] = useState(0);
   const [showInfo, setShowInfo] = useState(false);
-
-  const currentEmail = emails.emails[currentEmailIndex] || {};
-
-  console.log(currentEmail);
 
   const handleFlagToggle = (flagId) => {
     setSelectedFlags((prev) =>
@@ -31,101 +26,110 @@ export default function EmailAnalysis() {
   };
 
   const handleNext = () => {
-    setCompletedEmails((prev) => prev + 1);
-    if (currentEmailIndex < emails.emails.length - 1) {
-      setCurrentEmailIndex((prev) => prev + 1);
+    setCompletedUrls((prev) => prev + 1);
+    if (currentUrlIndex < urls.urls.length - 1) {
+      setCurrentUrlIndex((prev) => prev + 1);
       setSelectedFlags([]);
       setShowResults(false);
     }
   };
 
   const resetTask = () => {
-    setCurrentEmailIndex(0);
+    setCurrentUrlIndex(0);
     setSelectedFlags([]);
     setShowResults(false);
-    setCompletedEmails(0);
+    setCompletedUrls(0);
   };
 
   const backToTasksPage = () => {
     window.location.href = "/phishing/tasks";
-  };
+  }
 
-  const handleGoBack = () => {
-    window.history.back();
-  };
+  const currentUrl = urls.urls[currentUrlIndex] || {};
 
   return (
-    <div className="email-analysis-container">
-      <div className="email-analysis-header">
-        <div className="email-analysis-title">
-          <h2>Email Analysis Task</h2>
+    <div className="url-analysis-container">
+      <div className="url-analysis-header">
+        <div className="url-analysis-title">
+          <h2>URLs Inspector</h2>
           <span className="url-tips-icon" onClick={() => setShowInfo(true)}>
             <GoQuestion size={24} />
           </span>
+          <InfoModal open={showInfo} onClose={() => setShowInfo(false)} data={urls.tips} />
         </div>
+
         <p>
-          Your task is to analyze the emails provided below and identify any
-          suspicious elements that may indicate it is a phishing attempt. After
-          reviewing the email, please select the elements you find suspicious
-          and submit your analysis. Once you submit, you can check your answers
-          and see explanations for each suspicious element. You will face a
-          total of {emails.emails.length} emails. Good luck!
+          Imagine you are a special agent in somebody's computer form security
+          department. Your job is to make sure the owner of the device does not
+          fall for any phishing URLs he got somewhere. You will receive a total
+          of {urls.urls.length} URLs. Find the suspicious elements in them and
+          don't let the owner get phished! Not all of them are phishing, some
+          are perfectly safe.
+          <br />
+          Good luck!
         </p>
-        <InfoModal open={showInfo} onClose={() => setShowInfo(false)} data={emails.tips} />
         <div className="progress-section">
           <div className="progress-info">
             <span>
-              Email {currentEmailIndex + 1} of {emails.emails.length}
+              URL {currentUrlIndex + 1} of {urls.urls.length}
             </span>
           </div>
           <div className="progress-bar">
             <div
               className="progress-fill"
               style={{
-                width: `${(completedEmails / emails.emails.length) * 100}%`,
+                width: `${(completedUrls / urls.urls.length) * 100}%`,
               }}
             ></div>
           </div>
         </div>
       </div>
-      <div className="email-card">
-        <p>From: {currentEmail.sender}</p>
-        <h3>Subject: {currentEmail.subject}</h3>
-        <h4>Contents:</h4>
-        <p>{currentEmail.body}</p>
+      <div className="url-card">
+        <h3>{currentUrl.displayText}</h3>
+        {currentUrl.id % 4 === 0 ? (
+          <a
+            href={currentUrl.actualUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Click here
+          </a>
+        ) : (
+          <p>{currentUrl.actualUrl}</p>
+        )}
       </div>
-      <div className="email-options">
-        <div className="email-options-checkboxes">
+      <div className="url-options">
+        <div className="url-options-checkboxes">
           <h4>Choose suspicious elements</h4>
-          <div className="email-flags-list">
-            {flagOptions.map((flag) => (
-              <label key={flag.id} className="email-flag-label">
+          <div className="url-flags-list">
+            {urls.flagTypes.map((flag) => (
+              <label key={flag.id} className="url-flag-label">
                 <input
                   type="checkbox"
-                  className="email-flag-checkbox"
+                  className="url-flag-checkbox"
                   checked={selectedFlags.includes(flag.id)}
                   onChange={() => handleFlagToggle(flag.id)}
                   disabled={showResults}
                 />
                 <IoWarningOutline />
-                <span className="email-flag-text">{flag.label}</span>
+                <span className="url-flag-text">{flag.label}</span>
               </label>
             ))}
           </div>
         </div>
         {!showResults && (
-          <button className="emailAnalysis-btn" onClick={handleSubmit}>
+          <button className="urlAnalysis-btn" onClick={handleSubmit}>
             Check your answers
           </button>
         )}
       </div>
       {showResults && (
-        <div className="email-results">
+        <div className="url-results">
           <h4>Analysis results:</h4>
 
           <div className="results-flags">
-            {flagOptions.map((option) => {
-              const isCorrectFlag = currentEmail.redFlags.includes(option.id);
+            {urls.flagTypes.map((option) => {
+              const isCorrectFlag = currentUrl.redFlags.includes(option.id);
               const wasSelected = selectedFlags.includes(option.id);
               const isCorrect = isCorrectFlag === wasSelected;
 
@@ -138,6 +142,7 @@ export default function EmailAnalysis() {
                 >
                   <span className="flag-status">{isCorrect ? "✅" : "❌"}</span>
                   <span className="flag-label">{option.label}</span>
+                  <span className="flag-description">{option.description}</span>
                   <span className="flag-type">
                     {isCorrectFlag ? "(Podejrzane)" : "(OK)"}
                   </span>
@@ -146,28 +151,26 @@ export default function EmailAnalysis() {
             })}
           </div>
 
-          {currentEmail.redFlags && currentEmail.redFlags.length > 0 && (
+          {currentUrl.redFlags && currentUrl.redFlags.length > 0 && (
             <div className="explanations">
               <h5>Explanations:</h5>
-              {currentEmail.redFlags.map((flag) => (
-                <div key={flag} className="explanation">
-                  <strong>
-                    {flagOptions.find((f) => f.id === flag)?.label}:
-                  </strong>
-                  <span>{currentEmail.explanation[flag]}</span>
-                </div>
-              ))}
+              <div className="explanation">
+                <strong>
+                  <span>{currentUrl.explanation}</span>
+                </strong>
+              </div>
             </div>
           )}
 
           <div className="score-section">
-            {currentEmailIndex < emails.emails.length - 1 ? (
-              <button className="emailAnalysis-btn" onClick={handleNext}>
-                Next email ({currentEmailIndex + 1}/{emails.emails.length})
+            {currentUrlIndex < urls.urls.length - 1 ? (
+              <button className="urlAnalysis-btn" onClick={handleNext}>
+                Next URL ({currentUrlIndex + 1}/{urls.urls.length})
               </button>
             ) : (
               <div>
-                <button className="emailAnalysis-btn" onClick={backToTasksPage}>
+                <p>Task completed!</p>
+                <button className="urlAnalysis-btn" onClick={backToTasksPage}>
                   End task
                 </button>
               </div>

@@ -1,0 +1,412 @@
+{
+  "urls": [
+    {
+      "id": 1,
+      "displayText": "Verify your PayPal account security",
+      "actualUrl": "http://paypaI-security.net/verify-account",
+      "isSafe": false,
+      "difficulty": "easy",
+      "category": "financial",
+      "redFlags": [
+        "typosquatting",
+        "http_not_https",
+        "suspicious_domain"
+      ],
+      "explanation": "PaypaI nie używa wielkiej litery I (i) tylko małe l (L). Prawdziwy PayPal to paypal.com i zawsze używa HTTPS.",
+      "realUrl": "https://paypal.com"
+    },
+    {
+      "id": 2,
+      "displayText": "Download your bank statement",
+      "actualUrl": "https://secure-banking.example-bank.com/statements/download",
+      "isSafe": true,
+      "difficulty": "easy",
+      "category": "financial",
+      "redFlags": [],
+      "explanation": "Legitny link - oficjalna domena banku, HTTPS, logiczna ścieżka do wyciągów.",
+      "realUrl": "https://example-bank.com"
+    },
+    {
+      "id": 3,
+      "displayText": "Click here for amazing deals!",
+      "actualUrl": "https://bit.ly/3x9K2mP",
+      "isSafe": false,
+      "difficulty": "medium",
+      "category": "shopping",
+      "redFlags": [
+        "shortened_url",
+        "generic_text",
+        "unknown_destination"
+      ],
+      "explanation": "Skrócony URL ukrywa prawdziwe przeznaczenie. Nigdy nie klikaj w nieznane skrócone linki.",
+      "realUrl": "Unknown (shortened)"
+    },
+    {
+      "id": 4,
+      "displayText": "Apple ID verification required",
+      "actualUrl": "https://apple-id-verification.support-apple.com/login",
+      "isSafe": false,
+      "difficulty": "medium",
+      "category": "tech",
+      "redFlags": [
+        "subdomain_spoofing",
+        "suspicious_subdomain"
+      ],
+      "explanation": "Subdomena support-apple.com nie należy do Apple. Prawdziwy Apple używa appleid.apple.com.",
+      "realUrl": "https://appleid.apple.com"
+    },
+    {
+      "id": 5,
+      "displayText": "Microsoft Office update available",
+      "actualUrl": "https://microsoft.com/office/updates/security-patch",
+      "isSafe": true,
+      "difficulty": "easy",
+      "category": "tech",
+      "redFlags": [],
+      "explanation": "Oficjalna domena Microsoft, HTTPS, logiczna ścieżka do aktualizacji.",
+      "realUrl": "https://microsoft.com"
+    },
+    {
+      "id": 6,
+      "displayText": "Your Amazon order #1234567890",
+      "actualUrl": "https://amazon.com.secure-orders.net/order/1234567890",
+      "isSafe": false,
+      "difficulty": "hard",
+      "category": "shopping",
+      "redFlags": [
+        "domain_hijacking",
+        "fake_subdomain",
+        "suspicious_tld"
+      ],
+      "explanation": "amazon.com.secure-orders.net to nie Amazon! Prawdziwy Amazon to amazon.com. To przykład domain hijackingu.",
+      "realUrl": "https://amazon.com"
+    },
+    {
+      "id": 7,
+      "displayText": "GitHub repository link",
+      "actualUrl": "https://github.com/user/awesome-project",
+      "isSafe": true,
+      "difficulty": "easy",
+      "category": "tech",
+      "redFlags": [],
+      "explanation": "Legitny link do GitHub - oficjalna domena, HTTPS, typowa struktura URL.",
+      "realUrl": "https://github.com"
+    },
+    {
+      "id": 8,
+      "displayText": "Netflix account suspended - verify now",
+      "actualUrl": "https://netflix-account-verification.com/suspended/verify",
+      "isSafe": false,
+      "difficulty": "medium",
+      "category": "entertainment",
+      "redFlags": [
+        "fake_domain",
+        "urgency_language",
+        "suspicious_path"
+      ],
+      "explanation": "Netflix używa netflix.com, nie netflix-account-verification.com. Typowa taktyka phishingowa.",
+      "realUrl": "https://netflix.com"
+    },
+    {
+      "id": 9,
+      "displayText": "COVID-19 vaccination certificate",
+      "actualUrl": "https://health.gov.pl/covid/certificates",
+      "isSafe": true,
+      "difficulty": "medium",
+      "category": "government",
+      "redFlags": [],
+      "explanation": "Oficjalna domena rządowa (.gov.pl), HTTPS, logiczna ścieżka do certyfikatów.",
+      "realUrl": "https://gov.pl"
+    },
+    {
+      "id": 10,
+      "displayText": "Google security alert",
+      "actualUrl": "https://google.com-security-alert.tk/verify",
+      "isSafe": false,
+      "difficulty": "hard",
+      "category": "tech",
+      "redFlags": [
+        "domain_spoofing",
+        "suspicious_tld",
+        "fake_subdomain"
+      ],
+      "explanation": "google.com-security-alert.tk próbuje naśladować Google. Prawdziwy Google to google.com, nie używa .tk",
+      "realUrl": "https://google.com"
+    },
+    {
+      "id": 11,
+      "displayText": "Facebook friend request notification",
+      "actualUrl": "https://m.facebook.com/notifications/friends",
+      "isSafe": true,
+      "difficulty": "medium",
+      "category": "social",
+      "redFlags": [],
+      "explanation": "Legitny link - m.facebook.com to oficjalna mobilna wersja Facebook.",
+      "realUrl": "https://facebook.com"
+    },
+    {
+      "id": 12,
+      "displayText": "Urgent: Your computer is infected!",
+      "actualUrl": "https://windows-security-update.info/scan-now",
+      "isSafe": false,
+      "difficulty": "easy",
+      "category": "tech",
+      "redFlags": [
+        "fake_domain",
+        "urgency_language",
+        "tech_support_scam"
+      ],
+      "explanation": "Microsoft nie wysyła alertów przez losowe domeny. To klasyczny scam tech support.",
+      "realUrl": "https://microsoft.com"
+    },
+    {
+      "id": 13,
+      "displayText": "LinkedIn connection request",
+      "actualUrl": "https://linkedin.com/in/john-doe/connect",
+      "isSafe": true,
+      "difficulty": "easy",
+      "category": "professional",
+      "redFlags": [],
+      "explanation": "Standardowy LinkedIn URL - oficjalna domena, HTTPS, typowa struktura profilu.",
+      "realUrl": "https://linkedin.com"
+    },
+    {
+      "id": 14,
+      "displayText": "DHL package delivery notification",
+      "actualUrl": "https://dhl.com.tracking-services.ru/package/123456",
+      "isSafe": false,
+      "difficulty": "hard",
+      "category": "logistics",
+      "redFlags": [
+        "domain_spoofing",
+        "suspicious_tld",
+        "wrong_country_tld"
+      ],
+      "explanation": "dhl.com.tracking-services.ru próbuje wyglądać jak DHL, ale używa rosyjskiej domeny .ru",
+      "realUrl": "https://dhl.com"
+    },
+    {
+      "id": 15,
+      "displayText": "Wikipedia article about cybersecurity",
+      "actualUrl": "https://en.wikipedia.org/wiki/Cybersecurity",
+      "isSafe": true,
+      "difficulty": "easy",
+      "category": "educational",
+      "redFlags": [],
+      "explanation": "Standardowy Wikipedia link - oficjalna domena .org, HTTPS, typowa struktura artykułu.",
+      "realUrl": "https://wikipedia.org"
+    },
+    {
+      "id": 16,
+      "displayText": "Instagram photo shared with you",
+      "actualUrl": "https://instagram-photo-share.net/photo/abc123",
+      "isSafe": false,
+      "difficulty": "medium",
+      "category": "social",
+      "redFlags": [
+        "fake_domain",
+        "social_engineering"
+      ],
+      "explanation": "Instagram używa instagram.com, nie instagram-photo-share.net. Typowy social engineering.",
+      "realUrl": "https://instagram.com"
+    },
+    {
+      "id": 17,
+      "displayText": "Stack Overflow programming question",
+      "actualUrl": "https://stackoverflow.com/questions/12345/how-to-secure-api",
+      "isSafe": true,
+      "difficulty": "medium",
+      "category": "tech",
+      "redFlags": [],
+      "explanation": "Legitny Stack Overflow link - oficjalna domena, HTTPS, typowa struktura pytania.",
+      "realUrl": "https://stackoverflow.com"
+    },
+    {
+      "id": 18,
+      "displayText": "Free crypto giveaway from Elon Musk!",
+      "actualUrl": "https://tesla-crypto-giveaway.com/free-bitcoin",
+      "isSafe": false,
+      "difficulty": "easy",
+      "category": "crypto",
+      "redFlags": [
+        "too_good_to_be_true",
+        "fake_domain",
+        "crypto_scam"
+      ],
+      "explanation": "Klasyczny crypto scam. Elon Musk nie rozdaje crypto przez losowe strony.",
+      "realUrl": "https://tesla.com"
+    },
+    {
+      "id": 19,
+      "displayText": "Steam game discount notification",
+      "actualUrl": "https://steampowered.com/specials/summer-sale",
+      "isSafe": true,
+      "difficulty": "medium",
+      "category": "gaming",
+      "redFlags": [],
+      "explanation": "Oficjalny Steam link - steampowered.com to prawdziwa domena Steam, HTTPS.",
+      "realUrl": "https://steampowered.com"
+    },
+    {
+      "id": 20,
+      "displayText": "Your package requires customs fee payment",
+      "actualUrl": "https://customs-fee-payment.delivery-service.com/pay/PL123",
+      "isSafe": false,
+      "difficulty": "medium",
+      "category": "logistics",
+      "redFlags": [
+        "fake_customs",
+        "payment_scam",
+        "suspicious_domain"
+      ],
+      "explanation": "Opłaty celne nie są pobierane przez losowe strony. Sprawdź z oficjalnym kurierem.",
+      "realUrl": "Contact official courier"
+    }
+  ],
+  "flagTypes": [
+    {
+      "id": "typosquatting",
+      "label": "Typosquatting",
+      "description": "A domain similar to a popular one, but with a typo in the link",
+      "severity": "high"
+    },
+    {
+      "id": "http_not_https",
+      "label": "Does not use HTTPS",
+      "description": "Uses HTTP instead of secure HTTPS",
+      "severity": "medium"
+    },
+    {
+      "id": "suspicious_domain",
+      "label": "Suspicious domain",
+      "description": "A domain that does not match the expected company/service",
+      "severity": "high"
+    },
+    {
+      "id": "shortened_url",
+      "label": "Shortened URL",
+      "description": "Links like bit.ly, tinyurl etc. hide the true destination",
+      "severity": "medium"
+    },
+    {
+      "id": "subdomain_spoofing",
+      "label": "Subdomain spoofing",
+      "description": "Uses subdomains to deceive",
+      "severity": "high"
+    },
+    {
+      "id": "domain_hijacking",
+      "label": "Domain hijacking",
+      "description": "Attempts to exploit a well-known domain name",
+      "severity": "high"
+    },
+    {
+      "id": "suspicious_tld",
+      "label": "Suspicious TLD",
+      "description": "Uses unusual TLDs like .tk, .ml etc.",
+      "severity": "medium"
+    },
+    {
+      "id": "urgency_language",
+      "label": "The language of pressure",
+      "description": "Text exerts time or psychological pressure",
+      "severity": "medium"
+    },
+    {
+      "id": "too_good_to_be_true",
+      "label": "Too good to be true",
+      "description": "Promises of free prizes, money, electronic devices etc.",
+      "severity": "high"
+    },
+    {
+      "id": "fake_domain",
+      "label": "Fake domain",
+      "description": "A domain pretending to be a well-known company or service",
+      "severity": "high"
+    }
+  ],
+  "categories": [
+    {
+      "id": "financial",
+      "label": "Finanse",
+      "color": "#28a745"
+    },
+    {
+      "id": "tech",
+      "label": "Technologia",
+      "color": "#007bff"
+    },
+    {
+      "id": "shopping",
+      "label": "Zakupy",
+      "color": "#ffc107"
+    },
+    {
+      "id": "social",
+      "label": "Media społecznościowe",
+      "color": "#e83e8c"
+    },
+    {
+      "id": "government",
+      "label": "Rządowe",
+      "color": "#6f42c1"
+    },
+    {
+      "id": "entertainment",
+      "label": "Rozrywka",
+      "color": "#fd7e14"
+    },
+    {
+      "id": "logistics",
+      "label": "Logistyka",
+      "color": "#20c997"
+    },
+    {
+      "id": "crypto",
+      "label": "Kryptowaluty",
+      "color": "#dc3545"
+    },
+    {
+      "id": "gaming",
+      "label": "Gaming",
+      "color": "#17a2b8"
+    },
+    {
+      "id": "educational",
+      "label": "Edukacyjne",
+      "color": "#6c757d"
+    },
+    {
+      "id": "professional",
+      "label": "Zawodowe",
+      "color": "#343a40"
+    }
+  ],
+  "difficulty_levels": [
+    {
+      "level": "easy",
+      "label": "Łatwy",
+      "description": "Oczywiste oszustwa, łatwe do rozpoznania",
+      "points": 10
+    },
+    {
+      "level": "medium",
+      "label": "Średni",
+      "description": "Wymaga uwagi i podstawowej wiedzy",
+      "points": 15
+    },
+    {
+      "level": "hard",
+      "label": "Trudny",
+      "description": "Wyrafinowane ataki, trudne do rozpoznania",
+      "points": 25
+    }
+  ],
+  "metadata": {
+    "version": "1.0",
+    "totalUrls": 20,
+    "safeUrls": 8,
+    "dangerousUrls": 12,
+    "maxScore": 320
+  }
+}

@@ -4,6 +4,8 @@ import Navbar from "./components/Navbar/Navbar.jsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import PhishingMainPage from "./components/PhishingSection/PhishingMainPage/index.jsx";
 import PhishingQuiz from "./components/PhishingSection/PhishingQuiz/index.jsx";
+import EmailAnalysis from "./components/PhishingSection/PhishingTasks/EmailAnalysis/index.jsx";
+import UrlInspector from "./components/PhishingSection/PhishingTasks/UrlInspector/index.jsx";
 import PhishingTasks from "./components/PhishingSection/PhishingTasks/index.jsx";
 
 export default function App() {
@@ -17,6 +19,8 @@ export default function App() {
           <Route path="/phishing" element={<PhishingMainPage />} />
           <Route path="phishing/quiz" element={<PhishingQuiz />} />
           <Route path="phishing/tasks" element={<PhishingTasks />} />
+          <Route path="phishing/tasks/emailAnalysis" element={<EmailAnalysis />} />
+          <Route path="phishing/tasks/urlInspector" element={<UrlInspector />} />
         </Routes>
       </BrowserRouter>
     </>

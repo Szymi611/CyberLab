@@ -1,14 +1,21 @@
 import "./styles.scss";
 import content from "../../../assets/content/phishing.json";
 import ImageSlider from "../../../lib/ImageSlider";
+import { IoMdArrowBack } from "react-icons/io";
+
 
 export default function PhishingTheoryCard() {
   const handleGoToQuiz = () => {
     window.location.href = "/phishing/quiz";
   };
 
+  const handleGoBack = () => {
+    window.history.back();
+  }
+
   return (
     <div className="phishing-card">
+      <IoMdArrowBack  onClick={handleGoBack} style={{ cursor: "pointer" }}/>
       <div className="phishing-header">
         <div>
           <h2 className="phishing-title">{content.intro.title}</h2>
