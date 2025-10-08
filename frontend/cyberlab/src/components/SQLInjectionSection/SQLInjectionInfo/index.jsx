@@ -23,10 +23,10 @@ export default function SQLInjectionInfo() {
         <div className="sql-sections">
           <div className="sql-section">
             <h3 className="sql-section-title">
-              {content.whatIsSQLInjection.title}
+              {content.whatIsSqlInjection.title}
             </h3>
             <p className="sql-section-text">
-              {content.whatIsSQLInjection.text}
+              {content.whatIsSqlInjection.text}
             </p>
           </div>
           <div className="sql-section">
