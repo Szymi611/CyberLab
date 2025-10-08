@@ -31,15 +31,15 @@ export default function PhishingTheoryCard() {
           </div>
 
           <div className="phishing-section">
-            <h3>{content.types.title}</h3>
-            <h5>{content.types.email.subtitle}</h5>
+            <h2>{content.types.title}</h2>
+            <h4>{content.types.email.subtitle}</h4>
             <p>{content.types.email.text}</p>
-            <h5>{content.types.smishing.subtitle}</h5>
+            <h4>{content.types.smishing.subtitle}</h4>
             <p>{content.types.smishing.text}</p>
-            <h5>{content.types.vishing.subtitle}</h5>
+            <h4>{content.types.vishing.subtitle}</h4>
             <p>{content.types.vishing.text}</p>
 
-            <h5>{content.types.spear.subtitle}</h5>
+            <h4>{content.types.spear.subtitle}</h4>
             <p>{content.types.spear.text}</p>
           </div>
 
@@ -181,6 +181,7 @@ export default function PhishingTheoryCard() {
           </div>
         </div>
       </div>
+      
       <button
         onClick={handleGoToQuiz}
         className="phishing-btn primary desktop-only"

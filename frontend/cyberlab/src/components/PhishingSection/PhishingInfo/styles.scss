@@ -1,7 +1,7 @@
 .phishing-card {
   max-width: 1000px;
   margin: 0 auto;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 10);
   border: 1px solid rgba(0, 128, 0, 0.4);
   border-radius: 16px;
   padding: 20px;
@@ -86,8 +86,8 @@
 }
 
 .phishing-section {
-  background: rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(0, 128, 0, 0.3);
+  border: 0.15rem solid rgba(0, 128, 0, 0.3);
+  box-shadow: 2px 2px 4px rgba(0, 128, 0, 0.3);
   border-radius: 8px;
   padding: 8px;
 }

@@ -156,7 +156,7 @@
   },
   "detectionAndMonitoring": {
     "title": "Detection and Monitoring",
-    "description": "How to detect an attack",
+    "description": "How to detect an attack ?",
     "points": [
       "Analyze application and DBMS logs (unusual parameters, SQL syntax errors).",
       "Look for anomalies in traffic (e.g., a single parameter suddenly changing to a long string).",
@@ -197,7 +197,7 @@
   },
   "summary": {
     "title": "Summary",
-    "description": "Key takeaways",
+    "description": "Key takeaways:",
     "points": [
       "SQL Injection results from mixing SQL code with unvalidated data.",
       "The most effective protection: query parameterization and use of prepared statements.",
