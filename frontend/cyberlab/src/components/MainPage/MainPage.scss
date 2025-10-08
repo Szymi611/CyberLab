@@ -17,6 +17,7 @@
 }
 
 .phishing-link,
+.sql-injection-link,
 .xss-link,
 .csrf-link {
   display: flex;
@@ -27,7 +28,10 @@
   gap: 1rem;
 }
 
-.phishing-content {
+.phishing-content,
+.sql-injection-content,
+.xss-content,
+.csrf-content {
   display: flex;
   flex-direction: column;
   align-items: center;

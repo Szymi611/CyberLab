@@ -39,9 +39,9 @@ export default function Navbar() {
             <li className="navbar-list-item">
               <a href="/" className="navbar-link">About</a>
             </li> */}
-            <li className="navbar-list-item">
+            {/* <li className="navbar-list-item">
               <a href="/" className="navbar-link">Sign in</a>
-            </li>
+            </li> */}
           </ul>
         </div>
       </nav>

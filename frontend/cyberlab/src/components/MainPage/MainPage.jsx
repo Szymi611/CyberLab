@@ -2,6 +2,7 @@ import "./MainPage.scss";
 import PhishingImg from "../../assets/images/PhishingIcon.png";
 import XSSImg from "../../assets/images/XSSIcon.png";
 import CSRFImg from "../../assets/images/CSRFIcon.png";
+import SQLImg from "../../assets/images/SqlInjectionIcon.png";
 import { Link } from "react-router-dom";
 
 export default function MainPage() {
@@ -22,7 +23,18 @@ export default function MainPage() {
         </div>
       </div>
       {/* SQL Injection */}
-      <div className="grid-item">SQL Injection</div>
+      <div className="grid-item">
+        <div className="sql-injection-content">
+          <Link to="/sql-injection" className="sql-injection-link">
+            <span>SQL Injection</span>
+            <img
+              src={SQLImg}
+              alt="SQL Injection attack"
+              className="main-page-attack-img"
+            />
+          </Link>
+        </div>
+      </div>
       {/* Cross-Site Scripting */}
       <div className="grid-item xss">
         Cross-Site Scripting(XSS)

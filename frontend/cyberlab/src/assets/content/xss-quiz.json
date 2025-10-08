@@ -1,0 +1,136 @@
+{
+  "quizTitle": "XSS (Cross-Site Scripting) Security Quiz",
+  "quizDescription": "Test your knowledge about XSS attacks and protection methods",
+  "questions": [
+    {
+      "id": 1,
+      "difficulty": "easy",
+      "question": "What does XSS stand for?",
+      "options": [
+        "Cross-Site Scripting",
+        "Cross-Server Security",
+        "External Style Sheets",
+        "Cross-System Synchronization"
+      ],
+      "answer": 0,
+      "explanation": "XSS stands for Cross-Site Scripting. It's abbreviated as XSS (not CSS) to avoid confusion with Cascading Style Sheets."
+    },
+    {
+      "id": 2,
+      "difficulty": "easy",
+      "question": "What is the main goal of an XSS attack?",
+      "options": [
+        "To crash the web server",
+        "To inject and execute malicious JavaScript in victim's browser",
+        "To delete the database",
+        "To encrypt user files"
+      ],
+      "answer": 1,
+      "explanation": "XSS attacks inject malicious scripts (usually JavaScript) that execute in the victim's browser, allowing attackers to steal data, hijack sessions, or perform actions on behalf of users."
+    },
+    {
+      "id": 3,
+      "difficulty": "easy",
+      "question": "Which of these can be stolen through XSS?",
+      "options": [
+        "Only passwords",
+        "Session cookies, passwords, personal data entered by users",
+        "Only email addresses",
+        "XSS cannot steal any data"
+      ],
+      "answer": 1,
+      "explanation": "XSS can steal session cookies (leading to account hijacking), capture passwords and sensitive data entered by users, and access any information available in the browser."
+    },
+    {
+      "id": 4,
+      "difficulty": "medium",
+      "question": "What is Stored XSS (Persistent XSS)?",
+      "options": [
+        "XSS that exists only in browser cache",
+        "Malicious script permanently stored on server and executed every time users view the content",
+        "XSS that only works offline",
+        "XSS stored in cookies"
+      ],
+      "answer": 1,
+      "explanation": "Stored XSS occurs when malicious script is saved on the server (e.g., in comments, profiles) and executes for every user who views that content. It's the most dangerous type because it affects many users automatically."
+    },
+    {
+      "id": 5,
+      "difficulty": "medium",
+      "question": "What is the difference between Reflected XSS and Stored XSS?",
+      "options": [
+        "There is no difference",
+        "Reflected XSS is in the URL and executes immediately; Stored XSS is saved on server and affects multiple users",
+        "Reflected XSS is more dangerous",
+        "Stored XSS only works on mobile devices"
+      ],
+      "answer": 1,
+      "explanation": "Reflected XSS is delivered through a malicious link (URL parameter) and affects only the victim who clicks it. Stored XSS is saved in the database and automatically affects all users who view the infected content."
+    },
+    {
+      "id": 6,
+      "difficulty": "medium",
+      "question": "What is the most effective way to prevent XSS?",
+      "options": [
+        "Using strong passwords",
+        "Output encoding/escaping - converting dangerous characters like < > into safe forms",
+        "Installing antivirus on the server",
+        "Using HTTPS only"
+      ],
+      "answer": 1,
+      "explanation": "Output encoding converts dangerous characters (< > \" ' &) into safe HTML entities (&lt; &gt; etc.), preventing browser from interpreting user input as executable code. This is the primary defense against XSS."
+    },
+    {
+      "id": 7,
+      "difficulty": "medium",
+      "question": "What is Content-Security-Policy (CSP)?",
+      "options": [
+        "A password policy",
+        "An HTTP header that tells browser which sources of scripts and content are trusted",
+        "A firewall setting",
+        "A database security feature"
+      ],
+      "answer": 1,
+      "explanation": "CSP is an HTTP header that controls where scripts, styles, and other resources can be loaded from. It can block inline scripts and allow only whitelisted sources, providing strong XSS protection."
+    },
+    {
+      "id": 8,
+      "difficulty": "medium",
+      "question": "Why should session cookies have the HTTPOnly flag?",
+      "options": [
+        "To make cookies work over HTTP only",
+        "To prevent JavaScript from accessing cookies, protecting against XSS cookie theft",
+        "To make the website faster",
+        "To comply with privacy laws"
+      ],
+      "answer": 1,
+      "explanation": "The HTTPOnly flag prevents JavaScript (including XSS attacks) from reading cookie values via document.cookie. This protects session cookies from being stolen even if XSS vulnerability exists."
+    },
+    {
+      "id": 9,
+      "difficulty": "hard",
+      "question": "Which React method is dangerous and can lead to XSS if misused?",
+      "options": [
+        "useState",
+        "useEffect",
+        "dangerouslySetInnerHTML",
+        "onClick"
+      ],
+      "answer": 2,
+      "explanation": "dangerouslySetInnerHTML bypasses React's automatic escaping and inserts raw HTML. If used with unsanitized user input, it creates XSS vulnerability. Use it only with trusted, sanitized content."
+    },
+    {
+      "id": 10,
+      "difficulty": "hard",
+      "question": "What is DOM-Based XSS?",
+      "options": [
+        "XSS that attacks the Document Object Model",
+        "XSS where vulnerability is in client-side JavaScript that improperly processes user input without server involvement",
+        "XSS that only works in Chrome",
+        "A type of SQL Injection"
+      ],
+      "answer": 1,
+      "explanation": "DOM-Based XSS occurs when client-side JavaScript reads user input (from URL, DOM) and inserts it into the page without sanitization. The malicious payload never reaches the server - it's processed entirely in the browser."
+    }
+  ]
+}
