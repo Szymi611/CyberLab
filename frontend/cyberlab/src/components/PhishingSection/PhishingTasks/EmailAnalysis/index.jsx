@@ -16,7 +16,6 @@ export default function EmailAnalysis() {
 
   const currentEmail = emails.emails[currentEmailIndex] || {};
 
-  console.log(currentEmail);
 
   const handleFlagToggle = (flagId) => {
     setSelectedFlags((prev) =>

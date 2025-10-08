@@ -1,0 +1,136 @@
+{
+  "quizTitle": "SQL Injection Security Quiz",
+  "quizDescription": "Test your knowledge about SQL Injection - from basics to practical protection methods",
+  "questions": [
+    {
+      "id": 1,
+      "difficulty": "easy",
+      "question": "What is SQL Injection?",
+      "options": [
+        "A technique of inserting malicious SQL code into application input fields",
+        "A method of database optimization",
+        "A type of antivirus software",
+        "A way to create database backups"
+      ],
+      "answer": 0,
+      "explanation": "SQL Injection (SQLi) is a code injection technique used to attack applications by inserting malicious SQL statements into input fields like login forms or search boxes."
+    },
+    {
+      "id": 2,
+      "difficulty": "easy",
+      "question": "Where can SQL Injection attacks occur?",
+      "options": [
+        "Only in login forms",
+        "Only in URL parameters",
+        "In input fields, URL parameters, cookies, and HTTP headers",
+        "Only in mobile applications"
+      ],
+      "answer": 2,
+      "explanation": "SQL Injection can occur in many places: login forms, search fields, URL parameters, cookies, and HTTP headers - anywhere user input is processed by the database."
+    },
+    {
+      "id": 3,
+      "difficulty": "easy",
+      "question": "What can an attacker gain through SQL Injection?",
+      "options": [
+        "Only read access to public data",
+        "Access to passwords, personal data, ability to modify or delete data",
+        "Only the ability to slow down the website",
+        "Access only to website design"
+      ],
+      "answer": 1,
+      "explanation": "SQL Injection is very dangerous - attackers can steal sensitive data (passwords, credit cards), modify or delete data, gain admin rights, or bypass authentication."
+    },
+    {
+      "id": 4,
+      "difficulty": "medium",
+      "question": "What is the biggest mistake leading to SQL Injection?",
+      "options": [
+        "Using too short passwords",
+        "String concatenation to build SQL queries with user input",
+        "Not using HTTPS",
+        "Storing data in the cloud"
+      ],
+      "answer": 1,
+      "explanation": "The main cause of SQL Injection is string concatenation - directly combining user input with SQL code, like: 'SELECT * FROM users WHERE name = ' + userInput. This allows injecting malicious code."
+    },
+    {
+      "id": 5,
+      "difficulty": "medium",
+      "question": "What are prepared statements (parameterized queries)?",
+      "options": [
+        "Pre-written SQL queries that cannot be modified",
+        "A technique where SQL query and data are sent separately to the database",
+        "Database backup before making changes",
+        "A method of encrypting queries"
+      ],
+      "answer": 1,
+      "explanation": "Prepared statements separate SQL code from data. The query contains placeholders (?, $1, :name) and values are passed separately. The database treats them only as data, not executable code."
+    },
+    {
+      "id": 6,
+      "difficulty": "medium",
+      "question": "Why is input validation important, even when using prepared statements?",
+      "options": [
+        "It completely replaces the need for prepared statements",
+        "It's an additional layer of protection (defense-in-depth) that reduces attack surface",
+        "It's only needed for email addresses",
+        "It's not important if we use prepared statements"
+      ],
+      "answer": 1,
+      "explanation": "Input validation is an extra layer of security. It checks if data has the right format (email, number, UUID) and rejects suspicious input early. It doesn't replace prepared statements but enhances security."
+    },
+    {
+      "id": 7,
+      "difficulty": "medium",
+      "question": "What does 'principle of least privilege' mean for database security?",
+      "options": [
+        "Everyone should have minimal access to the database",
+        "The database account should have only the minimum necessary permissions to function",
+        "Only one person can access the database",
+        "Passwords should be as short as possible"
+      ],
+      "answer": 1,
+      "explanation": "The application should use a database account with minimal permissions (only SELECT, INSERT, UPDATE, DELETE where needed), not administrator accounts. This limits damage if an attack succeeds."
+    },
+    {
+      "id": 8,
+      "difficulty": "medium",
+      "question": "Why shouldn't we show detailed database error messages to users?",
+      "options": [
+        "Because users won't understand them",
+        "Because they can reveal database structure and help attackers",
+        "Because they take up too much space on screen",
+        "Because it's against the law"
+      ],
+      "answer": 1,
+      "explanation": "Detailed error messages can expose table names, column names, and query structure - valuable information for attackers. Show generic errors to users, log details internally."
+    },
+    {
+      "id": 9,
+      "difficulty": "hard",
+      "question": "Can using an ORM (like Hibernate, SQLAlchemy) fully protect against SQL Injection?",
+      "options": [
+        "Yes, ORM always protects 100%",
+        "No, if developers use raw SQL with user input, vulnerabilities can still occur",
+        "Yes, but only with additional firewall",
+        "No, ORM increases vulnerability"
+      ],
+      "answer": 1,
+      "explanation": "ORMs usually use parameterized queries, but developers can bypass this protection by writing raw SQL with concatenated user input. ORM helps but doesn't guarantee full protection."
+    },
+    {
+      "id": 10,
+      "difficulty": "hard",
+      "question": "What is the role of WAF (Web Application Firewall) in SQL Injection protection?",
+      "options": [
+        "WAF is sufficient protection - no code changes needed",
+        "WAF is an additional layer that can detect attacks, but cannot replace secure coding",
+        "WAF only protects against viruses, not SQL Injection",
+        "WAF is outdated and should not be used"
+      ],
+      "answer": 1,
+      "explanation": "WAF can detect and block typical SQL Injection patterns, but it's only an additional layer. The foundation is secure code - parameterized queries. Never rely solely on WAF."
+    }
+  ]
+}

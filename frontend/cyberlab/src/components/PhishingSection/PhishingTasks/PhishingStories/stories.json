@@ -1,0 +1,127 @@
+{
+  "title": "Phish or Legit? - Identify the Threat",
+  "question": "Is this phishing or legit?",
+  "options": [
+    "Phishing – suspicious elements",
+    "Legit – safe to interact"
+  ],
+  "stories": [
+    {
+      "id": 1,
+      "scenario": "You receive an email from your bank saying your account has been temporarily suspended. It asks you to click a link and confirm your login details immediately.",
+      "options": [
+        "Phishing – suspicious link and urgent request",
+        "Legit – safe to click"
+      ],
+      "answer": 0,
+      "explanation": "Banks usually do not ask to confirm login via email. Urgency and unknown links are typical phishing signs."
+    },
+    {
+      "id": 2,
+      "scenario": "You get a message from your manager asking you to download a document from a Google Drive link. The sender's email looks slightly off: manager@companny.com",
+      "question": "Phish or Legit?",
+      "options": [
+        "Phishing – email domain looks fake",
+        "Legit – safe to download"
+      ],
+      "answer": 0,
+      "explanation": "The misspelled domain and unexpected link indicate a phishing attempt."
+    },
+    {
+      "id": 3,
+      "scenario": "An SMS says you won a gift card and provides a link to claim it. You don't remember entering any contest.",
+      "question": "Phish or Legit?",
+      "options": [
+        "Phishing – unsolicited message with link",
+        "Legit – you won, can click"
+      ],
+      "answer": 0,
+      "explanation": "Unsolicited prizes are common phishing tactics; avoid clicking links from unknown sources."
+    },
+    {
+      "id": 4,
+      "scenario": "You receive an email from your HR department with your payslip attached in PDF. The email comes from hr@company.com as usual.",
+      "question": "Phish or Legit?",
+      "options": [
+        "Phishing – be careful",
+        "Legit – trusted source"
+      ],
+      "answer": 1,
+      "explanation": "The email is from a verified source with expected content; this is likely safe."
+    },
+    {
+      "id": 5,
+      "scenario": "A pop-up on a website says your computer is infected and asks to download an 'antivirus tool' immediately.",
+      "question": "Phish or Legit?",
+      "options": [
+        "Phishing – fake alert",
+        "Legit – must download"
+      ],
+      "answer": 0,
+      "explanation": "Unexpected pop-ups asking to download software are usually scams."
+    },
+    {
+      "id": 6,
+      "scenario": "You receive an email from a coworker asking for help with a project. The tone is slightly off, and it asks you to open a ZIP file.",
+      "question": "Phish or Legit?",
+      "options": [
+        "Phishing – suspicious attachment",
+        "Legit – trusted coworker"
+      ],
+      "answer": 0,
+      "explanation": "Unexpected attachments, even from coworkers, can be phishing if the tone or request is unusual."
+    },
+    {
+      "id": 7,
+      "scenario": "An online store emails you a receipt for a purchase you made yesterday. Everything looks normal, and links point to the store domain.",
+      "question": "Phish or Legit?",
+      "options": [
+        "Phishing – suspicious email",
+        "Legit – matches your activity"
+      ],
+      "answer": 1,
+      "explanation": "The email matches your recent activity and comes from a trusted domain."
+    },
+    {
+      "id": 8,
+      "scenario": "You receive a LinkedIn message from someone you don't know offering a job opportunity. They ask you to submit personal info via a link.",
+      "question": "Phish or Legit?",
+      "options": [
+        "Phishing – unknown sender and info request",
+        "Legit – job offer is safe"
+      ],
+      "answer": 0,
+      "explanation": "Unexpected requests for personal information from unknown contacts are classic phishing."
+    },
+    {
+      "id": 9,
+      "scenario": "Your antivirus software notifies you about an outdated version and prompts an automatic update through the program itself.",
+      "question": "Phish or Legit?",
+      "options": [
+        "Phishing – be suspicious",
+        "Legit – official software update"
+      ],
+      "answer": 1,
+      "explanation": "Official software update prompts from trusted programs are safe; avoid third-party pop-ups."
+    },
+    {
+      "id": 10,
+      "scenario": "You get an email from a friend asking to check a funny video link. The link shortener is unknown and redirects outside social media platforms.",
+      "question": "Phish or Legit?",
+      "options": [
+        "Phishing – suspicious short link",
+        "Legit – trust your friend"
+      ],
+      "answer": 0,
+      "explanation": "Shortened or unknown links can hide malicious sites, even if sent by friends; verify before clicking."
+    }
+  ],
+  "tips": {
+    "title": "What should you pay attention to?",
+    "info": [
+      "Read the stories carefully. Look for some suspicious elements. Decide if the story is phishing or legit.",
+      "Not all stories are phishing, some are perfectly safe.",
+      " Look for common phishing signs: urgent requests, unknown links, misspelled domains, unexpected attachments, unsolicited prizes, and requests for personal info."
+    ]
+  }
+}

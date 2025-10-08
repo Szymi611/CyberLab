@@ -1,0 +1,198 @@
+.phishing-stories-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
+  box-sizing: border-box;
+}
+
+.phishing-stories-header {
+  text-align: center;
+  color: white;
+  width: 100%;
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 12px;
+    color: #fff;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+}
+
+.phishing-stories-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.stories-tips-icon {
+  cursor: pointer;
+  color: white;
+}
+
+.progress-section {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 16px;
+  box-sizing: border-box;
+
+  .progress-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .progress-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    overflow: hidden;
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #28a745, #20c997);
+      transition: width 0.3s ease;
+      border-radius: 4px;
+    }
+  }
+}
+
+.story-card {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+
+  h3 {
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  p {
+    color: white;
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+}
+
+.story-options {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.story-options-content {
+  width: 100%;
+
+  h4 {
+    color: white;
+    margin-bottom: 16px;
+    font-size: 1.2rem;
+  }
+
+  p {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+}
+
+.story-options-buttons {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+.story-option {
+  flex: 1;
+}
+
+.stories-btn {
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  width: 100%;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.error-btn {
+  background-color: #dc3545;
+
+  &:hover {
+    background-color: #c82333;
+  }
+}
+
+.success-btn {
+  background-color: #28a745;
+
+  &:hover {
+    background-color: #218838;
+  }
+}
+
+@media (max-width: 768px) {
+  .phishing-stories-container {
+    padding: 16px;
+    max-width: 100%;
+  }
+
+  .phishing-stories-header {
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
+
+  .progress-info {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+
+  .story-card {
+    padding: 12px;
+  }
+
+  .story-options {
+    padding: 12px;
+  }
+}

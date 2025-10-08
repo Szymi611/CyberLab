@@ -1,0 +1,208 @@
+{
+  "intro": {
+    "title": "SQL Injection - Make Your Data Unhackable"
+  },
+  "whatIsSqlInjection": {
+    "title": "What is SQL Injection?",
+    "text": "SQL Injection is also known as SQLi. It is one of the most common web application vulnerabilities. It is a code injection technique used to attack data-driven applications. It is based on inserting or \"injecting\" malicious SQL statements into a field for execution (e.g to expose the database content to attacker). This injection must use a security vulnerability in an application."
+  },
+  "whyIsItDangerous": {
+    "title": "Why is it dangerous?",
+    "risks": [
+      "Access to sensitive data (password, personal data, credit card number)",
+      "Modifying, adding or deleting data",
+      "Gaining administrative rights to a database",
+      "Bypassing authentication and authorization mechanisms",
+      "Access to the system layers"
+    ]
+  },
+  "occurrenceConditions": {
+    "title": "Occurrence conditions",
+    "places": [
+      "Input fields (e.g. login forms, search fields)",
+      "HTTP parameters (e.g. URL parameters, headers)",
+      "Cookies",
+      "Old or badly designed applications",
+      "Lack of input validation and safety tests"
+    ]
+  },
+  "typicalCodingMistakes": {
+    "title": "Typical coding mistakes leading to SQL Injection",
+    "mistakes": [
+      "String concatenation (combining two or more strings into one) to create SQL queries",
+      "Lack of input validation",
+      "Using dynamic SQL queries where it is not necessary",
+      "Incorrect data typing (e.g always treating input as a string or number as number)",
+      "Too many privileges for database users"
+    ]
+  },
+  "howToProtect": {
+    "title": "How to protect against SQL Injection",
+    "description": "Below are good practices that help protect against SQL Injection attacks.",
+    "methods": {
+      "preparedStatements": {
+        "title": "Prepared statements (parameterized queries)",
+        "description": "Parameterized queries is a technique in which SQL query and data is sent separately to the database. This query contains placeholders (e.g ?, %s, :name) instead of directly inserted value. Database binds values to the placeholders and treats them as data and data only - not as part of SQL query",
+        "examples": [
+          {
+            "language": "Python (sqlite3)",
+            "placeholderStyle": "?",
+            "sql": "SELECT * FROM users WHERE username = ? AND active = ?",
+            "params": ["'alice'", true],
+            "note": "Positional parameters as tuple/list; driver will use binding."
+          },
+          {
+            "language": "Node.js (pg / Postgres)",
+            "placeholderStyle": "$1, $2, ...",
+            "sql": "SELECT * FROM products WHERE category = $1 AND price <= $2",
+            "params": ["electronics", 199.99],
+            "note": "Numbered placeholders ($1, $2) — pass array of values."
+          },
+          {
+            "language": "Example: dynamic IN-list (safe)",
+            "placeholderStyle": "%s (later expanded to multiple placeholders)",
+            "sqlTemplate": "SELECT * FROM items WHERE id IN ({placeholders})",
+            "paramsConstruction": {
+              "ids": [10, 20, 30],
+              "placeholders": "%s, %s, %s",
+              "params": [10, 20, 30]
+            },
+            "note": "For variable-length lists, create as many placeholders as elements and pass list of values."
+          }
+        ]
+      },
+      "useOrmWisely": {
+        "title": "Use ORM or query builders wisely",
+        "description": "ORMs (e.g., Hibernate, SQLAlchemy, Doctrine) usually parameterize queries automatically, but they can still be misused. Avoid raw SQL with untrusted input and do not interpolate identifiers (like column or table names) without validation.",
+        "recommendations": [
+          "Never use raw SQL with user input unless parameterized.",
+          "Do not concatenate identifiers (table/column names) without checking them against an allowed list.",
+          "Remember: ORMs do not sanitize identifiers automatically."
+        ]
+      },
+      "leastPrivilege": {
+        "title": "Least privilege — restrict database account permissions",
+        "description": "The database account used by the application should have only the minimum privileges needed. Avoid using high-privilege or administrative accounts for application connections.",
+        "recommendations": [
+          "Grant only SELECT, INSERT, UPDATE, DELETE where needed.",
+          "Never use DBA/ADMIN accounts for normal application operations.",
+          "Apply the principle of least privilege consistently."
+        ]
+      },
+      "inputValidation": {
+        "title": "Input validation and filtering (defense-in-depth)",
+        "description": "Always validate user input format and apply allowlists for expected values. Input validation does not replace parameterization but helps reduce attack surface.",
+        "recommendations": [
+          "Validate data formats (e.g., email, number, UUID).",
+          "Use allowlists for expected values (e.g., allowed columns, sort directions).",
+          "Reject unexpected or malformed input early."
+        ]
+      },
+      "avoidDynamicSql": {
+        "title": "Avoid dynamic SQL — or strictly validate identifiers",
+        "description": "Dynamic SQL generation increases risk. If unavoidable (e.g., for dynamic ORDER BY), verify all identifiers and values against a whitelist.",
+        "recommendations": [
+          "Do not concatenate raw input into SQL strings.",
+          "Validate identifiers like column names or sort directions against predefined safe lists.",
+          "Prefer static queries whenever possible."
+        ]
+      },
+      "errorHandling": {
+        "title": "Error handling — do not leak sensitive details",
+        "description": "Detailed DBMS error messages can expose internal structure or query fragments. Always sanitize what is shown to the user.",
+        "recommendations": [
+          "Show only generic error messages to end users.",
+          "Log full details internally with restricted access.",
+          "Avoid exposing SQL syntax or stack traces in responses."
+        ]
+      },
+      "webApplicationFirewall": {
+        "title": "Web Application Firewall (WAF)",
+        "description": "A WAF can detect and block common SQL injection attempts, but it should be used as an additional protection layer — not a substitute for secure coding.",
+        "recommendations": [
+          "Deploy WAF as a secondary defense layer.",
+          "Use it to detect anomalies or block obvious attack patterns.",
+          "Do not rely solely on WAF for SQL injection prevention."
+        ]
+      },
+      "monitoringAndLogging": {
+        "title": "Monitoring and logging",
+        "description": "Monitor database activity to detect suspicious queries or performance anomalies that may indicate exploitation attempts.",
+        "recommendations": [
+          "Track unusual query patterns and latency spikes (e.g., time-based blind SQLi).",
+          "Log SQL errors and access attempts carefully.",
+          "Ensure sensitive data is not exposed in logs."
+        ]
+      },
+      "regularSecurityTesting": {
+        "title": "Regular security testing",
+        "description": "Perform continuous security assessments including automated (SAST, DAST) and manual penetration testing by authorized experts.",
+        "recommendations": [
+          "Run regular static and dynamic application security tests.",
+          "Schedule periodic penetration tests.",
+          "Fix and retest any identified weaknesses."
+        ]
+      },
+      "secureDatabaseConfig": {
+        "title": "Secure database configuration management",
+        "description": "A properly configured database minimizes exposure. Disable unnecessary features, secure access, and encrypt data in transit and at rest.",
+        "recommendations": [
+          "Disable unused DBMS features and interfaces.",
+          "Set strong passwords and limit network access to the DB.",
+          "Use encryption for data at rest and in transit (TLS)."
+        ]
+      }
+    }
+  },
+  "detectionAndMonitoring": {
+    "title": "Detection and Monitoring",
+    "description": "How to detect an attack",
+    "points": [
+      "Analyze application and DBMS logs (unusual parameters, SQL syntax errors).",
+      "Look for anomalies in traffic (e.g., a single parameter suddenly changing to a long string).",
+      "Watch for increased response times (blind SQL injection attacks can delay responses).",
+      "IPS/WAF systems alert on suspicious query patterns.",
+      "Run SAST/DAST tests in CI/CD pipelines (detect regressions)."
+    ]
+  },
+  "secureCodePolicyExamples": {
+    "title": "Secure Code Policy Examples",
+    "description": "Examples of secure rules in code security policy",
+    "points": [
+      "All queries using external data must be parameterized.",
+      "Ban the use of exec / eval or dynamic SQL without formal review and whitelisted identifiers.",
+      "Application DB accounts should have minimal privileges.",
+      "Database errors: use internal logging and generic external error messages.",
+      "Enforce encrypted database connections (TLS) wherever possible."
+    ]
+  },
+  "specialAndDifficultCases": {
+    "title": "Special and Difficult Cases",
+    "description": "Special and complex situations",
+    "points": [
+      "Stored procedures: they do not guarantee security — they can be safe if parameterized but still vulnerable when using dynamic SQL.",
+      "LIKE / pattern matching: even with parameterization, watch for wildcards — prefer parameters, and if you manipulate patterns, validate or escape them.",
+      "Batching / multiple statements: disable multiple-statement execution unless your library requires it.",
+      "Dynamic ORDER BY / sorting columns: use whitelists of allowed values; never insert raw text directly."
+    ]
+  },
+  "commonMyths": {
+    "title": "Common Myths",
+    "description": "Most common myths / misunderstandings",
+    "points": [
+      "\"Escaping characters is enough\" — escaping is risky and depends on DBMS/encoding; parameterization is safer.",
+      "\"ORM provides full protection\" — ORM helps, but developers can bypass it using raw SQL, reintroducing vulnerabilities.",
+      "\"WAF solves everything\" — WAF is useful, but it cannot replace proper secure coding."
+    ]
+  },
+  "summary": {
+    "title": "Summary",
+    "description": "Key takeaways",
+    "points": [
+      "SQL Injection results from mixing SQL code with unvalidated data.",
+      "The most effective protection: query parameterization and use of prepared statements.",
+      "Defense in depth: least privilege access, input validation, logging, monitoring, and WAF as an additional layer.",
+      "Test and audit regularly; experiment only in test environments with proper authorization."
+    ]
+  }
+}

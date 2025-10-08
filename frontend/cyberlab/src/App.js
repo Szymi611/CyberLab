@@ -7,6 +7,8 @@ import PhishingQuiz from "./components/PhishingSection/PhishingQuiz/index.jsx";
 import EmailAnalysis from "./components/PhishingSection/PhishingTasks/EmailAnalysis/index.jsx";
 import UrlInspector from "./components/PhishingSection/PhishingTasks/UrlInspector/index.jsx";
 import PhishingTasks from "./components/PhishingSection/PhishingTasks/index.jsx";
+import PhishingStories from "./components/PhishingSection/PhishingTasks/PhishingStories/index.jsx";
+import SQLInjectionMainPage from "./components/SQLInjectionSection/SQLInjectionMainPage/index.jsx";
 
 export default function App() {
   return (
@@ -21,6 +23,9 @@ export default function App() {
           <Route path="phishing/tasks" element={<PhishingTasks />} />
           <Route path="phishing/tasks/emailAnalysis" element={<EmailAnalysis />} />
           <Route path="phishing/tasks/urlInspector" element={<UrlInspector />} />
+          <Route path="phishing/tasks/phishingStories" element={<PhishingStories />} />
+          <Route path="/sql-injection" element={<SQLInjectionMainPage />} />
+          
         </Routes>
       </BrowserRouter>
     </>
