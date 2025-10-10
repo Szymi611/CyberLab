@@ -1,0 +1,171 @@
+.xss-card {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: rgba(0, 0, 0, 10);
+  border: 1px solid rgba(0, 128, 0, 0.4);
+  border-radius: 16px;
+  padding: 20px;
+  color: #aaffaa;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+}
+
+.xss-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.xss-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #7fff7f;
+}
+
+.xss-intro {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: #bbffbb;
+}
+
+.xss-btn {
+  padding: 8px 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  justify-content: end;
+  align-items: flex-end;
+  margin-top: 1rem;
+}
+
+.xss-btn.primary {
+  background: #2ecc71;
+  color: #000;
+  border: none;
+  align-self: flex-end;
+}
+
+.xss-btn.primary:hover {
+  background: #27ae60;
+}
+
+.xss-btn.secondary {
+  background: #444;
+  color: #7fff7f;
+  border: 1px solid #2ecc71;
+  width: 100%;
+  margin-top: 12px;
+}
+
+.xss-btn.secondary:hover {
+  background: #2ecc71;
+  color: #000;
+}
+
+.desktop-only {
+  display: none;
+}
+@media (min-width: 768px) {
+  .desktop-only {
+    display: inline-block;
+  }
+}
+
+.xss-body {
+  gap: 16px;
+}
+
+.xss-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: fit-content;
+}
+
+.xss-section {
+  border: 0.15rem solid rgba(0, 128, 0, 0.3);
+  box-shadow: 2px 2px 4px rgba(0, 128, 0, 0.3);
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.xss-section h3 {
+  font-size: 1.1rem;
+  color: #90ee90;
+  margin-bottom: 8px;
+}
+
+.xss-section p {
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.xss-aside {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 128, 0, 0.3);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.xss-aside h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #90ee90;
+  margin-bottom: 8px;
+}
+
+.xss-aside ul {
+  list-style: disc;
+  margin-left: 16px;
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+}
+
+.xss-examples {
+  margin-top: 24px;
+
+  h3 {
+    font-size: 1.2rem;
+    color: #90ee90;
+    margin-bottom: 12px;
+  }
+}
+
+.xss-example {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 128, 0, 0.3);
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.xss-message {
+  background: #111;
+  color: #aaffaa;
+  padding: 12px;
+  border-radius: 6px;
+  font-family: monospace;
+  font-size: 0.85rem;
+  white-space: pre-wrap;
+  margin-bottom: 12px;
+}
+
+.xss-flags {
+  list-style: none;
+  padding-left: 0;
+  font-size: 0.9rem;
+
+  li {
+    margin-bottom: 6px;
+  }
+}
+
+.xss-section-link {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}

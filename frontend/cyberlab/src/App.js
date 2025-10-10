@@ -11,6 +11,7 @@ import PhishingStories from "./components/PhishingSection/PhishingTasks/Phishing
 import SQLInjectionMainPage from "./components/SQLInjectionSection/SQLInjectionMainPage/index.jsx";
 import SQLInjectionQuiz from "./components/SQLInjectionSection/SQLInjectionQuiz/index.jsx";
 import SQLInjectionTasks from "./components/SQLInjectionSection/SQLInjectionTasks/index.jsx";
+import XSSSection from "./components/XSSSection/index.jsx";
 
 export default function App() {
   return (
@@ -38,6 +39,7 @@ export default function App() {
           <Route path="/sql-injection" element={<SQLInjectionMainPage />} />
           <Route path="sql-injection/quiz" element={<SQLInjectionQuiz />} />
           <Route path="sql-injection/tasks" element={<SQLInjectionTasks />} />
+          <Route path="/xss" element={<XSSSection />} />
         </Routes>
       </BrowserRouter>
     </>

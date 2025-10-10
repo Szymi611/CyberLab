@@ -70,7 +70,7 @@
   },
   "howToProtect": {
     "title": "How to protect against XSS",
-    "description": "Below are best practices to prevent XSS attacks.",
+    "description": "Below are best practices to prevent XSS attacks:",
     "methods": {
       "outputEncoding": {
         "title": "Output encoding/escaping",
@@ -175,7 +175,7 @@
   },
   "detectionAndMonitoring": {
     "title": "Detection and Monitoring",
-    "description": "How to detect XSS attacks",
+    "description": "How to detect XSS attacks?",
     "points": [
       "Monitor Content-Security-Policy violation reports",
       "Log and analyze suspicious patterns in user input (script tags, event handlers)",
@@ -212,29 +212,37 @@
   },
   "realWorldExamples": {
     "title": "Real-World XSS Attacks",
-    "description": "Famous XSS incidents",
+    "description": "Famous XSS incidents:",
     "examples": [
       {
         "name": "Samy Worm (MySpace, 2005)",
-        "description": "First self-propagating XSS worm. Infected over 1 million MySpace users in 20 hours by adding Samy as a friend to every profile visited."
+        "year": 2005,
+        "type": "Stored XSS (self-propagating)",
+        "description": "The Samy Worm exploited a stored XSS vulnerability in MySpace user profiles by injecting malicious JavaScript into the 'About Me' section. When a user viewed an infected profile, the script executed automatically, adding Samy as a friend and copying itself to that user's profile. This self-replicating behavior caused an exponential infection rate, with over a million profiles compromised in less than 24 hours. The attack demonstrated the dangers of unsanitized user-generated content and the potential for social-network worms to spread rapidly, leading to MySpace temporarily shutting down to fix the vulnerability and banning the attacker."
       },
       {
         "name": "Twitter XSS (2010)",
-        "description": "Stored XSS in tweets caused automatic retweeting and redirects. Affected thousands of users including high-profile accounts."
+        "year": 2010,
+        "type": "Reflected / DOM XSS (via tweet content and event handlers)",
+        "description": "A security flaw in Twitter allowed malicious JavaScript embedded in tweets to execute when users interacted with them. The attack leveraged DOM-based injection and event handlers such as 'onmouseover', enabling automatic retweets, redirects to external websites, and the potential theft of session tokens. The attack spread quickly due to the real-time nature of the Twitter feed and the platform's automatic retweet functionality, affecting thousands of accounts, including verified users. It highlighted the risks of improperly sanitized dynamic content and the amplification potential in high-traffic social media platforms."
       },
       {
-        "name": "British Airways (2018)",
-        "description": "XSS attack on payment page stole credit card data from 380,000 customers. Company fined £20 million."
+        "name": "British Airways Payment-page Compromise (Magecart, 2018)",
+        "year": 2018,
+        "type": "Third-party / supply-chain JavaScript injection (Magecart-style)",
+        "description": "Attackers injected malicious JavaScript into British Airways' payment page to intercept sensitive customer data, including credit card numbers, names, and billing addresses. The script captured payment information as it was entered and sent it to attacker-controlled servers, bypassing traditional security monitoring because it ran in the context of a trusted domain. Approximately 380,000 customer records were compromised, leading to a £20 million regulatory fine. The attack illustrated how third-party scripts and supply-chain vulnerabilities can be exploited for large-scale data theft, emphasizing the importance of content security policies, subresource integrity, and strict third-party code audits."
       },
       {
         "name": "eBay Persistent XSS (2015-2016)",
-        "description": "Stored XSS in product listings remained unpatched for months, allowing attackers to steal credentials."
+        "year": 2015,
+        "type": "Stored (persistent) XSS in product listings",
+        "description": "A persistent XSS vulnerability existed in eBay's product listing fields, allowing attackers to embed JavaScript into item titles or descriptions. When other users viewed these listings, the malicious code executed in their browsers, potentially stealing session cookies, hijacking accounts, or redirecting users to phishing sites. The flaw persisted for months, exposing thousands of buyers and sellers to fraud. This incident demonstrated the long-term risks of unpatched stored XSS in e-commerce platforms and the need for both rapid security response and robust input/output sanitization strategies to protect users and maintain platform trust."
       }
     ]
   },
   "summary": {
     "title": "Summary",
-    "description": "Key takeaways",
+    "description": "Key takeaways:",
     "points": [
       "XSS allows attackers to execute malicious JavaScript in victim's browser",
       "Three main types: Reflected, Stored, and DOM-Based XSS",

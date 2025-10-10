@@ -37,12 +37,16 @@ export default function MainPage() {
       </div>
       {/* Cross-Site Scripting */}
       <div className="grid-item xss">
-        Cross-Site Scripting(XSS)
-        <img
-          src={XSSImg}
-          alt="Cross-Site Scripting attack"
-          className="main-page-attack-img"
-        />
+        <div className="xss-content">
+          <Link to="/xss" className="xss-link">
+            <span>Cross-Site Scripting</span>
+            <img
+              src={XSSImg}
+              alt="Cross-Site Scripting attack"
+              className="main-page-attack-img"
+            />
+          </Link>
+        </div>
       </div>
       {/* CSRF */}
       <div className="grid-item csrf">
