@@ -39,7 +39,7 @@ export default function SQLInjectionQuiz() {
         onClick={handleGoBack}
         style={{ cursor: "pointer", marginTop: "1rem" }}
       />
-      <h2 className="quiz-title">{quizData.title}</h2>
+      <h2 className="quiz-title">{quizData.quizTitle}</h2>
       <p className="quiz-question-count">{`Question ${
         current + 1
       } of ${totalQuestions}`}</p>
@@ -57,7 +57,7 @@ export default function SQLInjectionQuiz() {
                       : "wrong"
                     : ""
                 }`}
-                onClick={() => handleAnswer(index)}
+                onClick={() => selected === null && handleAnswer(index)}
               >
                 {opt}
               </li>

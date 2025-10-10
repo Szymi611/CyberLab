@@ -1,9 +1,9 @@
-import { useState } from "react";
-import quizData from "../../../assets/content/phishing-quiz.json";
-import "./quiz.scss";
+import quizData from "../../../assets/content/xss-quiz.json";
 import { IoMdArrowBack } from "react-icons/io";
+import { useState } from "react";
+import "./styles.scss";
 
-export default function PhishingQuiz() {
+export default function XSSQuiz() {
   const [current, setCurrent] = useState(0);
   const [selected, setSelected] = useState(null);
   const [score, setScore] = useState(0);
@@ -32,14 +32,13 @@ export default function PhishingQuiz() {
   const handleGoBack = () => {
     window.history.back();
   };
-
   return (
     <div className="quiz-card">
       <IoMdArrowBack
         onClick={handleGoBack}
         style={{ cursor: "pointer", marginTop: "1rem" }}
       />
-      <h2 className="quiz-title">{quizData.title}</h2>
+      <h2 className="quiz-title">{quizData.quizTitle}</h2>
       <p className="quiz-question-count">{`Question ${
         current + 1
       } of ${totalQuestions}`}</p>
@@ -81,7 +80,7 @@ export default function PhishingQuiz() {
           </p>
           <button
             className="quiz-btn"
-            onClick={() => (window.location.href = "/phishing/tasks")}
+            onClick={() => (window.location.href = "/xss/tasks")}
           >
             Go to tasks
           </button>

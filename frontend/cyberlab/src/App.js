@@ -12,6 +12,7 @@ import SQLInjectionMainPage from "./components/SQLInjectionSection/SQLInjectionM
 import SQLInjectionQuiz from "./components/SQLInjectionSection/SQLInjectionQuiz/index.jsx";
 import SQLInjectionTasks from "./components/SQLInjectionSection/SQLInjectionTasks/index.jsx";
 import XSSSection from "./components/XSSSection/index.jsx";
+import XSSQuiz from "./components/XSSSection/XSSQuiz/index.jsx";
 
 export default function App() {
   return (
@@ -40,6 +41,7 @@ export default function App() {
           <Route path="sql-injection/quiz" element={<SQLInjectionQuiz />} />
           <Route path="sql-injection/tasks" element={<SQLInjectionTasks />} />
           <Route path="/xss" element={<XSSSection />} />
+          <Route path="xss/quiz" element={<XSSQuiz />} />
         </Routes>
       </BrowserRouter>
     </>
