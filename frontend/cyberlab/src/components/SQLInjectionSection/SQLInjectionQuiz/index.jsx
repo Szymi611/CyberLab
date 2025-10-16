@@ -81,9 +81,9 @@ export default function SQLInjectionQuiz() {
           </p>
           <button
             className="quiz-btn"
-            onClick={() => (window.location.href = "/sql-injection/tasks")}
+            onClick={() => (window.location.href = "/sql-injection")}
           >
-            Go to tasks
+            Go to back to SQL Injection Section
           </button>
         </div>
       )}

@@ -337,7 +337,7 @@ export default function SQLInjectionInfo() {
           Start Pentest Methodology
         </button>
         <button
-          onClick={() => (window.location.href = "/sql-injection/methodology")}
+          onClick={() => (window.location.href = "/sql-injection/tasks/task1")}
           className="phishing-btn tertiary desktop-only"
         >
           Practical Challenges

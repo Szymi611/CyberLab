@@ -1,10 +1,10 @@
-const sqlite3 = require('sqlite3').verbose();
+const sqlite3 = require("sqlite3").verbose();
 
-const db = new sqlite3.Database('./database.db', (err) => {
-  if(err){
+const db = new sqlite3.Database("./database.db", (err) => {
+  if (err) {
     console.error(err.message);
-  }else{
-    console.log('Connected to the database.');
+  } else {
+    console.log("Connected to the database.");
   }
 });
 
@@ -17,6 +17,27 @@ db.serialize(() => {
 
   db.run(`INSERT INTO users (username, password) VALUES ('admin', 'admin123')`);
   db.run(`INSERT INTO users (username, password) VALUES ('user', 'user123')`);
-})
+
+  db.run(`CREATE TABLE IF NOT EXISTS secrets (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    secret_key TEXT
+  )`);
+
+  db.run(`CREATE TABLE IF NOT EXISTS admin_data (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    admin_user TEXT,
+    admin_pass TEXT,
+    email TEXT
+  )`);
+
+  db.run(
+    `INSERT INTO secrets (secret_key) VALUES ('FLAG{SQL_M4ST3R_L3V3L_4}')`
+  );
+  db.run(`INSERT INTO secrets (secret_key) VALUES ('SECRET_API_KEY_12345')`);
+
+  db.run(
+    `INSERT INTO admin_data (admin_user, admin_pass, email) VALUES ('root', 'r00t_p@ssw0rd', 'admin@secure.com')`
+  );
+});
 
 module.exports = db;

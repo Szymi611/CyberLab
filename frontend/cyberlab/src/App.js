@@ -13,6 +13,15 @@ import SQLInjectionQuiz from "./components/SQLInjectionSection/SQLInjectionQuiz/
 import SQLInjectionTasks from "./components/SQLInjectionSection/SQLInjectionTasks/index.jsx";
 import XSSSection from "./components/XSSSection/index.jsx";
 import XSSQuiz from "./components/XSSSection/XSSQuiz/index.jsx";
+import VulnerableLogin from "./components/SQLInjectionSection/SQLInjectionTasks/VulnerableLogin/index.jsx";
+import BlindSQLInjection from "./components/SQLInjectionSection/SQLInjectionTasks/BlindSQLInjection/index.jsx";
+import FilteredSQLInjection from "./components/SQLInjectionSection/SQLInjectionTasks/FilteredSQLInjection/index.jsx";
+import UnionBasedSQLInjection from "./components/SQLInjectionSection/SQLInjectionTasks/UnionBaseSQLInjection/index.jsx";
+import ErrorBasedSQLInjection from "./components/SQLInjectionSection/SQLInjectionTasks/SQLInjectionErrorBased/index.jsx";
+import ReconnaissanceTask from "./components/SQLInjectionSection/SQLInjectionTasks/ReconnaissanceTask/index.jsx";
+import ScanningTask from "./components/SQLInjectionSection/SQLInjectionTasks/ScanningTask/index.jsx";
+import ExploitationTask from "./components/SQLInjectionSection/SQLInjectionTasks/ExploitationTask/index.jsx";
+import PentestMethodology from "./components/SQLInjectionSection/SQLInjectionTasks/PentestMethodology/index.jsx";
 
 export default function App() {
   return (
@@ -39,7 +48,43 @@ export default function App() {
           />
           <Route path="/sql-injection" element={<SQLInjectionMainPage />} />
           <Route path="sql-injection/quiz" element={<SQLInjectionQuiz />} />
-          <Route path="sql-injection/tasks" element={<SQLInjectionTasks />} />
+          <Route
+            path="sql-injection/methodology"
+            element={<PentestMethodology />}
+          />
+          <Route
+            path="sql-injection/tasks/reconnaissanceSQL"
+            element={<ReconnaissanceTask />}
+          />
+          <Route
+            path="sql-injection/tasks/scanningSQL"
+            element={<ScanningTask />}
+          />
+          <Route
+            path="sql-injection/tasks/exploitationSQL"
+            element={<ExploitationTask />}
+          />
+          <Route path="sql-injection/tasksss" element={<SQLInjectionTasks />} />
+          <Route
+            path="sql-injection/tasks/task1"
+            element={<VulnerableLogin />}
+          />
+          <Route
+            path="sql-injection/tasks/task2"
+            element={<BlindSQLInjection />}
+          />
+          <Route
+            path="/sql-injection/tasks/task3"
+            element={<FilteredSQLInjection />}
+          />
+          <Route
+            path="/sql-injection/tasks/task4"
+            element={<UnionBasedSQLInjection />}
+          />
+          <Route
+            path="/sql-injection/tasks/task5"
+            element={<ErrorBasedSQLInjection />}
+          />
           <Route path="/xss" element={<XSSSection />} />
           <Route path="xss/quiz" element={<XSSQuiz />} />
         </Routes>
