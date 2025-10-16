@@ -57,8 +57,6 @@ export default function MainPage() {
           className="main-page-attack-img"
         />
       </div>
-      <div className="grid-item div5">Directory Trav</div>
-      <div className="grid-item div6">XSS DOM</div>
     </div>
   );
 }

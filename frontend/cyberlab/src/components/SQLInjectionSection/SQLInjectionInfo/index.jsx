@@ -74,7 +74,9 @@ export default function SQLInjectionInfo() {
                 {content.howToProtect.description}
               </p>
               <div>
-                <h3>1. {content.howToProtect.methods.preparedStatements.title}</h3>
+                <h3>
+                  1. {content.howToProtect.methods.preparedStatements.title}
+                </h3>
                 <p>
                   {content.howToProtect.methods.preparedStatements.description}
                 </p>
@@ -110,9 +112,11 @@ export default function SQLInjectionInfo() {
                 <p>{content.howToProtect.methods.useOrmWisely.description}</p>
                 <p>
                   <ul>
-                    {content.howToProtect.methods.useOrmWisely.recommendations.map((recommendation, index) => (
-                      <li key={index}>{recommendation}</li>
-                    ))}
+                    {content.howToProtect.methods.useOrmWisely.recommendations.map(
+                      (recommendation, index) => (
+                        <li key={index}>{recommendation}</li>
+                      )
+                    )}
                   </ul>
                 </p>
               </div>
@@ -121,31 +125,41 @@ export default function SQLInjectionInfo() {
                 <p>{content.howToProtect.methods.leastPrivilege.description}</p>
                 <p>
                   <ul>
-                    {content.howToProtect.methods.leastPrivilege.recommendations.map((recommendation, index) => (
-                      <li key={index}>{recommendation}</li>
-                    ))}
+                    {content.howToProtect.methods.leastPrivilege.recommendations.map(
+                      (recommendation, index) => (
+                        <li key={index}>{recommendation}</li>
+                      )
+                    )}
                   </ul>
                 </p>
               </div>
               <div>
                 <h3>4. {content.howToProtect.methods.inputValidation.title}</h3>
-                <p>{content.howToProtect.methods.inputValidation.description}</p>
+                <p>
+                  {content.howToProtect.methods.inputValidation.description}
+                </p>
                 <p>
                   <ul>
-                    {content.howToProtect.methods.inputValidation.recommendations.map((recommendation, index) => (
-                      <li key={index}>{recommendation}</li>
-                    ))}
+                    {content.howToProtect.methods.inputValidation.recommendations.map(
+                      (recommendation, index) => (
+                        <li key={index}>{recommendation}</li>
+                      )
+                    )}
                   </ul>
                 </p>
               </div>
               <div>
                 <h3>5. {content.howToProtect.methods.avoidDynamicSql.title}</h3>
-                <p>{content.howToProtect.methods.avoidDynamicSql.description}</p>
+                <p>
+                  {content.howToProtect.methods.avoidDynamicSql.description}
+                </p>
                 <p>
                   <ul>
-                    {content.howToProtect.methods.avoidDynamicSql.recommendations.map((recommendation, index) => (
-                      <li key={index}>{recommendation}</li>
-                    ))}
+                    {content.howToProtect.methods.avoidDynamicSql.recommendations.map(
+                      (recommendation, index) => (
+                        <li key={index}>{recommendation}</li>
+                      )
+                    )}
                   </ul>
                 </p>
               </div>
@@ -154,53 +168,91 @@ export default function SQLInjectionInfo() {
                 <p>{content.howToProtect.methods.errorHandling.description}</p>
                 <p>
                   <ul>
-                    {content.howToProtect.methods.errorHandling.recommendations.map((recommendation, index) => (
-                      <li key={index}>{recommendation}</li>
-                    ))}
+                    {content.howToProtect.methods.errorHandling.recommendations.map(
+                      (recommendation, index) => (
+                        <li key={index}>{recommendation}</li>
+                      )
+                    )}
                   </ul>
                 </p>
               </div>
               <div>
-                <h3>7. {content.howToProtect.methods.webApplicationFirewall.title}</h3>
-                <p>{content.howToProtect.methods.webApplicationFirewall.description}</p>
+                <h3>
+                  7. {content.howToProtect.methods.webApplicationFirewall.title}
+                </h3>
+                <p>
+                  {
+                    content.howToProtect.methods.webApplicationFirewall
+                      .description
+                  }
+                </p>
                 <p>
                   <ul>
-                    {content.howToProtect.methods.webApplicationFirewall.recommendations.map((recommendation, index) => (
-                      <li key={index}>{recommendation}</li>
-                    ))}
+                    {content.howToProtect.methods.webApplicationFirewall.recommendations.map(
+                      (recommendation, index) => (
+                        <li key={index}>{recommendation}</li>
+                      )
+                    )}
                   </ul>
                 </p>
               </div>
               <div>
-                <h3>8. {content.howToProtect.methods.monitoringAndLogging.title}</h3>
-                <p>{content.howToProtect.methods.monitoringAndLogging.description}</p>
+                <h3>
+                  8. {content.howToProtect.methods.monitoringAndLogging.title}
+                </h3>
+                <p>
+                  {
+                    content.howToProtect.methods.monitoringAndLogging
+                      .description
+                  }
+                </p>
                 <p>
                   <ul>
-                    {content.howToProtect.methods.monitoringAndLogging.recommendations.map((recommendation, index) => (
-                      <li key={index}>{recommendation}</li>
-                    ))}
+                    {content.howToProtect.methods.monitoringAndLogging.recommendations.map(
+                      (recommendation, index) => (
+                        <li key={index}>{recommendation}</li>
+                      )
+                    )}
                   </ul>
                 </p>
               </div>
               <div>
-                <h3>9. {content.howToProtect.methods.regularSecurityTesting.title}</h3>
-                <p>{content.howToProtect.methods.regularSecurityTesting.description}</p>
+                <h3>
+                  9. {content.howToProtect.methods.regularSecurityTesting.title}
+                </h3>
+                <p>
+                  {
+                    content.howToProtect.methods.regularSecurityTesting
+                      .description
+                  }
+                </p>
                 <p>
                   <ul>
-                    {content.howToProtect.methods.regularSecurityTesting.recommendations.map((recommendation, index) => (
-                      <li key={index}>{recommendation}</li>
-                    ))}
+                    {content.howToProtect.methods.regularSecurityTesting.recommendations.map(
+                      (recommendation, index) => (
+                        <li key={index}>{recommendation}</li>
+                      )
+                    )}
                   </ul>
                 </p>
               </div>
               <div>
-                <h3>10. {content.howToProtect.methods.secureDatabaseConfig.title}</h3>
-                <p>{content.howToProtect.methods.secureDatabaseConfig.description}</p>
+                <h3>
+                  10. {content.howToProtect.methods.secureDatabaseConfig.title}
+                </h3>
+                <p>
+                  {
+                    content.howToProtect.methods.secureDatabaseConfig
+                      .description
+                  }
+                </p>
                 <p>
                   <ul>
-                    {content.howToProtect.methods.secureDatabaseConfig.recommendations.map((recommendation, index) => (
-                      <li key={index}>{recommendation}</li>
-                    ))}
+                    {content.howToProtect.methods.secureDatabaseConfig.recommendations.map(
+                      (recommendation, index) => (
+                        <li key={index}>{recommendation}</li>
+                      )
+                    )}
                   </ul>
                 </p>
               </div>
@@ -277,12 +329,26 @@ export default function SQLInjectionInfo() {
           </div>
         </div>
       </div>
-      <button
-        onClick={handleGoToQuiz}
-        className="phishing-btn primary desktop-only"
-      >
-        Start quiz
-      </button>
+      <div className="sql-actions">
+        <button
+          onClick={() => (window.location.href = "/sql-injection/methodology")}
+          className="phishing-btn tertiary desktop-only"
+        >
+          Start Pentest Methodology
+        </button>
+        <button
+          onClick={() => (window.location.href = "/sql-injection/methodology")}
+          className="phishing-btn tertiary desktop-only"
+        >
+          Practical Challenges
+        </button>
+        <button
+          onClick={handleGoToQuiz}
+          className="phishing-btn tertiary desktop-only"
+        >
+          Test Your Knowledge (Quiz)
+        </button>
+      </div>
     </div>
   );
 }
