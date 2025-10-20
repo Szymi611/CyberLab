@@ -21,7 +21,8 @@ import ErrorBasedSQLInjection from "./components/SQLInjectionSection/SQLInjectio
 import ReconnaissanceTask from "./components/SQLInjectionSection/SQLInjectionTasks/ReconnaissanceTask/index.jsx";
 import ScanningTask from "./components/SQLInjectionSection/SQLInjectionTasks/ScanningTask/index.jsx";
 import ExploitationTask from "./components/SQLInjectionSection/SQLInjectionTasks/ExploitationTask/index.jsx";
-import PentestMethodology from "./components/SQLInjectionSection/SQLInjectionTasks/PentestMethodology/index.jsx";
+import SQLPentestMethodology from "./components/SQLInjectionSection/SQLInjectionTasks/SQLPentestMethodology/index.jsx";
+import PhishingPentestMethodology from "./components/PhishingSection/PhishingTasks/PhishingPentestMethodology/index.jsx";
 
 export default function App() {
   return (
@@ -33,6 +34,7 @@ export default function App() {
           <Route path="/" element={<MainPage />} />
           <Route path="/phishing" element={<PhishingMainPage />} />
           <Route path="phishing/quiz" element={<PhishingQuiz />} />
+          <Route path="phishing/methodology" element={<PhishingPentestMethodology />} />
           <Route path="phishing/tasks" element={<PhishingTasks />} />
           <Route
             path="phishing/tasks/emailAnalysis"
@@ -50,7 +52,7 @@ export default function App() {
           <Route path="sql-injection/quiz" element={<SQLInjectionQuiz />} />
           <Route
             path="sql-injection/methodology"
-            element={<PentestMethodology />}
+            element={<SQLPentestMethodology />}
           />
           <Route
             path="sql-injection/tasks/reconnaissanceSQL"

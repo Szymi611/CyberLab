@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import quizData from "../../../assets/content/phishing-quiz.json";
 import "./quiz.scss";
 import { IoMdArrowBack } from "react-icons/io";
@@ -9,21 +9,29 @@ export default function PhishingQuiz() {
   const [score, setScore] = useState(0);
   const [finished, setFinished] = useState(false);
 
-  const question = quizData.questions[current];
+  const answeredLockRef = useRef(false);
 
   const totalQuestions = quizData.questions.length;
+  const question = quizData.questions[current];
 
   const handleAnswer = (index) => {
+    if (answeredLockRef.current || finished) return;
+
+    answeredLockRef.current = true;
     setSelected(index);
+
     if (index === question.answer) {
-      setScore(score + 1);
+      setScore((prev) => prev + 1);
     }
   };
 
   const nextQuestion = () => {
-    if (current + 1 < quizData.questions.length) {
-      setCurrent(current + 1);
+    if (selected === null) return;
+
+    if (current + 1 < totalQuestions) {
+      setCurrent((prev) => prev + 1);
       setSelected(null);
+      answeredLockRef.current = false;
     } else {
       setFinished(true);
     }
@@ -38,36 +46,53 @@ export default function PhishingQuiz() {
       <IoMdArrowBack
         onClick={handleGoBack}
         style={{ cursor: "pointer", marginTop: "1rem" }}
+        aria-label="Go back"
       />
       <h2 className="quiz-title">{quizData.title}</h2>
-      <p className="quiz-question-count">{`Question ${
-        current + 1
-      } of ${totalQuestions}`}</p>
+
+      {!finished && (
+        <p className="quiz-question-count">{`Question ${current + 1} of ${totalQuestions}`}</p>
+      )}
+
       {!finished ? (
         <div className="quiz-question">
           <h3>{`${current + 1}. ${question.question}`}</h3>
           <ul className="quiz-options">
-            {question.options.map((opt, index) => (
-              <li
-                key={index}
-                className={`quiz-option ${
-                  selected === index
-                    ? index === question.answer
-                      ? "correct"
-                      : "wrong"
-                    : ""
-                }`}
-                onClick={() => selected === null && handleAnswer(index)}
-              >
-                {opt}
-              </li>
-            ))}
+            {question.options.map((opt, index) => {
+              const isSelected = selected === index;
+              const isCorrect = index === question.answer;
+
+              let stateClass = "";
+              if (selected !== null) {
+                stateClass = isCorrect ? "correct" : isSelected ? "wrong" : "";
+              }
+
+              return (
+                <li
+                  key={index}
+                  className={`quiz-option ${stateClass} ${
+                    selected !== null ? "disabled" : ""
+                  }`}
+                  onClick={() => handleAnswer(index)}
+                  aria-disabled={selected !== null}
+                >
+                  {opt}
+                </li>
+              );
+            })}
           </ul>
 
           {selected !== null && (
             <div className="quiz-feedback">
-              {selected !== question.answer && <p>{question.explanation}</p>}
-              <button className="quiz-btn" onClick={nextQuestion}>
+              <p>
+                {selected === question.answer ? "Correct! " : "Not quite. "}
+                {question.explanation}
+              </p>
+              <button
+                className="quiz-btn"
+                onClick={nextQuestion}
+                disabled={selected === null}
+              >
                 Next
               </button>
             </div>
@@ -77,7 +102,7 @@ export default function PhishingQuiz() {
         <div className="quiz-result">
           <h3>End of quiz!</h3>
           <p>
-            Your score: {score} / {quizData.questions.length}
+            Your score: {score} / {totalQuestions}
           </p>
           <button
             className="quiz-btn"

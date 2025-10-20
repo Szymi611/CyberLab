@@ -182,12 +182,26 @@ export default function PhishingTheoryCard() {
         </div>
       </div>
       
-      <button
-        onClick={handleGoToQuiz}
-        className="phishing-btn primary desktop-only"
-      >
-        Start quiz
-      </button>
+      <div className="sql-actions">
+        <button
+          onClick={() => (window.location.href = "/phishing/methodology")}
+          className="phishing-btn tertiary desktop-only"
+        >
+          Start Pentest Methodology
+        </button>
+        <button
+          onClick={() => (window.location.href = "/phishing/tasks/")}
+          className="phishing-btn tertiary desktop-only"
+        >
+          Practical Challenges
+        </button>
+        <button
+          onClick={handleGoToQuiz}
+          className="phishing-btn tertiary desktop-only"
+        >
+          Test Your Knowledge (Quiz)
+        </button>
+      </div>
     </div>
   );
 }
