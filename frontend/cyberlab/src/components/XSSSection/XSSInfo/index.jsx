@@ -197,12 +197,26 @@ export default function XSSInfo() {
           </div>
         </div>
       </div>
-      <button
-        onClick={handleGoToQuiz}
-        className="phishing-btn primary desktop-only"
-      >
-        Start quiz
-      </button>
+      <div className="xss-actions">
+        <button
+          onClick={() => (window.location.href = "/xss/methodology")}
+          className="xss-btn tertiary desktop-only"
+        >
+          Start Pentest Methodology
+        </button>
+        <button
+          onClick={() => (window.location.href = "/xss/tasks/task1")}
+          className="xss-btn tertiary desktop-only"
+        >
+          Practical Challenges
+        </button>
+        <button
+          onClick={handleGoToQuiz}
+          className="xss-btn tertiary desktop-only"
+        >
+          Test Your Knowledge (Quiz)
+        </button>
+      </div>
     </div>
   );
 }
