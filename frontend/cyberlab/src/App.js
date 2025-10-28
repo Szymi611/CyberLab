@@ -23,6 +23,10 @@ import ScanningTask from "./components/SQLInjectionSection/SQLInjectionTasks/Sca
 import ExploitationTask from "./components/SQLInjectionSection/SQLInjectionTasks/ExploitationTask/index.jsx";
 import SQLPentestMethodology from "./components/SQLInjectionSection/SQLInjectionTasks/SQLPentestMethodology/index.jsx";
 import PhishingPentestMethodology from "./components/PhishingSection/PhishingTasks/PhishingPentestMethodology/index.jsx";
+import XSSReconnaissanceTask from "./components/XSSSection/XSSTasks/ReconnaissanceTask/index.jsx";
+import XSSPentestMethodology from "./components/XSSSection/XSSTasks/PentestMethodology/index.jsx";
+import XSSScanningTask from "./components/XSSSection/XSSTasks/ScanningTask/index.jsx";
+import XSSExploitationTask from "./components/XSSSection/XSSTasks/ExploitationTask/index.jsx";
 
 export default function App() {
   return (
@@ -34,7 +38,10 @@ export default function App() {
           <Route path="/" element={<MainPage />} />
           <Route path="/phishing" element={<PhishingMainPage />} />
           <Route path="phishing/quiz" element={<PhishingQuiz />} />
-          <Route path="phishing/methodology" element={<PhishingPentestMethodology />} />
+          <Route
+            path="phishing/methodology"
+            element={<PhishingPentestMethodology />}
+          />
           <Route path="phishing/tasks" element={<PhishingTasks />} />
           <Route
             path="phishing/tasks/emailAnalysis"
@@ -89,6 +96,16 @@ export default function App() {
           />
           <Route path="/xss" element={<XSSSection />} />
           <Route path="xss/quiz" element={<XSSQuiz />} />
+          <Route path="xss/methodology" element={<XSSPentestMethodology />} />
+          <Route
+            path="xss/tasks/reconnaissanceXSS"
+            element={<XSSReconnaissanceTask />}
+          />
+          <Route path="xss/tasks/scanningXSS" element={<XSSScanningTask />} />
+          <Route
+            path="xss/tasks/exploitationXSS"
+            element={<XSSExploitationTask />}
+          />
         </Routes>
       </BrowserRouter>
     </>
