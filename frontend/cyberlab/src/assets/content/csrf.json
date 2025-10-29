@@ -1,0 +1,201 @@
+{
+  "intro": {
+    "title": "CSRF - Cross-Site Request Forgery: Protect Your Users From Unintended Actions",
+    "summary": "Cross-Site Request Forgery (CSRF) is a type of web vulnerability that tricks authenticated users into performing unwanted actions on a web application in which they are currently authenticated. It abuses the trust a website has in a user's browser and the automatic handling of session credentials such as cookies."
+  },
+  "whatIsCsrf": {
+    "title": "What is Cross-Site Request Forgery?",
+    "text": "A CSRF attack forces a logged-in user’s browser to send a forged HTTP request, including their session cookie and authentication information, to a vulnerable web application. This makes the application believe that the request came from the user intentionally.",
+    "exampleScenario": {
+      "title": "Example scenario",
+      "steps": [
+        "A user logs into their bank account at bank.example.com and remains logged in.",
+        "The attacker sends the user a link or hosts a malicious site containing hidden requests to bank.example.com (for example, a POST request transferring money).",
+        "When the user visits the malicious page, their browser automatically includes session cookies with the request to bank.example.com.",
+        "If the bank’s site does not verify the request’s origin or include anti-CSRF protections, the unauthorized transfer is executed."
+      ]
+    }
+  },
+  "whyIsItDangerous": {
+    "title": "Why is CSRF dangerous?",
+    "description": "CSRF attacks can have serious consequences because they allow attackers to perform actions as the victim without their consent.",
+    "impacts": [
+      "Unauthorized money transfers or purchases",
+      "Changing account passwords or email addresses",
+      "Posting or deleting content in social media or forums",
+      "Performing administrative actions in control panels",
+      "Exploiting trust to escalate access or spread malware"
+    ]
+  },
+  "howItWorks": {
+    "title": "How CSRF Works (Technical Overview)",
+    "details": [
+      "Browsers automatically attach cookies, Authorization headers, or client certificates to requests within the same origin.",
+      "An attacker leverages this implicit trust by creating a crafted request (GET or POST) to a target endpoint.",
+      "Since the victim is already authenticated, the server interprets the request as legitimate.",
+      "Without additional validation (e.g., CSRF tokens or Origin checks), the server executes the malicious action."
+    ]
+  },
+  "conditionsForOccurrence": {
+    "title": "Conditions that make CSRF possible",
+    "conditions": [
+      "Application relies solely on cookies for authentication and authorization.",
+      "Server does not verify the source of requests (Origin or Referer headers).",
+      "No use of CSRF tokens or same-site cookie protections.",
+      "User is logged in and the session is active.",
+      "The victim visits a malicious or compromised third-party site."
+    ]
+  },
+  "typicalCodingMistakes": {
+    "title": "Typical coding and design mistakes leading to CSRF vulnerabilities",
+    "mistakes": [
+      "Assuming that same-origin policy protects all sensitive requests.",
+      "Relying solely on cookie-based authentication without CSRF tokens.",
+      "Not validating the HTTP Origin or Referer header.",
+      "Implementing custom token mechanisms incorrectly (e.g., same token for all users).",
+      "Allowing unsafe GET requests to modify server state.",
+      "Improper SameSite cookie configuration (missing or set to None without Secure)."
+    ]
+  },
+  "commonVectors": {
+    "title": "Common Attack Vectors",
+    "vectors": [
+      "Hidden HTML forms that automatically submit using JavaScript or meta-refresh.",
+      "GET requests embedded in <img>, <iframe>, or <script> tags.",
+      "Malicious JavaScript triggering fetch or XMLHttpRequest (if CORS misconfigured).",
+      "Social engineering links that trigger authenticated actions when clicked.",
+      "Email or chat messages containing embedded forms or image tags."
+    ]
+  },
+  "howToProtect": {
+    "title": "How to Protect Against CSRF",
+    "description": "Defense against CSRF requires verifying that every state-changing request is intentionally made by the authenticated user and originated from the legitimate application context.",
+    "methods": {
+      "antiCsrfTokens": {
+        "title": "Use anti-CSRF tokens",
+        "description": "Generate a unique, random token for each user session or form. Include it in every state-changing request (usually in hidden form fields or custom headers). The server validates that the submitted token matches the one stored in the session.",
+        "keyPoints": [
+          "Tokens must be unpredictable and bound to the user session.",
+          "Tokens should expire with the session or have short lifetimes.",
+          "Never reuse a single static token for all users."
+        ],
+        "example": {
+          "language": "Python (Flask)",
+          "concept": "CSRF token validation",
+          "code": [
+            "@app.before_request",
+            "def csrf_protect():",
+            "    if request.method in ['POST', 'PUT', 'DELETE']:",
+            "        token = session.get('csrf_token')",
+            "        form_token = request.form.get('csrf_token') or request.headers.get('X-CSRF-Token')",
+            "        if not token or token != form_token:",
+            "            abort(403)"
+          ]
+        }
+      },
+      "sameSiteCookies": {
+        "title": "Enable SameSite cookies",
+        "description": "Set the SameSite attribute to Lax or Strict for all session cookies. This prevents browsers from sending cookies along with cross-site requests.",
+        "example": {
+          "cookieHeader": "Set-Cookie: sessionid=abc123; Secure; HttpOnly; SameSite=Lax"
+        }
+      },
+      "originRefererValidation": {
+        "title": "Validate Origin and Referer headers",
+        "description": "For every state-changing request, verify that the Origin or Referer header matches your application's domain. Reject requests from other origins.",
+        "notes": [
+          "Prefer Origin validation (modern browsers always send it for POST requests).",
+          "Fallback to Referer if Origin is missing (but be cautious — it can be stripped)."
+        ]
+      },
+      "corsPolicy": {
+        "title": "Use strict CORS configuration",
+        "description": "When exposing APIs, use explicit and minimal CORS settings. Avoid using wildcard (*) origins for endpoints that accept credentials.",
+        "rules": [
+          "Set Access-Control-Allow-Origin to specific trusted domains only.",
+          "Disallow credentials on public endpoints.",
+          "Avoid exposing sensitive operations to cross-origin requests."
+        ]
+      },
+      "customHeaders": {
+        "title": "Require custom headers for AJAX requests",
+        "description": "Use custom headers like X-CSRF-Token or X-Requested-With to ensure that only same-origin JavaScript can make valid requests.",
+        "note": "This works best as an additional layer, not a primary defense."
+      },
+      "avoidUnsafeMethods": {
+        "title": "Use correct HTTP methods",
+        "description": "Ensure that GET requests never modify application state. Restrict all state-changing actions to POST, PUT, PATCH, or DELETE.",
+        "benefit": "Reduces the risk of simple CSRF attacks using image or link tags."
+      },
+      "logoutAndSessionPolicies": {
+        "title": "Session and logout policies",
+        "description": "Invalidate sessions on logout and regenerate session IDs after authentication or privilege changes to prevent token reuse.",
+        "recommendations": [
+          "Regenerate CSRF tokens on every login.",
+          "Use short session expiration times for critical systems.",
+          "Invalidate old tokens upon logout or timeout."
+        ]
+      },
+      "frameworkSupport": {
+        "title": "Use built-in framework protections",
+        "description": "Most modern frameworks (Django, Laravel, Rails, Spring Security, ASP.NET Core, Express middlewares) provide built-in CSRF protection. Always enable and configure them properly.",
+        "examples": [
+          "Django: {% csrf_token %} tag in forms with CSRF middleware enabled.",
+          "Rails: authenticity_token embedded in forms and verified automatically.",
+          "Express.js: csurf middleware to generate and verify tokens."
+        ]
+      }
+    }
+  },
+  "detectionAndMonitoring": {
+    "title": "Detection and Monitoring",
+    "text": "While CSRF attacks are hard to detect in real time, security teams can monitor indicators and use automated tools to identify weaknesses before exploitation.",
+    "techniques": [
+      "Analyze web server logs for unusual requests or missing CSRF tokens.",
+      "Monitor for abnormal POST/DELETE requests from unexpected referrers.",
+      "Use web application firewalls (WAF) to detect suspicious cross-origin requests.",
+      "Integrate static and dynamic security scanning (SAST/DAST) in CI/CD pipelines.",
+      "Perform manual penetration testing to verify token and cookie behavior."
+    ]
+  },
+  "securityPolicyExamples": {
+    "title": "Secure Coding Policy Examples for CSRF Protection",
+    "policies": [
+      "All state-changing requests must include and verify a valid CSRF token.",
+      "All cookies must have Secure, HttpOnly, and SameSite attributes set.",
+      "Reject requests missing or with mismatched Origin/Referer headers.",
+      "Prohibit unsafe GET requests from performing state changes.",
+      "Use only whitelisted domains in CORS policies."
+    ]
+  },
+  "commonMyths": {
+    "title": "Common Myths About CSRF",
+    "myths": [
+      "\"Using HTTPS prevents CSRF\" — HTTPS protects data in transit, not request origin validation.",
+      "\"Only POST requests are dangerous\" — Any state-changing request (even GET) can be exploited if not protected.",
+      "\"Same-origin policy protects against CSRF\" — It does not prevent automatic credential inclusion.",
+      "\"CSRF is obsolete thanks to SameSite cookies\" — SameSite helps but is not universally enforced or supported.",
+      "\"WAFs alone can block CSRF\" — WAFs can detect anomalies but cannot replace server-side validation."
+    ]
+  },
+  "specialCases": {
+    "title": "Special and Complex Scenarios",
+    "cases": [
+      "Single-page applications (SPAs) often rely on tokens in custom headers; ensure they are stored securely and not accessible by untrusted scripts.",
+      "REST APIs used by mobile apps should use bearer tokens instead of cookies to avoid CSRF by design.",
+      "OAuth and SSO implementations should include 'state' parameters to prevent CSRF-like attacks during authorization.",
+      "Microservices communicating via internal APIs should still verify tokens if accessed through browsers."
+    ]
+  },
+  "summary": {
+    "title": "Summary",
+    "keyTakeaways": [
+      "CSRF exploits the trust between a user's browser and a web application.",
+      "The best defense combines anti-CSRF tokens, SameSite cookies, and strict origin validation.",
+      "GET requests must always be idempotent and non-destructive.",
+      "Leverage built-in framework protections instead of custom implementations.",
+      "Implement defense-in-depth: token validation, cookie flags, CORS control, and monitoring."
+    ],
+    "finalNote": "CSRF remains a critical vulnerability in web security, but with layered protection, clear policies, and continuous testing, its impact can be fully mitigated."
+  }
+}

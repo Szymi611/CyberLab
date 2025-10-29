@@ -1,0 +1,115 @@
+{
+  "title": "CSRF Quiz",
+  "questions": [
+    {
+      "id": 1,
+      "question": "What does CSRF stand for?",
+      "options": [
+        "Cross-Site Request Forgery",
+        "Cross-Server Resource Function",
+        "Client-Side Response Filter"
+      ],
+      "answer": 0,
+      "explanation": "CSRF stands for Cross-Site Request Forgery — an attack where a victim’s browser performs unwanted actions on a trusted web application."
+    },
+    {
+      "id": 2,
+      "question": "What is the main idea behind a CSRF attack?",
+      "options": [
+        "Stealing session cookies directly from a user’s browser",
+        "Tricking a logged-in user's browser into sending unintended requests",
+        "Infecting a website with malicious JavaScript code"
+      ],
+      "answer": 1,
+      "explanation": "CSRF exploits the trust between a user’s browser and a web application — forcing the browser to send a valid request using the victim’s credentials."
+    },
+    {
+      "id": 3,
+      "question": "Which condition makes a web application vulnerable to CSRF?",
+      "options": [
+        "It validates the Origin header on every request",
+        "It uses SameSite cookies with Secure flag",
+        "It relies only on cookies for authentication without CSRF protection"
+      ],
+      "answer": 2,
+      "explanation": "If an app uses only cookies for authentication and lacks CSRF tokens or origin checks, attackers can trigger authenticated actions via a third-party site."
+    },
+    {
+      "id": 4,
+      "question": "Which of the following actions could result from a successful CSRF attack?",
+      "options": [
+        "Unauthorized fund transfer or account modification",
+        "Installation of malware on the victim’s computer",
+        "Direct theft of database credentials"
+      ],
+      "answer": 0,
+      "explanation": "CSRF can perform actions on behalf of the victim — for example, changing account data or transferring money — using the victim’s valid session."
+    },
+    {
+      "id": 5,
+      "question": "What is the purpose of an anti-CSRF token?",
+      "options": [
+        "To identify the attacker’s IP address",
+        "To verify that a request originates from the legitimate user and session",
+        "To encrypt all cookies automatically"
+      ],
+      "answer": 1,
+      "explanation": "Anti-CSRF tokens are unique values bound to a user session. They confirm that the request was intentionally sent by the legitimate client."
+    },
+    {
+      "id": 6,
+      "question": "Which HTTP header can be used to verify the origin of a request to prevent CSRF?",
+      "options": [
+        "Origin or Referer header",
+        "Content-Length header",
+        "User-Agent header"
+      ],
+      "answer": 0,
+      "explanation": "Validating the Origin or Referer header helps ensure that the request comes from the expected domain, reducing CSRF risk."
+    },
+    {
+      "id": 7,
+      "question": "What is the recommended SameSite attribute value for cookies to reduce CSRF risk?",
+      "options": [
+        "SameSite=None (without Secure)",
+        "SameSite=Lax or Strict",
+        "SameSite=Off"
+      ],
+      "answer": 1,
+      "explanation": "Setting SameSite to Lax or Strict prevents browsers from sending cookies with cross-site requests, mitigating CSRF attacks."
+    },
+    {
+      "id": 8,
+      "question": "Which of the following practices is unsafe and increases CSRF risk?",
+      "options": [
+        "Allowing GET requests to change application state",
+        "Using CSRF tokens in POST and PUT requests",
+        "Rejecting requests with missing Origin headers"
+      ],
+      "answer": 0,
+      "explanation": "GET requests should never perform state-changing operations. If they do, attackers can easily exploit them using image or link tags."
+    },
+    {
+      "id": 9,
+      "question": "How do modern frameworks like Django or Rails protect against CSRF?",
+      "options": [
+        "By automatically escaping all HTML output",
+        "By providing built-in middleware or decorators that validate CSRF tokens",
+        "By blocking all requests from unknown IP addresses"
+      ],
+      "answer": 1,
+      "explanation": "Frameworks like Django, Rails, and Laravel provide built-in CSRF protection mechanisms that generate and verify unique tokens automatically."
+    },
+    {
+      "id": 10,
+      "question": "Which statement about CSRF protection is TRUE?",
+      "options": [
+        "Using HTTPS alone completely prevents CSRF",
+        "Same-origin policy automatically blocks all cross-site requests",
+        "Effective defense combines CSRF tokens, SameSite cookies, and Origin validation"
+      ],
+      "answer": 2,
+      "explanation": "CSRF protection requires layered defense: anti-CSRF tokens, SameSite cookies, and validation of the Origin header. HTTPS alone does not stop CSRF."
+    }
+  ]
+}
