@@ -50,12 +50,14 @@ export default function MainPage() {
       </div>
       {/* CSRF */}
       <div className="grid-item csrf">
-        CSRF
-        <img
-          src={CSRFImg}
-          alt="Cross-Site Scripting attack"
-          className="main-page-attack-img"
-        />
+        <Link to="/csrf" className="csrf-link">
+          <span>CSRF</span>
+          <img
+            src={CSRFImg}
+            alt="Cross-Site Request Forgery attack"
+            className="main-page-attack-img"
+          />
+        </Link>
       </div>
     </div>
   );
