@@ -27,6 +27,15 @@ import XSSReconnaissanceTask from "./components/XSSSection/XSSTasks/Reconnaissan
 import XSSPentestMethodology from "./components/XSSSection/XSSTasks/PentestMethodology/index.jsx";
 import XSSScanningTask from "./components/XSSSection/XSSTasks/ScanningTask/index.jsx";
 import XSSExploitationTask from "./components/XSSSection/XSSTasks/ExploitationTask/index.jsx";
+import CSRFPentestMethodology from "./components/CSRFSection/CSRFTasks/PentestMethodology/index.jsx";
+import CSRFReconnaissanceTask from "./components/CSRFSection/CSRFTasks/ReconnaissanceTask/index.jsx";
+import CSRFScanningTask from "./components/CSRFSection/CSRFTasks/ScanningTask/index.jsx";
+import CSRFExploitationTask from "./components/CSRFSection/CSRFTasks/ExploitationTask/index.jsx";
+import CSRFMoneyTransfer from "./components/CSRFSection/CSRFTasks/CSRFMoneyTransfer/index.jsx";
+import CSRFTokenBypass from "./components/CSRFSection/CSRFTasks/CSRFTokenBypass/index.jsx";
+import CSRFEmailChange from "./components/CSRFSection/CSRFTasks/CSRFEmailChange/index.jsx";
+import CSRFInfo from "./components/CSRFSection/CSRFInfo/index.jsx";
+import CSRFQuiz from "./components/CSRFSection/CSRFQuiz/index.jsx";
 
 export default function App() {
   return (
@@ -106,6 +115,15 @@ export default function App() {
             path="xss/tasks/exploitationXSS"
             element={<XSSExploitationTask />}
           />
+          <Route path="/csrf/" element={<CSRFInfo />} />
+          <Route path="/csrf/methodology" element={<CSRFPentestMethodology />} />
+          <Route path="/csrf/quiz" element={<CSRFQuiz />} />
+          <Route path="/csrf/tasks/reconnaissanceCSRF" element={<CSRFReconnaissanceTask />} />
+          <Route path="/csrf/tasks/scanningCSRF" element={<CSRFScanningTask/>} />
+          <Route path="/csrf/tasks/exploitationCSRF" element={<CSRFExploitationTask />} />
+          <Route path="/csrf/tasks/task1" element={<CSRFMoneyTransfer />} />
+          <Route path="/csrf/tasks/task2" element={<CSRFTokenBypass />} />
+          <Route path="/csrf/tasks/task3" element={<CSRFEmailChange />} />
         </Routes>
       </BrowserRouter>
     </>

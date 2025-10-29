@@ -1,0 +1,15 @@
+.code-block {
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  border-radius: 8px;
+  padding: 1.5rem;
+  overflow-x: auto;
+
+  code {
+    color: #00ffff;
+    font-family: "Courier New", Monaco, monospace;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    white-space: pre;
+  }
+}
