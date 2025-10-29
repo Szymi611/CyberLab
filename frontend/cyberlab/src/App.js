@@ -116,14 +116,27 @@ export default function App() {
             element={<XSSExploitationTask />}
           />
           <Route path="/csrf/" element={<CSRFInfo />} />
-          <Route path="/csrf/methodology" element={<CSRFPentestMethodology />} />
+          <Route
+            path="/csrf/methodology"
+            element={<CSRFPentestMethodology />}
+          />
           <Route path="/csrf/quiz" element={<CSRFQuiz />} />
-          <Route path="/csrf/tasks/reconnaissanceCSRF" element={<CSRFReconnaissanceTask />} />
-          <Route path="/csrf/tasks/scanningCSRF" element={<CSRFScanningTask/>} />
-          <Route path="/csrf/tasks/exploitationCSRF" element={<CSRFExploitationTask />} />
+          <Route
+            path="/csrf/tasks/reconnaissanceCSRF"
+            element={<CSRFReconnaissanceTask />}
+          />
+          <Route
+            path="/csrf/tasks/scanningCSRF"
+            element={<CSRFScanningTask />}
+          />
+          <Route
+            path="/csrf/tasks/exploitationCSRF"
+            element={<CSRFExploitationTask />}
+          />
           <Route path="/csrf/tasks/task1" element={<CSRFMoneyTransfer />} />
           <Route path="/csrf/tasks/task2" element={<CSRFTokenBypass />} />
           <Route path="/csrf/tasks/task3" element={<CSRFEmailChange />} />
+          <Route path="*" element={<div>404 Not Found</div>} />
         </Routes>
       </BrowserRouter>
     </>
