@@ -2,6 +2,7 @@
 
 # solutions
 CSRF_SOLUTIONS.md
+XSS_SOLUTIONS.md
 
 # dependencies
 /node_modules

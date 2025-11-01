@@ -36,6 +36,10 @@ import CSRFTokenBypass from "./components/CSRFSection/CSRFTasks/CSRFTokenBypass/
 import CSRFEmailChange from "./components/CSRFSection/CSRFTasks/CSRFEmailChange/index.jsx";
 import CSRFInfo from "./components/CSRFSection/CSRFInfo/index.jsx";
 import CSRFQuiz from "./components/CSRFSection/CSRFQuiz/index.jsx";
+import ReflectedXSSTask from "./components/XSSSection/XSSTasks/ReflectedXSSTask/index.jsx";
+import StoredXSSTask from "./components/XSSSection/XSSTasks/StoredXSSTask/index.jsx";
+import DOMBasedXSSTask from "./components/XSSSection/XSSTasks/DOMBasedXSSTask/index.jsx";
+import ErrorPage from "./components/ErrorPage/index.jsx";
 
 export default function App() {
   return (
@@ -115,6 +119,9 @@ export default function App() {
             path="xss/tasks/exploitationXSS"
             element={<XSSExploitationTask />}
           />
+          <Route path="xss/tasks/task1" element={<ReflectedXSSTask />} />
+          <Route path="xss/tasks/task2" element={<StoredXSSTask />} />
+          <Route path="xss/tasks/task3" element={<DOMBasedXSSTask />} />
           <Route path="/csrf/" element={<CSRFInfo />} />
           <Route
             path="/csrf/methodology"
@@ -136,7 +143,7 @@ export default function App() {
           <Route path="/csrf/tasks/task1" element={<CSRFMoneyTransfer />} />
           <Route path="/csrf/tasks/task2" element={<CSRFTokenBypass />} />
           <Route path="/csrf/tasks/task3" element={<CSRFEmailChange />} />
-          <Route path="*" element={<div>404 Not Found</div>} />
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
       </BrowserRouter>
     </>
