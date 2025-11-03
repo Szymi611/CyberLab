@@ -40,6 +40,13 @@ import ReflectedXSSTask from "./components/XSSSection/XSSTasks/ReflectedXSSTask/
 import StoredXSSTask from "./components/XSSSection/XSSTasks/StoredXSSTask/index.jsx";
 import DOMBasedXSSTask from "./components/XSSSection/XSSTasks/DOMBasedXSSTask/index.jsx";
 import ErrorPage from "./components/ErrorPage/index.jsx";
+import RedirectsInfo from "./components/RedirectsSection/RedirectsInfo/index.jsx";
+import Methodologies from "./components/Methodologies/index.jsx";
+import RedirectsPentestMethodology from "./components/RedirectsSection/RedirectsTasks/RedirectsMehodology/index.jsx";
+import RedirectsReconnaissanceTask from "./components/RedirectsSection/RedirectsTasks/ReconnaissanceTask/index.jsx";
+import RedirectsScanningTask from "./components/RedirectsSection/RedirectsTasks/ScanningTask/index.jsx";
+import RedirectsExploitationTask from "./components/RedirectsSection/RedirectsTasks/ExploitationTask/index.jsx";
+import RedirectsQuiz from "./components/RedirectsSection/RedirectsQuiz/index.jsx";
 
 export default function App() {
   return (
@@ -143,6 +150,29 @@ export default function App() {
           <Route path="/csrf/tasks/task1" element={<CSRFMoneyTransfer />} />
           <Route path="/csrf/tasks/task2" element={<CSRFTokenBypass />} />
           <Route path="/csrf/tasks/task3" element={<CSRFEmailChange />} />
+
+          <Route path=" " element={<RedirectsQuiz />} />
+          {/* <Route path="/redirects" element={<RedirectsMainPage />} /> */}
+          <Route path="/redirects/info" element={<RedirectsInfo />} />
+          <Route
+            path="/redirects/methodology"
+            element={<RedirectsPentestMethodology />}
+          />
+          <Route
+            path="/redirects/tasks/reconnaissanceRedirects"
+            element={<RedirectsReconnaissanceTask />}
+          />
+          <Route
+            path="/redirects/tasks/scanningRedirects"
+            element={<RedirectsScanningTask />}
+          />
+          <Route
+            path="/redirects/tasks/exploitationRedirects"
+            element={<RedirectsExploitationTask />}
+          />
+
+          <Route path="/methodologies" element={<Methodologies />} />
+
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </BrowserRouter>

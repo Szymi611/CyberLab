@@ -1,0 +1,138 @@
+{
+  "intro": {
+    "title": "Unvalidated Redirects and Forwards",
+    "summary": "Learn how attackers exploit insecure URL redirects to perform phishing attacks and bypass security controls."
+  },
+  "whatAreRedirects": {
+    "title": "What are Unvalidated Redirects?",
+    "text": "Unvalidated redirects occur when a web application accepts untrusted input (usually from URL parameters) that determines where to redirect the user, without properly validating that the destination is safe. Attackers exploit this to redirect victims to malicious sites while appearing to come from a trusted domain.",
+    "realWorldExample": {
+      "title": "Real-World Example",
+      "scenario": "A banking website uses: https://bank.com/redirect?url=https://bank.com/account",
+      "attack": "Attacker changes to: https://bank.com/redirect?url=https://evil-bank-phishing.com",
+      "impact": "Victim trusts the bank.com URL in the email/link, clicks it, and gets redirected to a phishing site that looks identical to the real bank."
+    }
+  },
+  "howItWorks": {
+    "title": "How Open Redirect Attacks Work",
+    "steps": [
+      "Attacker finds redirect parameter (e.g., ?url=, ?redirect=, ?next=, ?return=)",
+      "Attacker crafts malicious link with trusted domain + redirect to phishing site",
+      "Victim sees trusted domain (bank.com) in URL and clicks",
+      "Web application redirects to attacker's site without validation",
+      "Victim enters credentials on phishing site thinking it's legitimate"
+    ]
+  },
+  "commonParameters": {
+    "title": "Common Redirect Parameters",
+    "params": [
+      "url", "redirect", "redir", "next", "goto", "return", "returnUrl",
+      "destination", "continue", "target", "link", "forward", "out"
+    ]
+  },
+  "attackVectors": {
+    "title": "Attack Vectors and Bypass Techniques",
+    "vectors": [
+      {
+        "name": "Basic Open Redirect",
+        "payload": "?url=https://evil.com",
+        "description": "Direct external URL if no validation exists"
+      },
+      {
+        "name": "Protocol-Relative URL",
+        "payload": "?url=//evil.com",
+        "description": "Bypasses checks for http:// or https://"
+      },
+      {
+        "name": "Whitelist Bypass - Subdomain",
+        "payload": "?url=https://evil.com?trusted.com",
+        "description": "If validation only checks if 'trusted.com' appears in URL"
+      },
+      {
+        "name": "Whitelist Bypass - @ Symbol",
+        "payload": "?url=https://trusted.com@evil.com",
+        "description": "Browser ignores everything before @ (credentials part)"
+      },
+      {
+        "name": "URL Encoding",
+        "payload": "?url=%68%74%74%70%73://evil.com",
+        "description": "Encode 'https' to bypass string matching"
+      },
+      {
+        "name": "Double Encoding",
+        "payload": "?url=%2568%2574%2574%2570://evil.com",
+        "description": "Encode the % sign itself (%25 = %)"
+      },
+      {
+        "name": "Mixed Case",
+        "payload": "?url=HTtPs://evil.com",
+        "description": "Bypasses case-sensitive blacklists"
+      },
+      {
+        "name": "JavaScript Protocol",
+        "payload": "?url=javascript:alert(document.domain)",
+        "description": "Executes JavaScript instead of redirect"
+      },
+      {
+        "name": "Data URI",
+        "payload": "?url=data:text/html,<script>alert(1)</script>",
+        "description": "Embeds HTML content directly"
+      }
+    ]
+  },
+  "realWorldImpact": {
+    "title": "Real-World Impact and Examples",
+    "cases": [
+      {
+        "company": "Google",
+        "year": "2015",
+        "description": "Open redirect in Google's oauth redirect flow allowed attackers to steal OAuth tokens"
+      },
+      {
+        "company": "Shopify",
+        "year": "2019",
+        "description": "Unvalidated redirect in shop URLs led to phishing attacks against merchants"
+      },
+      {
+        "company": "Steam",
+        "year": "2016",
+        "description": "Open redirect vulnerability used in phishing campaigns to steal gaming accounts"
+      }
+    ]
+  },
+  "defenses": {
+    "title": "How to Prevent Open Redirects",
+    "methods": [
+      {
+        "method": "Whitelist Validation",
+        "description": "Only allow redirects to known safe domains",
+        "code": "const ALLOWED = ['example.com', 'trusted.com'];\nif (!ALLOWED.includes(new URL(redirect).hostname)) reject();"
+      },
+      {
+        "method": "Relative URLs Only",
+        "description": "Only accept paths, not full URLs",
+        "code": "if (redirect.includes('://')) reject();\nif (redirect.startsWith('//')) reject();"
+      },
+      {
+        "method": "Indirect Reference",
+        "description": "Use ID instead of direct URL",
+        "code": "const DESTINATIONS = { 'profile': '/user/profile', 'settings': '/settings' };\nredirect = DESTINATIONS[req.query.page];"
+      },
+      {
+        "method": "Decode Before Validation",
+        "description": "Always decode URLs before checking",
+        "code": "url = decodeURIComponent(url);\nif (isExternal(url)) reject();"
+      },
+      {
+        "method": "Warning Page",
+        "description": "Show intermediary warning for external links",
+        "code": "return res.render('external-link-warning', { destination: url });"
+      }
+    ]
+  },
+  "owasp": {
+    "title": "OWASP Classification",
+    "category": "A01:2021 - Broken Access Control",
+    "description": "Unvalidated redirects are part of broken access control as they allow attackers to bypass intended navigation flows and security boundaries."
+  }
+}

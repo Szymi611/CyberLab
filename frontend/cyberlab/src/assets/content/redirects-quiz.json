@@ -1,0 +1,115 @@
+  {
+  "title": "Open Redirect - Knowledge Quiz",
+  "questions": [
+    {
+      "question": "What is an Open Redirect vulnerability?",
+      "options": [
+        "A vulnerability that allows redirecting users to any external website",
+        "A type of SQL Injection attack",
+        "A method to bypass authentication",
+        "A way to steal cookies from users"
+      ],
+      "answer": 0,
+      "explanation": "Open Redirect occurs when an application accepts untrusted input that could cause the application to redirect the user to a URL contained within untrusted input. Attackers can use this to redirect victims to phishing or malware sites."
+    },
+    {
+      "question": "Which URL parameter commonly indicates a redirect vulnerability?",
+      "options": [
+        "?id=123",
+        "?redirect=https://example.com",
+        "?username=admin",
+        "?search=test"
+      ],
+      "answer": 1,
+      "explanation": "Parameters like 'redirect=', 'url=', 'next=', 'return_to=' are commonly used for redirects and are prime targets for Open Redirect attacks if not properly validated."
+    },
+    {
+      "question": "How can an attacker use the '@' symbol to bypass redirect validation?",
+      "options": [
+        "To encode special characters",
+        "To make the URL look like an email address",
+        "The browser ignores everything before @ and redirects to the domain after it",
+        "To create a subdomain"
+      ],
+      "answer": 2,
+      "explanation": "In URLs, the @ symbol is used for authentication (user:pass@domain). Browsers ignore everything before @ when navigating. So https://trusted.com@evil.com redirects to evil.com, not trusted.com."
+    },
+    {
+      "question": "Why is Open Redirect particularly dangerous for phishing attacks?",
+      "options": [
+        "It steals passwords directly",
+        "It uses a trusted domain in the URL, increasing victim trust",
+        "It bypasses antivirus software",
+        "It encrypts malicious payloads"
+      ],
+      "answer": 1,
+      "explanation": "Phishing emails using Open Redirect show a legitimate, trusted domain in the link. Victims see 'https://bank.com/redirect?url=...' and trust it, not realizing they'll be redirected to an attacker's fake site."
+    },
+    {
+      "question": "Which protocol should NEVER be allowed in redirect parameters?",
+      "options": [
+        "https://",
+        "http://",
+        "javascript:",
+        "ftp://"
+      ],
+      "answer": 2,
+      "explanation": "javascript: protocol in redirects can lead to XSS attacks. For example: ?url=javascript:alert(document.cookie) would execute JavaScript in the context of the vulnerable site."
+    },
+    {
+      "question": "What is the best defense against Open Redirect vulnerabilities?",
+      "options": [
+        "Use HTTPS for all connections",
+        "Implement a whitelist of allowed redirect destinations",
+        "Encrypt all URL parameters",
+        "Use longer URLs"
+      ],
+      "answer": 1,
+      "explanation": "A whitelist approach is the most secure defense. Only allow redirects to pre-approved URLs or domains. This prevents attackers from redirecting users to arbitrary external sites."
+    },
+    {
+      "question": "How can Open Redirect be used to steal OAuth tokens?",
+      "options": [
+        "By redirecting the OAuth callback to an attacker-controlled server",
+        "By encrypting the token",
+        "By changing the username",
+        "By disabling 2FA"
+      ],
+      "answer": 0,
+      "explanation": "If the OAuth callback URL has an Open Redirect, an attacker can craft a URL like: oauth-provider.com/auth?redirect_uri=app.com/redirect?url=evil.com. After authentication, the OAuth code/token gets redirected to the attacker's server."
+    },
+    {
+      "question": "What does URL encoding like %2F%2F represent, and why is it used in attacks?",
+      "options": [
+        "It represents '//' and can bypass simple string filters",
+        "It encrypts the URL",
+        "It creates a secure connection",
+        "It represents special characters only"
+      ],
+      "answer": 0,
+      "explanation": "%2F is the URL-encoded form of '/'. Attackers use encoding like %2F%2Fevil.com to bypass filters that only check for literal 'http://' or '//' strings in the redirect parameter."
+    },
+    {
+      "question": "Which type of redirect validation is WEAKEST?",
+      "options": [
+        "Whitelist of exact URLs",
+        "Checking if URL contains the company domain anywhere",
+        "Allowing only relative paths starting with '/'",
+        "Digitally signed redirect tokens"
+      ],
+      "answer": 1,
+      "explanation": "Checking if the URL merely contains the company domain is weak because attackers can use tricks like: evil.com?company.com or company.com.evil.com or company.com@evil.com. The domain appears but isn't actually the destination."
+    },
+    {
+      "question": "What should an application do before redirecting users to an external site?",
+      "options": [
+        "Redirect immediately without any checks",
+        "Show a warning page and require user confirmation",
+        "Encrypt the destination URL",
+        "Log the user out first"
+      ],
+      "answer": 1,
+      "explanation": "Best practice is to show an interstitial warning page: 'You are leaving our site and going to: external-site.com. Continue?' This gives users a chance to verify the destination and prevents automatic redirects to malicious sites."
+    }
+  ]
+}

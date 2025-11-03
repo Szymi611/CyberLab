@@ -1,0 +1,160 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { CheckCircle, Lock, Circle, ArrowRight } from "lucide-react";
+import RedirectsReconnaissanceTask from "../ReconnaissanceTask";
+import RedirectsScanningTask from "../ScanningTask";
+import RedirectsExploitationTask from "../ExploitationTask";
+import "./styles.scss";
+
+export default function RedirectsPentestMethodology() {
+  const navigate = useNavigate();
+  const [completedPhases, setCompletedPhases] = useState([]);
+  const [currentPhase, setCurrentPhase] = useState(0);
+
+  const phases = [
+    {
+      id: "reconnaissance",
+      name: "Reconnaissance",
+      description: "Identify redirect parameters and analyze URL handling",
+      component: RedirectsReconnaissanceTask,
+    },
+    {
+      id: "scanning",
+      name: "Scanning",
+      description: "Test redirect validation and create proof of concept",
+      component: RedirectsScanningTask,
+    },
+    {
+      id: "exploitation",
+      name: "Exploitation",
+      description: "Exploit redirect vulnerabilities and demonstrate phishing impact",
+      component: RedirectsExploitationTask,
+    },
+  ];
+
+  const handlePhaseComplete = (phaseId) => {
+    if (!completedPhases.includes(phaseId)) {
+      const newCompleted = [...completedPhases, phaseId];
+      setCompletedPhases(newCompleted);
+
+      if (currentPhase < phases.length - 1) {
+        setTimeout(() => {
+          setCurrentPhase(currentPhase + 1);
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }, 1500);
+      }
+    }
+  };
+
+  const CurrentPhaseComponent = phases[currentPhase].component;
+  const isAllCompleted = completedPhases.length === phases.length;
+
+  return (
+    <div className="methodology-wrapper">
+      <div className="methodology-header">
+        <h1>Unvalidated Redirects Penetration Testing Methodology</h1>
+        <p>
+          Learn the complete penetration testing process for Open Redirect vulnerabilities step by step
+        </p>
+      </div>
+
+      <div className="phases-tracker">
+        {phases.map((phase, idx) => (
+          <div
+            key={phase.id}
+            className={`phase-card ${
+              currentPhase === idx ? "active" : ""
+            } ${completedPhases.includes(phase.id) ? "completed" : ""} ${
+              idx > currentPhase && !completedPhases.includes(phase.id)
+                ? "locked"
+                : ""
+            }`}
+            onClick={() => {
+              if (idx <= currentPhase || completedPhases.includes(phase.id)) {
+                setCurrentPhase(idx);
+              }
+            }}
+          >
+            <div className="phase-icon">
+              {completedPhases.includes(phase.id) ? (
+                <CheckCircle size={28} />
+              ) : idx > currentPhase ? (
+                <Lock size={28} />
+              ) : (
+                <Circle size={28} />
+              )}
+            </div>
+            <div className="phase-info">
+              <div className="phase-number">Phase {idx + 1}</div>
+              <div className="phase-name">{phase.name}</div>
+              <div className="phase-desc">{phase.description}</div>
+            </div>
+            {idx < phases.length - 1 && (
+              <div className="phase-arrow">
+                <ArrowRight size={20} />
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+
+      <div className="phase-content">
+        <CurrentPhaseComponent
+          onComplete={() => handlePhaseComplete(phases[currentPhase].id)}
+        />
+      </div>
+
+      {isAllCompleted && (
+        <div className="completion-panel">
+          <div className="completion-content">
+            <h2>Congratulations!</h2>
+            <p>
+              You've completed the Unvalidated Redirects Penetration Testing Methodology!
+            </p>
+            <div className="completion-summary">
+              <div className="summary-item">
+                <CheckCircle size={20} />
+                <span>Reconnaissance - Parameter & URL Analysis</span>
+              </div>
+              <div className="summary-item">
+                <CheckCircle size={20} />
+                <span>Scanning - Validation Testing & PoC Creation</span>
+              </div>
+              <div className="summary-item">
+                <CheckCircle size={20} />
+                <span>Exploitation - Phishing Attack Demonstration</span>
+              </div>
+            </div>
+            <p className="next-steps-text">
+              Now it's time to practice with real hands-on redirect challenges!
+            </p>
+            <div className="completion-actions">
+              <button
+                className="action-btn primary"
+                onClick={() => navigate("/redirects/tasks")}
+              >
+                Start Practical Challenges
+              </button>
+              <button
+                className="action-btn secondary"
+                onClick={() => navigate("/redirects/quiz")}
+              >
+                Test Your Knowledge (Quiz)
+              </button>
+              <button
+                className="action-btn tertiary"
+                onClick={() => {
+                  setCompletedPhases([]);
+                  setCurrentPhase(0);
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+              >
+                Restart Methodology
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}

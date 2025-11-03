@@ -3,6 +3,9 @@
 # solutions
 CSRF_SOLUTIONS.md
 XSS_SOLUTIONS.md
+SQL_INJECTION_SOLUTIONS.md
+PHISHING_SOLUTIONS.md
+REDIRECTS_SOLUTIONS.md
 
 # dependencies
 /node_modules

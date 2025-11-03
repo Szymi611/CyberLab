@@ -30,6 +30,9 @@ app.use('/api/csrf', csrfRoutes);
 const xssRoutes = require('./routes/xssRoutes');
 app.use('/api/xss', xssRoutes);
 
+const redirectRoutes = require('./routes/redirectRoutes');
+app.use('/api/redirect', redirectRoutes);
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
