@@ -1,6 +1,5 @@
 import "./styles.scss";
 import content from "../../../assets/content/csrf.json";
-import ImageSlider from "../../../lib/ImageSlider";
 import { IoMdArrowBack } from "react-icons/io";
 
 export default function CSRFInfo() {

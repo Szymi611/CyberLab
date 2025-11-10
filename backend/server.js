@@ -33,6 +33,9 @@ app.use('/api/xss', xssRoutes);
 const redirectRoutes = require('./routes/redirectRoutes');
 app.use('/api/redirect', redirectRoutes);
 
+const pentestRoutes = require('./routes/pentestRoutes');
+app.use('/api/pentest', pentestRoutes);
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });

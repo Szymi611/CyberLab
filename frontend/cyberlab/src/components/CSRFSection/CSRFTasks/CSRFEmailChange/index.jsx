@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { IoMdArrowBack } from "react-icons/io";
 import { GoShieldCheck } from "react-icons/go";
 import { IoShieldOutline } from "react-icons/io5";
 import "./styles.scss";

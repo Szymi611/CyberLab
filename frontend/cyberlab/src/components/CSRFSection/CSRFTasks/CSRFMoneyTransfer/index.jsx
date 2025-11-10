@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { IoMdArrowBack } from "react-icons/io";
 import { GoShieldCheck } from "react-icons/go";
 import { IoShieldOutline } from "react-icons/io5";
 import "./styles.scss";
@@ -27,10 +26,6 @@ export default function CSRFMoneyTransfer() {
   ];
 
   const [currentHint, setCurrentHint] = useState(0);
-
-  const handleGoBack = () => {
-    window.history.back();
-  };
 
   const handleTransfer = async () => {
     setAttempts((prev) => prev + 1);

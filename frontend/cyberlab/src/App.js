@@ -47,6 +47,7 @@ import RedirectsReconnaissanceTask from "./components/RedirectsSection/Redirects
 import RedirectsScanningTask from "./components/RedirectsSection/RedirectsTasks/ScanningTask/index.jsx";
 import RedirectsExploitationTask from "./components/RedirectsSection/RedirectsTasks/ExploitationTask/index.jsx";
 import RedirectsQuiz from "./components/RedirectsSection/RedirectsQuiz/index.jsx";
+import InteractivePentest from "./components/InteractivePentest/index.jsx";
 
 export default function App() {
   return (
@@ -55,7 +56,7 @@ export default function App() {
         <Navbar />
         <MatrixBackground />
         <Routes>
-          <Route path="/" element={<MainPage />} />
+          <Route path="/attacks" element={<MainPage />} />
           <Route path="/phishing" element={<PhishingMainPage />} />
           <Route path="phishing/quiz" element={<PhishingQuiz />} />
           <Route
@@ -152,7 +153,6 @@ export default function App() {
           <Route path="/csrf/tasks/task3" element={<CSRFEmailChange />} />
 
           <Route path=" " element={<RedirectsQuiz />} />
-          {/* <Route path="/redirects" element={<RedirectsMainPage />} /> */}
           <Route path="/redirects/info" element={<RedirectsInfo />} />
           <Route
             path="/redirects/methodology"
@@ -171,7 +171,8 @@ export default function App() {
             element={<RedirectsExploitationTask />}
           />
 
-          <Route path="/methodologies" element={<Methodologies />} />
+          <Route path="/" element={<Methodologies />} />
+          <Route path="/interactive-pentest" element={<InteractivePentest />} />
 
           <Route path="*" element={<ErrorPage />} />
         </Routes>

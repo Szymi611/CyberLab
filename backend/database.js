@@ -38,6 +38,30 @@ db.serialize(() => {
   db.run(
     `INSERT INTO admin_data (admin_user, admin_pass, email) VALUES ('root', 'r00t_p@ssw0rd', 'admin@secure.com')`
   );
+
+  db.run(`CREATE TABLE IF NOT EXISTS pentest_progress (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    session_id TEXT UNIQUE NOT NULL,
+    current_phase INTEGER DEFAULT 0,
+    current_step INTEGER DEFAULT 0,
+    updated_at TEXT
+  )`);
+
+  db.run(`CREATE TABLE IF NOT EXISTS pentest_vulnerabilities (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    session_id TEXT NOT NULL,
+    type TEXT NOT NULL,
+    severity TEXT NOT NULL,
+    location TEXT NOT NULL,
+    found_at TEXT
+  )`);
+
+  db.run(`CREATE TABLE IF NOT EXISTS pentest_discoveries (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    session_id TEXT NOT NULL,
+    discovered_data TEXT NOT NULL,
+    discovered_at TEXT
+  )`);
 });
 
 module.exports = db;

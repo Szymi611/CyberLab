@@ -5,8 +5,7 @@ import CSRFImg from "../../assets/images/CSRFIcon.png";
 import SQLImg from "../../assets/images/SqlInjectionIcon.png";
 import { Link } from "react-router-dom";
 import RedirectsImg from "../../assets/images/RedirectsIcon.png";
-
-
+import MethodologiesImg from "../../assets/images/MethodologiesIcon.png";
 
 export default function Methodologies() {
   return (
@@ -72,6 +71,16 @@ export default function Methodologies() {
           />
         </Link>
       </div>
+            <div className="grid-item redirects">
+              <Link to="/interactive-pentest" className="redirects-link">
+                <span>Try to perform a pentest on your own </span>
+                <img
+                  src={MethodologiesImg}
+                  alt="Methodologies"
+                  className="main-page-attack-img"
+                />
+              </Link>
+            </div>
     </div>
   );
 }
