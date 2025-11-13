@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  # Backend Service
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: cyberlab-backend
+    ports:
+      - "8000:8000"
+    volumes:
+      # Folder backendu (dla developmentu - hot reload)
+      - ./backend:/app
+      # Zachowaj node_modules w kontenerze
+      - /app/node_modules
+      # Persystencja bazy danych SQLite
+      - ./backend/database.db:/app/database.db
+    environment:
+      - NODE_ENV=development
+      - PORT=8000
+    restart: unless-stopped
+    networks:
+      - cyberlab-network
+
+  # Frontend Service
+  frontend:
+    build:
+      context: ./frontend/cyberlab
+      dockerfile: Dockerfile
+    container_name: cyberlab-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+    networks:
+      - cyberlab-network
+
+networks:
+  cyberlab-network:
+    driver: bridge
