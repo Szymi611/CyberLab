@@ -152,7 +152,7 @@ export default function App() {
           <Route path="/csrf/tasks/task2" element={<CSRFTokenBypass />} />
           <Route path="/csrf/tasks/task3" element={<CSRFEmailChange />} />
 
-          <Route path=" " element={<RedirectsQuiz />} />
+          <Route path="/redirects/quiz" element={<RedirectsQuiz />} />
           <Route path="/redirects/info" element={<RedirectsInfo />} />
           <Route
             path="/redirects/methodology"
