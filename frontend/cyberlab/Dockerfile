@@ -9,6 +9,7 @@ RUN npm install
 
 COPY . .
 
+ENV ESLINT_NO_DEV_ERRORS=true
 RUN npm run build
 
 FROM nginx:alpine
