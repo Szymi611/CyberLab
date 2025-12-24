@@ -1,6 +1,6 @@
 # CyberLab - BScThesis
 
-Educational application for learning and testing web vulnerabilities (XSS, CSRF, SQL Injection, Phishing, Open Redirect).
+Educational application for learning and testing web vulnerabilities (XSS, CSRF, SQL Injection, Phishing, Open Redirect) and methodologies for them with a Interactive Penetration Test module.
 
 ## Project Purpose
 This project was created as part of a BSc thesis. It allows users to:
