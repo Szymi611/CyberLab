@@ -126,7 +126,7 @@ You can find the implementation in:
 
 
 ## Author
-Szymon "Szymi611" (BSc Thesis 2025)
+Szymon "Szymi611" Domagała (BSc Thesis 2025)
 
 ## License
 This project is provided for educational purposes only.
