@@ -137,11 +137,7 @@ This project is provided for educational purposes only.
 - Make sure you have Docker and Docker Compose installed.
 - Check if ports 3000 and 8000 are free.
 
-**2. How to add your own vulnerability scenarios?**
-- Add a new controller in `backend/controller/` and the corresponding route in `backend/routes/`.
-- Add a quiz or task in `frontend/cyberlab/src/assets/content/`.
-
-**3. How to run security tests?**
+**2. How to run security tests?**
 - In the frontend/backend directory, run ESLint:
   ```bash
   npx eslint . --format html -o eslint-report.html
