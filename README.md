@@ -1,5 +1,3 @@
-docker-compose.yml
-
 # CyberLab - BScThesis
 
 Educational application for learning and testing web vulnerabilities (XSS, CSRF, SQL Injection, Phishing, Open Redirect).
